@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Created with Inkscape (http://www.inkscape.org/) -->
+
+<svg
+   width="25"
+   height="25"
+   viewBox="0 0 6.6145835 6.6145835"
+   version="1.1"
+   id="svg5"
+   inkscape:version="1.2.2 (732a01da63, 2022-12-09)"
+   sodipodi:docname="check.svg"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:svg="http://www.w3.org/2000/svg">
+  <sodipodi:namedview
+     id="namedview7"
+     pagecolor="#ffffff"
+     bordercolor="#000000"
+     borderopacity="0.25"
+     inkscape:showpageshadow="2"
+     inkscape:pageopacity="0.0"
+     inkscape:pagecheckerboard="0"
+     inkscape:deskcolor="#d1d1d1"
+     inkscape:document-units="mm"
+     showgrid="false"
+     inkscape:zoom="13.332"
+     inkscape:cx="16.314131"
+     inkscape:cy="16.651665"
+     inkscape:window-width="1366"
+     inkscape:window-height="705"
+     inkscape:window-x="-8"
+     inkscape:window-y="-8"
+     inkscape:window-maximized="1"
+     inkscape:current-layer="layer1" />
+  <defs
+     id="defs2">
+    <inkscape:perspective
+       sodipodi:type="inkscape:persp3d"
+       inkscape:vp_x="0 : 2.6458334 : 1"
+       inkscape:vp_y="0 : 1000 : 0"
+       inkscape:vp_z="7.9375002 : 2.6458334 : 1"
+       inkscape:persp3d-origin="3.9687501 : 1.3229167 : 1"
+       id="perspective6352" />
+  </defs>
+  <g
+     inkscape:label="Layer 1"
+     inkscape:groupmode="layer"
+     id="layer1">
+    <g
+       id="g5629"
+       transform="translate(-0.65004748)"
+       style="fill:#00d300;fill-opacity:1;stroke-width:0;stroke-dasharray:none">
+      <circle
+         style="fill:#00d300;fill-opacity:1;stroke:#3b348b;stroke-width:0;stroke-dasharray:none"
+         id="path3167"
+         cx="3.96875"
+         cy="3.3072917"
+         r="3.2958803" />
+    </g>
+    <rect
+       style="fill:#ffffff;fill-opacity:1;stroke:#ffffff;stroke-width:0;stroke-linecap:butt;stroke-linejoin:miter;stroke-dasharray:none;stroke-opacity:1"
+       id="rect5580-7"
+       width="4.7167864"
+       height="0.66405064"
+       x="-2.8587022"
+       y="4.8455005"
+       transform="matrix(-0.70710678,0.70710678,0.70710678,0.70710678,0,0)" />
+    <rect
+       style="fill:#ffffff;fill-opacity:1;stroke:#ffffff;stroke-width:0;stroke-linecap:butt;stroke-linejoin:miter;stroke-dasharray:none;stroke-opacity:1"
+       id="rect5580"
+       width="2.606318"
+       height="0.67007732"
+       x="2.9032333"
+       y="1.188007"
+       transform="rotate(45)" />
+  </g>
+</svg>

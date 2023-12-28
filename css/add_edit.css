@@ -1,0 +1,9 @@
+.container {
+  width: 40%;
+}
+
+.link {
+  width: 310px; /*should be the same as coitainer's width 280+15+15*/
+  text-align: right;
+  margin: 0 auto;
+}/*# sourceMappingURL=add_edit.css.map */

@@ -1,0 +1,184 @@
+/* @charset "UTF-8"; */
+body{
+    overflow: hidden;
+
+    padding: 0;
+    padding-top: 10px;
+}
+
+img.logo {
+    margin: 5px auto 10px;
+    display: block;
+    width: 400px;
+}
+h2 {
+    margin-bottom: 5px;
+}
+
+form {
+    margin: 0;
+    .container {
+    
+        width: 400px;// If changed width, also change animation props and js code at the bottom of login.php
+        padding: 15px 80px;
+        box-sizing: border-box;
+        margin: 0;
+        .grid_1, .grid_2 {
+            //box-sizing: border-box;
+            // display: grid;
+            // row-gap:5px;
+            // grid-template-columns: repeat(2, 1fr);
+            // grid-template-rows: repeat(2, 1fr);
+            label, input {
+                display: block;
+                width: 100%;
+                margin: 0;
+                padding: 0;
+                box-sizing: border-box;
+            }
+            label {
+                margin-top: 20px;
+            }
+        }
+    }
+}
+
+// .grid_2 {
+   
+//     display: grid;
+//     row-gap:5px;
+//     grid-template-columns: repeat(2, 1fr);
+//     grid-template-rows: repeat(3, 1fr);
+// }
+
+.submit_1, .submit_2 {
+    display: block;
+    margin: 10px auto 0;
+}
+
+.submit_2 {
+    margin: 0 auto;
+}
+
+.confirm {
+    font-size: small;
+    vertical-align: top;
+    margin-left: 10px;
+}
+
+.form_2 {
+    visibility: hidden;
+    margin-left: 30px;
+    .flex {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        margin-bottom: 5px;
+        h2 {
+            margin: 0;
+        }
+        .xxx {
+            width: 30px;
+            height: 30px;
+            margin-right: 20px;
+            img {
+                width: 100%;
+                
+            }
+        }
+    }
+}
+
+.form_1, .form_2 {
+    /* background: lightblue; */
+    width: fit-content;
+    input[type="submit"] {
+        width: 100px;
+        background: linear-gradient(45deg, rgb(43, 174, 255), lightblue);
+        border: none;
+        color: white;
+        font-size: 1em;
+        //font-weight: bold;
+        padding: 10px;
+        border-radius: 17px;
+    }
+}
+
+
+.formFlex {
+    /* visibility: hidden; */
+    display: flex;
+    width: fit-content;
+    /* background-color: aqua; */
+
+    position: relative;
+    left: 50%;
+    transform: translateX(-200px);
+    
+    
+}
+
+.form_1, .form_2, .formFlex, .newAccountP {
+    
+    animation-duration: .7s;
+    animation-timing-function: ease-in-out;
+    animation-fill-mode: both;
+}
+
+.newAccountP {
+    position: relative;
+    text-align: center;
+    margin-top: -10px;
+    z-index: 1;
+    span {
+        text-decoration: underline;
+        color: navy;
+    }
+    span:hover{
+        background-color: lightskyblue;
+    }
+        
+}
+
+
+@keyframes nadge {
+    from{
+        transform: translateX(-200px);
+    }
+
+    to{
+        transform: translateX(-630px);
+    }
+}
+
+@keyframes nadgeBack {
+    from{
+        transform: translateX(-630px);
+    }
+
+    to{
+        transform: translateX(-200px);
+    }
+}
+
+@keyframes toVisible {
+    from{
+        opacity: 0;
+        visibility: hidden;
+    }
+    to{
+        opacity: 1;
+        visibility: visible;
+    }
+}
+
+@keyframes toHidden {
+    from{
+        opacity: 1;
+        visibility: visible;
+    }
+    to{
+        opacity: 0;
+        visibility: hidden;
+    }
+}

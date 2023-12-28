@@ -1,0 +1,184 @@
+body {
+  padding-bottom: 70px;
+}
+
+ul.dataList {
+  list-style: none;
+  margin: 0 auto;
+  padding: 0;
+  width: 60%;
+}
+ul.dataList li {
+  justify-content: space-between;
+  margin: 4px 0;
+  padding: 4px;
+  /* position: relative; */
+  display: flex;
+}
+ul.dataList li .liRight {
+  display: flex;
+  /* position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  right: 0; */
+  min-width: 70px;
+  padding: 3px;
+  text-align: center;
+}
+ul.dataList li .liRight .liCategory, ul.dataList li .liRight .liTime {
+  width: 120px;
+}
+ul.dataList li .liRight .liCategory {
+  margin-right: 5px;
+}
+ul.dataList .noData div {
+  margin: 0 auto;
+}
+ul.dataList .topLi {
+  margin: 0;
+  padding: 0;
+}
+ul.dataList .topLi .anchor {
+  margin: 0;
+  padding: 0;
+  border: none;
+}
+ul.dataList .topLi .anchor input[type=text] {
+  margin-left: 5px;
+}
+ul.dataList .topLi .anchor:hover a {
+  color: blue;
+}
+ul.dataList .topLi .anchor:hover path {
+  fill: blue;
+}
+ul.dataList .topLi .search:hover {
+  background-color: transparent;
+}
+ul.dataList .liCaption {
+  background: linear-gradient(rgb(126, 126, 126), rgb(56, 56, 56));
+  position: relative;
+}
+ul.dataList .liCaption select {
+  background-color: rgb(148, 148, 148);
+  width: 100%;
+  color: white;
+}
+ul.dataList .liCaption select option {
+  background-color: rgb(56, 56, 56);
+}
+ul.dataList .liCaption .divSubmit {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  left: 30px;
+  display: none;
+  align-items: center;
+  width: -moz-fit-content;
+  width: fit-content;
+  height: 23px;
+}
+ul.dataList .liCaption .divSubmit .divSubmitLeft {
+  padding: 2px;
+  width: 25px;
+  height: 100%;
+  background: url("../assets/svg/delete2.svg");
+  background-size: 70%;
+  background-repeat: no-repeat;
+  background-position-x: center;
+  background-position-y: center;
+  background-color: rgba(255, 255, 255, 0.8);
+  border-radius: 3px;
+}
+ul.dataList .liCaption .divSubmit .divSubmitLeft input[type=submit] {
+  border: none;
+  width: 100%;
+  height: 100%;
+  background: transparent;
+}
+ul.dataList .liCaption .divSubmit .divSubmitRight {
+  margin-left: 10px;
+  display: none;
+  color: rgb(231, 231, 231);
+}
+ul.dataList .liCaption .liLeft {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0;
+  margin: 0;
+}
+ul.dataList .liCaption .liRight {
+  margin: 0;
+}
+ul.dataList .dataLi {
+  background: rgba(255, 255, 255, 0.9);
+  border: 1px solid rgb(118, 147, 241);
+  border: none;
+}
+ul.dataList .dataLi .liWord, ul.dataList .dataLi .wordTemp, ul.dataList .dataLi .liCategory, ul.dataList .dataLi .liTime {
+  background: rgb(212, 227, 255);
+  box-sizing: border-box;
+}
+ul.dataList .dataLi .liWord, ul.dataList .dataLi .wordTemp {
+  border-radius: 5px;
+  background: linear-gradient(30deg, rgb(42, 189, 176), rgb(109, 109, 247));
+  color: rgb(255, 255, 255);
+}
+ul.dataList .dataLi mark {
+  background-color: rgb(255, 145, 0);
+  color: rgb(255, 255, 255);
+}
+ul.dataList .dataLi .liLeft {
+  padding-left: 5px;
+  margin-left: 5px;
+  border-left: 1px dotted black;
+}
+ul.dataList .dataLi .liLeft .liLeftTop {
+  display: flex;
+  align-items: center;
+  /* position: absolute; */
+}
+ul.dataList .dataLi .liLeft .liLeftTop a {
+  margin-left: 10px;
+}
+ul.dataList .dataLi .liLeft .liLeftTop a:hover svg {
+  fill: blue;
+}
+ul.dataList .dataLi .liLeft .liLeftTop .editDelete {
+  display: none;
+  position: relative;
+}
+ul.dataList .dataLi .liLeft .liLeftTop .editDelete svg {
+  position: absolute;
+  left: -15px;
+  top: -50px;
+}
+ul.dataList .dataLi .liLeft .liLeftTop .editDelete svg path {
+  fill: grey;
+}
+ul.dataList .dataLi .liLeft .liLeftTop .liWord, ul.dataList .dataLi .liLeft .liLeftTop .wordTemp {
+  padding: 5px;
+  width: -moz-fit-content;
+  width: fit-content;
+  font-size: 1.2em;
+}
+ul.dataList .dataLi .liLeft .liMeaning, ul.dataList .dataLi .liLeft .meaningTemp {
+  overflow-wrap: anywhere;
+  margin-right: 10px;
+}
+ul.dataList .dataLi .liRight {
+  margin-left: auto;
+  min-width: 245px;
+}
+ul.dataList .dataLi .liRight .liTime {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+ul.dataList .dataLi .liRight .liCategory {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  align-items: center;
+}/*# sourceMappingURL=index.css.map */

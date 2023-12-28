@@ -1,0 +1,45 @@
+//@charset "UTF-8";
+
+.container {
+    width: 40%;
+//     display: grid;
+//     // grid-template-columns: repeat(2, 1fr);
+//     grid-template-columns: 85px 1fr;
+//     grid-template-rows: repeat(4, 1fr);
+//     row-gap: 10px;
+//     //padding: 20px;
+//     input[name="newCategory"] {
+//         // grid-column: 4/-1;
+        
+//         grid-column: 2/-1;
+        
+//     }
+    
+    // input, label {
+    //     display: block;
+    // }
+
+    // label {
+    //     margin-top: 10px;
+    // }
+    // textarea, input[type="text"] {
+    //     width: 100%;
+    //     box-sizing: border-box;
+    // }
+
+    // input[name="newCategory"] {
+    //     margin-top: 10px;
+    // }
+    
+}
+
+// input[type="submit"] {
+//     display: block;
+//     margin: 10px auto 0;
+// }
+
+.link {
+    width: 310px;/*should be the same as coitainer's width 280+15+15*/
+    text-align: right;
+    margin: 0 auto;
+}

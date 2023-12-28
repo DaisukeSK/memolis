@@ -1,0 +1,82 @@
+.container {
+  text-align: center;
+  width: -moz-fit-content;
+  width: fit-content;
+  /* padding: 15px; */
+  /* border-radius: 5px;
+  box-shadow: 3px 3px 6px grey; */
+  /*background-color: red;*/
+}
+.container .practiceConfig {
+  width: 80%;
+  margin: 0 auto;
+}
+.container form .title {
+  white-space: nowrap;
+  position: absolute;
+  top: -25px;
+  left: 50%;
+  transform: translateX(-50%);
+  border-radius: 5px;
+  width: -moz-fit-content;
+  width: fit-content;
+  padding: 3px 15px;
+  display: block;
+  margin: 0 auto;
+}
+.container form .modeSection, .container form .categorySection, .container form .qNumber {
+  position: relative;
+  border-radius: 7px;
+  background-color: rgb(202, 219, 252);
+}
+.container form .categorySection {
+  max-width: 650px;
+  padding: 10px;
+  margin: 40px auto;
+}
+.container form .categorySection .divCategory {
+  display: inline-block;
+  border: 1px rgb(227, 234, 255) solid;
+  border: 1px rgba(133, 133, 133, 0.8) solid;
+  padding: 3px;
+  margin: 2px;
+}
+.container form .sectionFlex {
+  display: flex;
+  justify-content: space-between;
+  margin: 50px auto 20px;
+}
+.container form .sectionFlex .modeSection, .container form .sectionFlex .qNumber {
+  margin: 0;
+  padding: 10px;
+  width: 350px;
+}
+.container form .sectionFlex .qNumber {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  margin-left: 20px;
+}
+.container form .sectionFlex .qNumber .qNumberFlex {
+  display: flex;
+  width: -moz-fit-content;
+  width: fit-content;
+  margin: 0 auto;
+}
+.container form .sectionFlex .modeSection .divRadio .flex {
+  display: flex;
+  justify-content: center;
+}
+.container form .sectionFlex .modeSection .divRadio .flex img {
+  width: 20px;
+}
+.container form input[type=submit] {
+  display: block;
+  width: -moz-fit-content;
+  width: fit-content;
+  margin: 0 auto;
+}
+
+h2 {
+  margin-bottom: 0;
+}/*# sourceMappingURL=practice_pre.css.map */

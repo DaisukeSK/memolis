@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Uploaded to: SVG Repo, www.svgrepo.com, Transformed by: SVG Repo Mixer Tools -->
+
+<svg
+   width="70px"
+   height="70px"
+   viewBox="0 0 24 24"
+   fill="none"
+   version="1.1"
+   id="svg7"
+   sodipodi:docname="pen.svg"
+   inkscape:version="1.2.2 (732a01da63, 2022-12-09)"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:svg="http://www.w3.org/2000/svg">
+  <defs
+     id="defs11" />
+  <sodipodi:namedview
+     id="namedview9"
+     pagecolor="#ffffff"
+     bordercolor="#000000"
+     borderopacity="0.25"
+     inkscape:showpageshadow="2"
+     inkscape:pageopacity="0.0"
+     inkscape:pagecheckerboard="0"
+     inkscape:deskcolor="#d1d1d1"
+     showgrid="false"
+     inkscape:zoom="6.996"
+     inkscape:cx="35.23442"
+     inkscape:cy="35.020011"
+     inkscape:window-width="1366"
+     inkscape:window-height="705"
+     inkscape:window-x="-8"
+     inkscape:window-y="-8"
+     inkscape:window-maximized="1"
+     inkscape:current-layer="svg7" />
+  <g
+     id="SVGRepo_bgCarrier"
+     stroke-width="0" />
+  <g
+     id="SVGRepo_tracerCarrier"
+     stroke-linecap="round"
+     stroke-linejoin="round" />
+  <g
+     id="SVGRepo_iconCarrier"
+     transform="matrix(1.2000011,0,0,1.2000011,-2.4000251,-2.4122417)">
+    <path
+       d="M 15.4998,5.50067 18.3282,8.3291 M 13,21 h 8 m -18,4e-4 0.04745,-0.3321 C 3.21536,19.4929 3.29932,18.9052 3.49029,18.3565 3.65975,17.8697 3.89124,17.4067 4.17906,16.979 4.50341,16.497 4.92319,16.0772 5.76274,15.2377 L 17.4107,3.58969 c 0.7811,-0.78104 2.0474,-0.78105 2.8285,0 0.781,0.78105 0.781,2.04738 0,2.82843 L 8.37744,18.2798 C 7.61579,19.0415 7.23497,19.4223 6.8012,19.7252 6.41618,19.994 6.00093,20.2167 5.56398,20.3887 5.07171,20.5824 4.54375,20.6889 3.48793,20.902 Z"
+       stroke="#000000"
+       stroke-width="2"
+       stroke-linecap="round"
+       stroke-linejoin="round"
+       id="path4" />
+  </g>
+</svg>

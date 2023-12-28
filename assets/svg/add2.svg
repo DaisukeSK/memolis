@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Uploaded to: SVG Repo, www.svgrepo.com, Transformed by: SVG Repo Mixer Tools -->
+
+<svg
+   width="70px"
+   height="70px"
+   viewBox="0 0 24 24"
+   fill="none"
+   transform="matrix(-1, 0, 0, 1, 0, 0)rotate(0)"
+   version="1.1"
+   id="svg1960"
+   sodipodi:docname="add.svg"
+   inkscape:version="1.2.2 (732a01da63, 2022-12-09)"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:svg="http://www.w3.org/2000/svg">
+  <defs
+     id="defs1964" />
+  <sodipodi:namedview
+     id="namedview1962"
+     pagecolor="#ffffff"
+     bordercolor="#000000"
+     borderopacity="0.25"
+     inkscape:showpageshadow="2"
+     inkscape:pageopacity="0.0"
+     inkscape:pagecheckerboard="0"
+     inkscape:deskcolor="#d1d1d1"
+     showgrid="false"
+     inkscape:zoom="7.5"
+     inkscape:cx="35.133333"
+     inkscape:cy="35.066667"
+     inkscape:window-width="1366"
+     inkscape:window-height="705"
+     inkscape:window-x="-8"
+     inkscape:window-y="-8"
+     inkscape:window-maximized="1"
+     inkscape:current-layer="svg1960" />
+  <g
+     id="SVGRepo_bgCarrier"
+     stroke-width="0" />
+  <g
+     id="SVGRepo_tracerCarrier"
+     stroke-linecap="round"
+     stroke-linejoin="round" />
+  <g
+     id="SVGRepo_iconCarrier"
+     transform="matrix(1.1996244,0,0,1.1996244,-2.3945933,-2.396435)">
+    <g
+       id="Edit / Add_To_Queue">
+      <path
+         id="Vector"
+         d="m 3,9 v 10.4 c 0,0.5601 0,0.8399 0.10899,1.0538 0.09588,0.1882 0.24875,0.3414 0.43691,0.4373 C 3.7596,21 4.0395,21 4.59846,21 H 15.0001 M 14,13 v -3 m 0,0 V 7 m 0,3 h -3 m 3,0 h 3 M 7,13.8002 v -7.6 C 7,5.08009 7,4.51962 7.21799,4.0918 7.40973,3.71547 7.71547,3.40973 8.0918,3.21799 8.51962,3 9.08009,3 10.2002,3 h 7.6 c 1.1201,0 1.6799,0 2.1077,0.21799 0.3763,0.19174 0.6826,0.49748 0.8743,0.87381 0.218,0.42782 0.218,0.98789 0.218,2.10798 v 7.60002 c 0,1.1201 0,1.6802 -0.218,2.108 -0.1917,0.3763 -0.498,0.6827 -0.8743,0.8744 C 19.4805,17 18.9215,17 17.8036,17 H 10.1969 C 9.07899,17 8.5192,17 8.0918,16.7822 7.71547,16.5905 7.40973,16.2842 7.21799,15.9079 7,15.4801 7,14.9203 7,13.8002 Z"
+         stroke="#000000"
+         stroke-width="2"
+         stroke-linecap="round"
+         stroke-linejoin="round" />
+    </g>
+  </g>
+</svg>

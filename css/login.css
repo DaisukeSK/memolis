@@ -1,0 +1,156 @@
+/* @charset "UTF-8"; */
+body {
+  overflow: hidden;
+  padding: 0;
+  padding-top: 10px;
+}
+
+img.logo {
+  margin: 5px auto 10px;
+  display: block;
+  width: 400px;
+}
+
+h2 {
+  margin-bottom: 5px;
+}
+
+form {
+  margin: 0;
+}
+form .container {
+  width: 400px;
+  padding: 15px 80px;
+  box-sizing: border-box;
+  margin: 0;
+}
+form .container .grid_1 label, form .container .grid_1 input, form .container .grid_2 label, form .container .grid_2 input {
+  display: block;
+  width: 100%;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+form .container .grid_1 label, form .container .grid_2 label {
+  margin-top: 20px;
+}
+
+.submit_1, .submit_2 {
+  display: block;
+  margin: 10px auto 0;
+}
+
+.submit_2 {
+  margin: 0 auto;
+}
+
+.confirm {
+  font-size: small;
+  vertical-align: top;
+  margin-left: 10px;
+}
+
+.form_2 {
+  visibility: hidden;
+  margin-left: 30px;
+}
+.form_2 .flex {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 5px;
+}
+.form_2 .flex h2 {
+  margin: 0;
+}
+.form_2 .flex .xxx {
+  width: 30px;
+  height: 30px;
+  margin-right: 20px;
+}
+.form_2 .flex .xxx img {
+  width: 100%;
+}
+
+.form_1, .form_2 {
+  /* background: lightblue; */
+  width: -moz-fit-content;
+  width: fit-content;
+}
+.form_1 input[type=submit], .form_2 input[type=submit] {
+  width: 100px;
+  background: linear-gradient(45deg, rgb(43, 174, 255), lightblue);
+  border: none;
+  color: white;
+  font-size: 1em;
+  padding: 10px;
+  border-radius: 17px;
+}
+
+.formFlex {
+  /* visibility: hidden; */
+  display: flex;
+  width: -moz-fit-content;
+  width: fit-content;
+  /* background-color: aqua; */
+  position: relative;
+  left: 50%;
+  transform: translateX(-200px);
+}
+
+.form_1, .form_2, .formFlex, .newAccountP {
+  animation-duration: 0.7s;
+  animation-timing-function: ease-in-out;
+  animation-fill-mode: both;
+}
+
+.newAccountP {
+  position: relative;
+  text-align: center;
+  margin-top: -10px;
+  z-index: 1;
+}
+.newAccountP span {
+  text-decoration: underline;
+  color: navy;
+}
+.newAccountP span:hover {
+  background-color: lightskyblue;
+}
+
+@keyframes nadge {
+  from {
+    transform: translateX(-200px);
+  }
+  to {
+    transform: translateX(-630px);
+  }
+}
+@keyframes nadgeBack {
+  from {
+    transform: translateX(-630px);
+  }
+  to {
+    transform: translateX(-200px);
+  }
+}
+@keyframes toVisible {
+  from {
+    opacity: 0;
+    visibility: hidden;
+  }
+  to {
+    opacity: 1;
+    visibility: visible;
+  }
+}
+@keyframes toHidden {
+  from {
+    opacity: 1;
+    visibility: visible;
+  }
+  to {
+    opacity: 0;
+    visibility: hidden;
+  }
+}/*# sourceMappingURL=login.css.map */
