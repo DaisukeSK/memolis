@@ -1,7 +1,7 @@
 const aa=document.querySelector("span.createNewAccount")
 const form_1=document.querySelector(".form_1")
 const form_2=document.querySelector(".form_2")
-const cc=document.querySelector("div.xxx")
+const cc=document.querySelector(".form_2 svg")
 const formFlex=document.querySelector(".formFlex")
 const newAccountP=document.querySelector(".newAccountP")
 

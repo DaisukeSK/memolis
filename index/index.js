@@ -32,18 +32,31 @@ category.onchange=(e)=>{
 
         
         
-        if(e.target.value=="Category"){
-            console.log("All: ",e.target.value)
-            console.log("All: ",data.querySelector("div.liCategory").textContent)
-            data.style.display="flex";
-        }else if(e.target.value!==data.querySelector("div.liCategory").textContent){
-            console.log("Not match: ",e.target.value)
-            console.log("Not match: ",data.querySelector("div.liCategory").textContent)
+        // if(e.target.value=="Category"){
+        //     console.log("All: ",e.target.value)
+        //     console.log("All: ",data.querySelector("div.liCategory").textContent)
+        //     data.style.display="flex";
+        // }else if(e.target.value!==data.querySelector("div.liCategory").textContent){
+        //     console.log("Not match: ",e.target.value)
+        //     console.log("Not match: ",data.querySelector("div.liCategory").textContent)
+        //     data.style.display="none";
+        // }else if(e.target.value==data.querySelector("div.liCategory").textContent){
+        //     console.log("Match: ",e.target.value)
+        //     console.log("Match: ",data.querySelector("div.liCategory").textContent)
+        //     data.style.display="flex";
+        // }
+
+        switch(e.target.value){
+            case "Category":
+                data.style.display="flex";
+                break;
+
+            case data.querySelector("div.liCategory").textContent:
+                data.style.display="flex";
+                break;
+
+            default :
             data.style.display="none";
-        }else if(e.target.value==data.querySelector("div.liCategory").textContent){
-            console.log("Match: ",e.target.value)
-            console.log("Match: ",data.querySelector("div.liCategory").textContent)
-            data.style.display="flex";
         }
         
     })
@@ -57,44 +70,44 @@ category.onchange=(e)=>{
 const selectChangeHandler=(a,b)=>{
     let i, switching, shouldSwitch, consition;
         
-        switching=true;
+    switching=true;
 
-        while(switching){
-            switching=false;
-            const li=ul.querySelectorAll('li.dataLi');
+    while(switching){
+        switching=false;
+        const li=ul.querySelectorAll('li.dataLi');
 
-            for(i=0; i<li.length-1; i++){
-                shouldSwitch=false
+        for(i=0; i<li.length-1; i++){
+            shouldSwitch=false
 
-                if(a=="id"){
-                    consition=+li[i].id > +li[i+1].id
+            if(a=="id"){
+                consition=+li[i].id > +li[i+1].id
+            }else{
+
+                if(b=="left"){
+                    consition=li[i].querySelector(a).textContent.toLowerCase()>
+                        li[i+1].querySelector(a).textContent.toLowerCase()
+
                 }else{
-
-                    if(b=="left"){
-                        consition=li[i].querySelector(a).textContent.toLowerCase()>
-                            li[i+1].querySelector(a).textContent.toLowerCase()
-
-                    }else{
-                        consition=li[i].querySelector(a).textContent.toLowerCase()<
-                            li[i+1].querySelector(a).textContent.toLowerCase()
-                    }
-
+                    consition=li[i].querySelector(a).textContent.toLowerCase()<
+                        li[i+1].querySelector(a).textContent.toLowerCase()
                 }
-                
-                //console.log("direction",b,consition)
 
-                if(consition){
-                        //console.log("Case")
-                        shouldSwitch=true
-                        break;
-                    }
-                }
-                if(shouldSwitch){
-                    //console.log("done")
-                    ul.insertBefore(li[i+1],li[i])
-                    switching=true
-                }
+            }
+            
+            //console.log("direction",b,consition)
+
+            if(consition){
+                //console.log("Case")
+                shouldSwitch=true
+                break;
+            }
         }
+        if(shouldSwitch){
+            //console.log("done")
+            ul.insertBefore(li[i+1],li[i])
+            switching=true
+        }
+    }
 }
 
 const alphabetically = document.querySelector('select[name="alphabetically"]');

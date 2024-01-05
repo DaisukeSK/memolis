@@ -7,11 +7,16 @@ require_once "../require/login_status_check.php";
 
 $id=$_GET["id"];
 
-//var_dump($id);
+var_dump($id);
+echo "<br/><br/>";
 echo "type: ".gettype($id)."<br/><br/>";
 
 //echo "1st elmnt:".$id[0]."<br/>";
 //echo "length:".count($id)."<br/>";
+
+
+
+
 
 $ids="";
 if(gettype($id)=="array"){
@@ -21,6 +26,8 @@ if(gettype($id)=="array"){
     
     };
     $ids.=")";
+}else{
+    $ids.="(".$id.")";
 }
 echo "ids: ".$ids."<br/>";
 
@@ -29,23 +36,25 @@ try{
     // Get category before deleting data
     
     // Delete data
-    if($ids==""){
+    
         
-        $sql2="delete from words where id= :id";
-        $stmt2=$dbh->prepare($sql2);
-        
-        $stmt2->bindParam(":id", $id, PDO::PARAM_INT);
-        $stmt2->execute();
-    }else{
-        
+
+    ///////////// Why doesn't it work? /////////////
+        // $sql="delete from words where id in :ids";
+        // $stmt=$dbh->prepare($sql);
+        // $stmt->bindParam(":ids", $ids, PDO::PARAM_STR);
+        // $stmt->execute();
+
         $sql="delete from words where id in ".$ids;
-        //$sql="delete from words where id in :id";
-        //$stmt=$dbh->prepare($sql);
         $dbh->query($sql);
+        
+
+
     
         // $stmt->bindParam(":id", $ids, PDO::PARAM_STR);
         // $stmt->execute();
-    }
+
+    
 
     echo '
         <script>

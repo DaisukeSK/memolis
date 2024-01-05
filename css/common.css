@@ -1,9 +1,11 @@
 body {
   background: linear-gradient(rgb(205, 236, 247), rgb(103, 164, 255));
+  background-attachment: fixed;
   position: relative;
   margin: 0;
   padding: 0;
   box-sizing: border-box;
+  min-height: 100vh;
 }
 body .instruction {
   display: none;
@@ -179,15 +181,6 @@ header .hedearRight .help:hover {
   border-bottom: none;
 }
 
-h1, h2 {
-  /*color: aqua;
-  width: 500px;*/
-  text-align: center;
-  /*margin: 0 auto;*/
-  margin-top: 20px;
-  /*background-color: aqua;*/
-}
-
 .container {
   width: 280px;
   padding: 15px;
@@ -199,34 +192,6 @@ h1, h2 {
   /*background-color: red;*/
   margin: 30px auto 0;
   box-sizing: border-box;
-}
-.container .grid input, .container .grid label {
-  display: block;
-}
-.container .grid label {
-  margin-top: 20px;
-}
-.container .grid textarea, .container .grid input[type=text] {
-  width: 100%;
-  box-sizing: border-box;
-}
-.container .grid .inputFlex {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  margin-top: 20px;
-}
-.container .grid .inputFlex .flexChild {
-  width: 42%;
-  min-width: 170px;
-  padding: 5px;
-  border-radius: 5px;
-}
-.container .grid .inputFlex .flexChild select {
-  width: 100%;
-}
-.container .grid .inputFlex .flexChild .inlineElm {
-  display: inline;
 }
 .container input[type=submit] {
   display: block;

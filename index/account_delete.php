@@ -6,9 +6,9 @@ require_once "../require/login_status_check.php";
 try{
     $dbh=db_open();
     //var_dump($dbh);
-    $sql1='delete from users where username="'.$_SESSION["username"].'"';
+    $sql1='delete from users where id="'.$_SESSION["userId"].'"';
     $dbh->query($sql1);
-    $sql2='delete from words where user="'.$_SESSION["username"].'"';
+    $sql2='delete from words where userId="'.$_SESSION["userId"].'"';
     $dbh->query($sql2);
     
     session_destroy();

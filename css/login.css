@@ -11,10 +11,6 @@ img.logo {
   width: 400px;
 }
 
-h2 {
-  margin-bottom: 5px;
-}
-
 form {
   margin: 0;
 }
@@ -35,13 +31,13 @@ form .container .grid_1 label, form .container .grid_2 label {
   margin-top: 20px;
 }
 
+.form_1 h2 {
+  margin-bottom: 5px;
+}
+
 .submit_1, .submit_2 {
   display: block;
   margin: 10px auto 0;
-}
-
-.submit_2 {
-  margin: 0 auto;
 }
 
 .confirm {
@@ -60,16 +56,15 @@ form .container .grid_1 label, form .container .grid_2 label {
   justify-content: center;
   margin-bottom: 5px;
 }
+.form_2 .flex svg {
+  margin-right: 20px;
+  fill: rgb(85, 85, 85);
+}
+.form_2 .flex svg:hover {
+  fill: rgb(125, 125, 125);
+}
 .form_2 .flex h2 {
   margin: 0;
-}
-.form_2 .flex .xxx {
-  width: 30px;
-  height: 30px;
-  margin-right: 20px;
-}
-.form_2 .flex .xxx img {
-  width: 100%;
 }
 
 .form_1, .form_2 {
@@ -85,6 +80,9 @@ form .container .grid_1 label, form .container .grid_2 label {
   font-size: 1em;
   padding: 10px;
   border-radius: 17px;
+}
+.form_1 input[type=submit]:hover, .form_2 input[type=submit]:hover {
+  background: linear-gradient(45deg, rgb(10, 128, 202), rgb(101, 195, 226));
 }
 
 .formFlex {

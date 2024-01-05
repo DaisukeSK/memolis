@@ -36,6 +36,9 @@ if(!$result){
     echo '<script>location.href="../login/login.php"</script>';
     exit;
 }
+$_SESSION["userId"]=$result["id"];
+echo $_SESSION["userId"];
+
 
 $aa=password_verify($_SESSION["password"], $result["password"]);
 if($aa){

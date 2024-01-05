@@ -29,7 +29,8 @@
 <script>
     console.log(document.querySelector('select[name="category"]'))
     //document.querySelector('select[name="category"]').value="AA"
-    document.querySelector('form').action="../include/dataUpdate.php"
+
+    // document.querySelector('form').action="../include/dataUpdate.php"
     
     document.querySelector('option[value="<?php echo $category ?>"]').selected=true
     

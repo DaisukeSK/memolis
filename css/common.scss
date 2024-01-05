@@ -3,11 +3,14 @@
 
 body {
     background: linear-gradient(rgb(205, 236, 247),rgb(103, 164, 255));
+    background-attachment:fixed;
     position: relative;
     margin: 0;
     
     padding: 0;
     box-sizing: border-box;
+
+    min-height: 100vh;
     .instruction {
         display: none;
         position: absolute;
@@ -203,6 +206,7 @@ header {
             a {
                 color: white;
             }
+
             
         }
         .a_hover:hover {
@@ -230,14 +234,6 @@ header {
    
 }
 
-h1, h2 {
-    /*color: aqua;
-    width: 500px;*/
-    text-align: center;
-    /*margin: 0 auto;*/
-    margin-top: 20px;
-    /*background-color: aqua;*/
-}
 
 .container {
     width: 280px;
@@ -250,57 +246,7 @@ h1, h2 {
     /*background-color: red;*/
     margin: 30px auto 0;
     box-sizing: border-box;
-    .grid {
-        // display: grid;
-        // // grid-template-columns: repeat(2, 1fr);
-        // grid-template-columns: 85px 1fr;
-        // grid-template-rows: repeat(4, 1fr);
-        // row-gap: 10px;
-        // //padding: 20px;
-        // input[name="newCategory"] {
-        //     // grid-column: 4/-1;
-            
-        //     grid-column: 2/-1;
-            
-        // }
-        input, label {
-            display: block;
-        }
     
-        label {
-            margin-top: 20px;
-        }
-        textarea, input[type="text"] {
-            width: 100%;
-            box-sizing: border-box;
-
-            
-        }
-    
-        // input[name="newCategory"] {
-        //     margin-top: 10px;
-        // }
-        .inputFlex {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            margin-top: 20px;
-            .flexChild {
-                width: 42%;
-                min-width: 170px;
-                padding: 5px;
-                border-radius: 5px;
-                select {
-                    width: 100%;
-
-                }
-                .inlineElm {
-                    display: inline;
-                }
-            }
-        }
-        
-    }
     input[type="submit"] {
         display: block;
         margin: 20px auto 0;
