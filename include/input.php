@@ -1,5 +1,5 @@
 <?php
-    session_start();
+    // session_start();
     require_once "../require/login_status_check.php";
     require_once "../require/function.php";
 ?>
@@ -41,9 +41,45 @@
                         <input type="radio" name="select_add" value="select" checked>
                         <label><b>Select category</b></label>
                         <select name="category">
-                            <?php foreach($_SESSION["dataCategory"] as $value){ ?>
-                                <option value="<?php echo $value;?>"><?php echo $value;?></option>
-                            <?php }; ?>
+
+
+
+                            <?php
+                            try{
+                                $dbh=db_open();
+
+                                $sql='select * from categories where userId=:userId';
+                                $stmt=$dbh->prepare($sql);
+                                $stmt->bindParam(":userId", $_SESSION["userId"], PDO::PARAM_INT);
+                                $stmt->execute();
+
+                                while($row=$stmt->fetch()):
+
+                                    echo "category".$row["category"]."<br/>";
+                                    echo "category".$row["id"]."<br/><br/>";
+                            ?>
+
+                                    <option value="<?php echo $row["id"];?>"><?php echo $row["category"];?></option>
+
+                            <?php
+                                endwhile;
+                                
+
+                                }catch(PDOException $e){
+                                    echo "Error: ".str2html($e->getMessage())."<br>";
+                                    exit;
+                                }
+                            ?>
+
+
+                            <?php
+                            // foreach($_SESSION["categories"] as $value){
+                                ?>
+                                <!-- <option value="<?php echo $value;?>"><?php echo $value;?></option> -->
+                            <?php
+                            // };
+                            ?>
+
                         </select>
                     </div>
 

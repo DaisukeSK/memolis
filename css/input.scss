@@ -54,9 +54,11 @@
                 box-sizing: border-box;
             }
             
-            label, .inputFlex {
+            label, .inputFlex, input[type="submit"] {
                 margin-top: 20px;
             }
+
+            
         
             // input[name="newCategory"] {
             //     margin-top: 10px;

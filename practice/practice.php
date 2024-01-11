@@ -12,13 +12,16 @@ $quizData=[];
 $str="";
 foreach($categories as $key=>$value){
     $key==0 ?
-    $str.='"'.$value.'"' :
-    $str.=",".'"'.$value.'"';
+    $str.=$value :
+    $str.=",".$value;
 }
+
+// echo "str".$str."<br/><br/>";
+
 
 try{
     $dbh=db_open();
-    $sql='select * from words where userId="'.$_SESSION["userId"].'" && category in ('.$str.')';
+    $sql='select * from words where userId="'.$_SESSION["userId"].'" and categoryId in ('.$str.')';
     $statement=$dbh->query($sql);
     $count=$statement->rowCount();
 
@@ -30,6 +33,12 @@ try{
     echo "Error: ".str2html($e->getMessage())."<br>";
     exit;
 }
+
+// foreach($quizData as $value){
+//     echo $value["word"].", ".$value["meaning"]."<br/>";
+// }
+
+// exit;
 
 shuffle($quizData);
 

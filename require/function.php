@@ -41,3 +41,45 @@ function getTime(){
 
     return [$date,$time,$second];
 }
+
+function categoryCheck($dbh,$userId){
+
+    $array=[];
+
+    $sql='select * from words where userId=:userId';
+    $stmt=$dbh->prepare($sql);
+    $stmt->bindParam(':userId', $userId, PDO::PARAM_INT);
+    $stmt->execute();
+
+    while($row=$stmt->fetch()):
+        echo "id:".$row['categoryId'].'<br/>';
+        array_push($array, $row['categoryId']);
+    endwhile;
+
+    var_dump($array);
+    echo '<br/><br/>';
+
+    $sql2='select * from categories where userId=:userId';
+    $stmt2=$dbh->prepare($sql2);
+    $stmt2->bindParam(':userId', $userId, PDO::PARAM_INT);
+    $stmt2->execute();
+
+
+    while($row2=$stmt2->fetch()):
+        echo "id:".$row2['id'].', category:'.$row2['category'].'<br/>';
+
+        if(!in_array($row2["id"], $array)){
+
+            echo '[[[ id:'.$row2["id"].' is not in the array.]]]'.'<br/>';
+
+            $sql3='delete from categories where id=:id';
+            $stmt3=$dbh->prepare($sql3);
+            $stmt3->bindParam(':id', $row2["id"], PDO::PARAM_INT);
+            $stmt3->execute();
+        }
+
+
+    endwhile;
+
+
+}

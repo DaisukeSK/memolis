@@ -1,5 +1,8 @@
 @import "../css/variables.scss";
 
+$width:120px;
+$marginRight: 5px;
+
 $anchorBg:rgb(80, 80, 255);
 body {
     padding-bottom: 70px;
@@ -10,7 +13,7 @@ ul.dataList {
     // width: fit-content;
     // min-width: 800px;
     // max-width: 90%;
-    margin: 0 auto;
+    margin: 30px auto 0;
     padding: 0;
 
     width: 60%;
@@ -18,11 +21,11 @@ ul.dataList {
 
     li {
         //min-width: 300px;
+        display: flex;
         justify-content: space-between;
         margin: 4px 0;
         padding: 4px;
         /* position: relative; */
-        display: flex;
         // justify-content: space-between;
         .liRight {
             display: flex;
@@ -31,19 +34,19 @@ ul.dataList {
             transform: translateY(-50%);
             right: 0; */
             
-            min-width: 70px;
+            // min-width: 70px;
             padding: 3px;
             //margin-right: 3px;
             //margin-left: auto;
         
             text-align: center;
             .liCategory, .liTime {
-                width: 120px;
-                
+                width: $width;
+                // display: block;
             }
             .liCategory {
                 
-                margin-right: 5px;
+                margin-right: $marginRight;
                 
             }
     
@@ -54,11 +57,7 @@ ul.dataList {
         
     }
 
-    .noData {
-        div {
-            margin: 0 auto;
-        }
-    }
+    
     .topLi {
         //background: none;
         margin: 0;
@@ -67,15 +66,23 @@ ul.dataList {
         //width: 100%;
         //display: flex;
         //justify-content: space-between;
-        .anchor {
-            margin: 0;
-            padding: 0;
-            border: none;
+        align-items: center;
+        .search {
+            // margin: 0;
+            // padding: 0;
+            // border: none;
+            display: flex;
+            align-items: center;
+            img {
+                width: 20px;
+            }
                 input[type="text"]{
                     margin-left: 5px;
+                    // background-color: aqua;
+                    
                 }
             }
-            .anchor:hover {
+            .add:hover {
                 //background-color: $anchorBg;
                 a {
                     color: blue;
@@ -84,9 +91,9 @@ ul.dataList {
                     fill: blue;
                 }
             }
-        .search:hover {
-            background-color: transparent;
-        }
+        // .search:hover {
+        //     background-color: transparent;
+        // }
         
         
     }
@@ -103,12 +110,19 @@ ul.dataList {
 
         select {
             background-color: rgb(148, 148, 148);
-            width: 100%;
+            width: $width;
             color: white;
             //border-bottom: 1px solid white;
             option {
                 background-color: rgb(56, 56, 56);
             }
+        }
+        select[name='category'] {
+            margin-right: $marginRight;
+            
+        }
+        select[name='alphabetically'] {
+            width: 200px;
         }
         
         .divSubmit {
@@ -122,8 +136,8 @@ ul.dataList {
             height: 23px;
             //background-color: rgba(168, 29, 29, 0.5);
 
-            .divSubmitLeft {
-                padding: 2px;
+            input[type="submit"] {
+                // padding: 2px;
                 width: 25px;
                 height: 100%;
                 background: url("../assets/svg/delete2.svg");
@@ -133,14 +147,8 @@ ul.dataList {
                 background-position-y: center;
                 background-color: rgba(255, 255, 255, 0.8);
                 border-radius: 3px;
-                input[type="submit"] {
-                    
-                    border: none;
-                    width: 100%;
-                    height: 100%;
-                    
-                    background: transparent;
-                }
+                border: none;
+                
                 // img {
                 //     position: absolute;
                 //     top: 0;
@@ -188,25 +196,23 @@ ul.dataList {
     
     .dataLi {
         background: $containerBg;
-        border: $containerBorder;
-        border: none;
+        
         //background: rgb(241, 239, 255);
         // border: none;
-        .liWord, .wordTemp, .liCategory, .liTime {
+
+        
+        .liCategory, .liTime {
             
             // background: rgba(116, 116, 255, 0.5);
             //border-radius: 5px;
             background: rgb(212, 227, 255);
             //border: 1px solid white;
             box-sizing: border-box;
-           
         }
-        .liWord, .wordTemp {
+        .liTerm, .wordTemp {
             
             // background: rgb(117, 117, 255);
-            border-radius: 5px;
-            background: linear-gradient(30deg,rgb(42, 189, 176),rgb(109, 109, 247)) ;
-            color: rgb(255, 255, 255);
+            
             
             
         }
@@ -223,10 +229,23 @@ ul.dataList {
                 align-items: center;
                 
     
-                a {
+                .editDeleteAnchor {//a
+                    position: relative;
     
                     margin-left: 10px;
                     
+                    // overflow: visible;
+                    .editDelete {
+                        display:none;
+                        
+                        position: absolute;
+                        left: 0;
+                        top: -50px;
+                        path {
+                            fill:grey;
+                        }
+                        
+                    }
                 }
 
                 a:hover {
@@ -235,28 +254,20 @@ ul.dataList {
                     }
                 }
 
-                .editDelete {
-                    display:none;
-                    position: relative;
-                    svg {
-                        position: absolute;
-                        left: -15px;
-                        top: -50px;
-                        path {
-                            fill:grey;
-                        }
-                    }
-                }
                 
                 /* position: absolute; */
-                .liWord, .wordTemp {
+                .liTerm, .wordTemp {
+
+                    border-radius: 5px;
+                    background: linear-gradient(30deg,rgb(42, 189, 176),rgb(109, 109, 247)) ;
+                    color: rgb(255, 255, 255);
                 
                     padding: 5px;
                     width: fit-content;
                     font-size: 1.2em;
                 }
             }
-            .liMeaning, .meaningTemp {
+            .liDefinition, .meaningTemp {
                 
                //margin-right: 30px;
                overflow-wrap: anywhere;
@@ -279,26 +290,27 @@ ul.dataList {
             .liCategory {
                 display: flex;
                 justify-content: center;
-                flex-wrap: wrap;
+                // flex-wrap: wrap;
                 align-items: center;
                 
                 
             }
     
         }
+
         
     }
-    
-    
-    
-    
-    
+    .noHit {
+        display: none;
+        text-align: center;
+    }
 
-}    
+    .noData {
+        height: 100px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        
+    }
 
-
-
-
-
-
-
+}

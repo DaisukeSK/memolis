@@ -8,7 +8,7 @@
   width: 100%;
   box-sizing: border-box;
 }
-.container form label, .container form .inputFlex {
+.container form label, .container form .inputFlex, .container form input[type=submit] {
   margin-top: 20px;
 }
 .container form .inputFlex {

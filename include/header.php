@@ -1,5 +1,5 @@
 
-<div class="instruction">
+<div class="instructionBG">
 
     <div class="window">
 
@@ -10,14 +10,14 @@
         <h2>Welcome to memolis.</h2>
 
         <p>
-            memolis was created to help you memorize words, idioms, proverbs and so on.<br/>
+            memolis is a digital word-book app.<br/>
 
             <h3>1. Register a pair of a term and definition.</h3>
 
             Click<u><?php include "../assets/svgConversion/add2.html";?>Add data</u> 
-            button and it takes you to a registeration page.<br/>
-            In the page, type a term, definition and category that you want to memorize and submit, and it is saved in database.<br/>
-            You can browse all data that you registered in <u><?php include "../assets/svgConversion/home2.html";?>Home</u> page.<br/>
+            button and it takes you to a registration page.<br/>
+            In this page, you can register a pair of term, definition and category that you want to memorize, the data is saved in database.<br/>
+            You can browse all data in <u><?php include "../assets/svgConversion/home2.html";?>Home</u> page anytime.<br/>
 
             You also have 
             <?php include "../assets/svgConversion/pen.html";?>
@@ -43,7 +43,7 @@
 
 <header>
 
-    <div class="headerBG"></div>
+    <!-- <div class="headerBG"></div> -->
 
     <div class="hedearLeft">
             <a class="logoAnchor" href='../index/index.php'>
@@ -56,34 +56,44 @@
 
     <div class="hedearRight">
 
-        <div class="a_hover anchor help">
+        <div class="help">
             <?php include "../assets/svgConversion/help.html";?>
         </div>
 
-        <div class="a_hover anchor">
-            <?php include "../assets/svgConversion/home.html";?>
-            <a class="anchorRight" href='../index/index.php'>Home</a>
-        </div>
+        <!-- <div class="a_hover anchor"> -->
+            <a href='../index/index.php'>
+                <?php include "../assets/svgConversion/home.html";?>
+                
+            Home</a>
+        <!-- </div> -->
 
-        <div class="a_hover anchor">
-            <?php include "../assets/svgConversion/add.html";?>
-            <a class="anchorRight" href='../include/input.php'>Add Data</a>
-        </div>
+        <!-- <div class="a_hover anchor"> -->
+            <a href='../include/input.php'>
+                
+                <?php include "../assets/svgConversion/add.html";?>
+            Add Data</a>
+        <!-- </div> -->
 
-        <div class="a_hover anchor">
-            <?php include "../assets/svgConversion/practice.html";?>
-            <a class="anchorRight" href='../practice/practice_pre.php'>Practice</a>
-        </div>
+        <!-- <div class="a_hover anchor"> -->
+            <a href='../practice/practice_pre.php'>
+                <?php include "../assets/svgConversion/practice.html";?>
+                
+            Practice</a>
+        <!-- </div> -->
 
-        <div class="a_hover anchor">
-            <?php include "../assets/svgConversion/logout.html";?>
-            <a class="anchorRight" href='../login/logout.php'>Log Out</a>
-        </div>
+        <!-- <div class="a_hover anchor"> -->
+            <a href='../login/logout.php'>
+                <?php include "../assets/svgConversion/logout.html";?>
+                
+            Log Out</a>
+        <!-- </div> -->
 
-        <div class="a_hover anchor">
-            <?php include "../assets/svgConversion/delete3.html";?>
-            <a class="anchorRight" href='../index/account_delete.php' onclick='return confirm("Are you sure that you want to delete account?")'>Delete account</a>
-        </div>
+        <!-- <div class="a_hover anchor"> -->
+            <a href='../index/account_delete.php' onclick='return confirm("Are you sure that you want to delete account?")'>
+                <?php include "../assets/svgConversion/delete3.html";?>
+            
+            Delete account</a>
+        <!-- </div> -->
 
     </div>
 
@@ -91,28 +101,31 @@
 
 <script>
 
-    const anchors=document.querySelectorAll(".anchorRight")
+    const anchors=document.querySelectorAll(".hedearRight a")
 
-    anchors.forEach(val=>{
-        if(val.href==location.href){
-            val.style.pointerEvents="none"
-            val.parentElement.classList.remove("a_hover");
+    anchors.forEach(a=>{
+        if(a.href==location.href){
+            a.style.pointerEvents="none"
+            // val.classList.remove("a_hover");
 
-            val.parentElement.style.backgroundColor="rgba(255,255,255,0.3)"
-            val.parentElement.style.border="2px solid rgba(255,255,255,0.7)"
-        }
-        if(location.href.includes("practice.php")){
-            anchors[2].parentElement.style.backgroundColor="rgba(255,255,255,0.3)"
-            anchors[2].parentElement.style.border="2px solid rgba(255,255,255,0.7)"
+            // a.style.backgroundColor="rgba(255,255,255,0.3)"
+            a.style.background="linear-gradient(transparent, #FF008A)"
+
+
+            // a.style.border="2px solid rgba(255,255,255,0.7)"
         }
     })
-
-    document.querySelector(".help svg").onclick=()=>{
-        document.querySelector(".instruction").style.display="block"
+    if(location.href.includes("practice.php")){
+        anchors[2].style.background="linear-gradient(transparent, #FF008A)"
+        // anchors[2].style.border="2px solid rgba(255,255,255,0.7)"
     }
 
-    document.querySelector(".instruction .x").onclick=()=>{
-        document.querySelector(".instruction").style.display="none"
+    document.querySelector(".help svg").onclick=()=>{
+        document.querySelector(".instructionBG").style.display="block"
+    }
+
+    document.querySelector(".instructionBG .x").onclick=()=>{
+        document.querySelector(".instructionBG").style.display="none"
     }
 
 </script>

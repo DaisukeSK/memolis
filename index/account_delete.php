@@ -6,10 +6,12 @@ require_once "../require/login_status_check.php";
 try{
     $dbh=db_open();
     //var_dump($dbh);
-    $sql1='delete from users where id="'.$_SESSION["userId"].'"';
+    $sql1='delete from users where id='.$_SESSION["userId"];
+    $sql2='delete from words where userId='.$_SESSION["userId"];
+    $sql3='delete from categories where userId='.$_SESSION["userId"];
     $dbh->query($sql1);
-    $sql2='delete from words where userId="'.$_SESSION["userId"].'"';
     $dbh->query($sql2);
+    $dbh->query($sql3);
     
     session_destroy();
     // echo "Account deleted"."<br/>";
@@ -24,12 +26,5 @@ try{
     echo "Error: ".str2html($e->getMessage())."<br>";
     exit;
 }
-
-
-
-
-
-
-
 
 ?>

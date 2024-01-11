@@ -21,7 +21,7 @@ if(!empty($_SESSION["loggedIn"])){
 
 try{
 $dbh=db_open();
-$sql="select * from users where users.username=:username";
+$sql="select * from users where username=:username";
 $stmt=$dbh->prepare($sql);
 $stmt->bindParam(":username", $_SESSION["username"], pdo::PARAM_STR);
 
@@ -32,12 +32,18 @@ if(!$result){
     // echo 'Failed to log in.(1)'.'<br>';
     // echo '<a href="login.php">Back</a>';
 
-    echo '<script>alert("Username or password is incorrect.")</script>';
-    echo '<script>location.href="../login/login.php"</script>';
+    echo '
+    <script>
+        alert("You entered incorrect information.")
+        location.href="../login/login.php"
+    </script>
+    ';
     exit;
 }
+
 $_SESSION["userId"]=$result["id"];
 echo $_SESSION["userId"];
+
 
 
 $aa=password_verify($_SESSION["password"], $result["password"]);
@@ -49,9 +55,12 @@ if($aa){
     // echo "Failed to log in.(2)"."<br>";
     // echo '<a href="login.php">Back</a>';
 
-    echo '<script>alert("Username or password is incorrect.")</script>';
-    
-    echo '<script>location.href="../login/login.php"</script>';
+    echo '
+    <script>
+        alert("You entered incorrect information.")
+        location.href="../login/login.php"
+    </script>
+    ';
 }
 
 }catch(PDOException $e){

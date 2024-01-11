@@ -1,4 +1,5 @@
 /* @charset "UTF-8"; */
+$transition:all .5s ease-in-out;
 body{
     overflow: hidden;
 
@@ -14,107 +15,6 @@ img.logo {
 // h2 {
 //     margin-bottom: 5px;
 // }
-
-form {
-    margin: 0;
-    .container {
-    
-        width: 400px;// If changed width, also change animation props and js code at the bottom of login.php
-        padding: 15px 80px;
-        box-sizing: border-box;
-        margin: 0;
-        .grid_1, .grid_2 {
-            //box-sizing: border-box;
-            // display: grid;
-            // row-gap:5px;
-            // grid-template-columns: repeat(2, 1fr);
-            // grid-template-rows: repeat(2, 1fr);
-            label, input {
-                display: block;
-                width: 100%;
-                margin: 0;
-                padding: 0;
-                box-sizing: border-box;
-            }
-            label {
-                margin-top: 20px;
-            }
-        }
-    }
-}
-
-// .grid_2 {
-   
-//     display: grid;
-//     row-gap:5px;
-//     grid-template-columns: repeat(2, 1fr);
-//     grid-template-rows: repeat(3, 1fr);
-// }
-.form_1 {
-    h2 {
-        margin-bottom: 5px;
-    }
-}
-
-.submit_1, .submit_2 {
-    display: block;
-    margin: 10px auto 0;
-}
-
-// .submit_2 {
-//     margin: 0 auto;
-// }
-
-.confirm {
-    font-size: small;
-    vertical-align: top;
-    margin-left: 10px;
-}
-
-.form_2 {
-    visibility: hidden;
-    margin-left: 30px;
-    .flex {
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        margin-bottom: 5px;
-
-        svg {
-            margin-right: 20px;
-            fill:rgb(85, 85, 85);
-            &:hover {
-                fill:rgb(125, 125, 125);
-            }
-        }
-        h2 {
-            margin: 0;
-        }
-        
-    }
-}
-
-.form_1, .form_2 {
-    /* background: lightblue; */
-    width: fit-content;
-    input[type="submit"] {
-        width: 100px;
-        background: linear-gradient(45deg, rgb(43, 174, 255), lightblue);
-        border: none;
-        color: white;
-        font-size: 1em;
-        //font-weight: bold;
-        padding: 10px;
-        border-radius: 17px;
-
-        &:hover {
-            background: linear-gradient(45deg, rgb(10, 128, 202), rgb(101, 195, 226));
-
-        }
-    }
-}
-
-
 .formFlex {
     /* visibility: hidden; */
     display: flex;
@@ -124,6 +24,114 @@ form {
     position: relative;
     left: 50%;
     transform: translateX(-200px);
+
+    form {
+        // margin: 0;
+        // width: fit-content;
+        .container {
+        
+            width: 400px;// If changed width, also change animation props and js code at the bottom of login.php
+            padding: 15px 80px;
+            // box-sizing: border-box;
+            margin: 0;
+            .grid_1, .grid_2 {
+                //box-sizing: border-box;
+                // display: grid;
+                // row-gap:5px;
+                // grid-template-columns: repeat(2, 1fr);
+                // grid-template-rows: repeat(2, 1fr);
+            }
+            label, input {
+                display: block;
+                margin: 0;
+                padding: 0;
+                width: 100%;
+                // box-sizing: border-box;
+            }
+            label {
+                margin-top: 20px;
+            }
+            input[type="submit"] {
+                // display: block;
+                margin: 30px auto 0;
+
+                width: 100px;
+                background: linear-gradient(45deg, rgb(43, 174, 255), lightblue);
+                border: none;
+                color: white;
+                font-size: 1em;
+                //font-weight: bold;
+                padding: 10px;
+                border-radius: 17px;
+
+
+                &:hover {
+                    background: linear-gradient(45deg, rgb(10, 128, 202), rgb(101, 195, 226));
+
+                }
+            }
+        }
+    }
+
+    // .grid_2 {
+    
+    //     display: grid;
+    //     row-gap:5px;
+    //     grid-template-columns: repeat(2, 1fr);
+    //     grid-template-rows: repeat(3, 1fr);
+    // }
+    .form_1 {
+        h2 {
+            margin-bottom: 5px;
+            text-align: center;
+        }
+    }
+
+
+    // .submit_2 {
+    //     margin: 0 auto;
+    // }
+
+    // .confirm {
+    //     font-size: small;
+    //     vertical-align: top;
+    //     margin-left: 10px;
+    // }
+
+    .form_2 {
+        // visibility: hidden;
+        opacity: 0;
+        margin-left: 30px;
+        .flex {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 5px;
+
+            svg {
+                margin-right: 20px;
+                fill:rgb(85, 85, 85);
+                transition: $transition;
+                &:hover {
+                    fill:rgb(206, 117, 0);
+                }
+            }
+            h2 {
+                margin: 0;
+            }
+            
+        }
+    }
+
+// .form_1, .form_2 {
+//     /* background: lightblue; */
+//     width: fit-content;
+//     input[type="submit"] {
+        
+//     }
+// }
+
+
     
     
 }
@@ -142,16 +150,19 @@ form {
     z-index: 1;
     span {
         text-decoration: underline;
+        padding: 2px 5px;
         color: navy;
+        transition: $transition;
     }
     span:hover{
-        background-color: lightskyblue;
+        background-color: rgb(255, 255, 255);
+        
     }
         
 }
 
 
-@keyframes nadge {
+@keyframes shift {
     from{
         transform: translateX(-200px);
     }
@@ -161,7 +172,7 @@ form {
     }
 }
 
-@keyframes nadgeBack {
+@keyframes shiftBack {
     from{
         transform: translateX(-630px);
     }
@@ -174,21 +185,21 @@ form {
 @keyframes toVisible {
     from{
         opacity: 0;
-        visibility: hidden;
+        // visibility: hidden;
     }
     to{
         opacity: 1;
-        visibility: visible;
+        // visibility: visible;
     }
 }
 
 @keyframes toHidden {
     from{
         opacity: 1;
-        visibility: visible;
+        // visibility: visible;
     }
     to{
         opacity: 0;
-        visibility: hidden;
+        // visibility: hidden;
     }
 }

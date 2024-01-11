@@ -1,12 +1,14 @@
 <?php
 
+    require_once "../require/login_status_check.php";
     include "../include/input.php";
 
     $id=$_GET["id"];
     //echo $id;
 
     $dbh=db_open();
-    $sql="select * from words where words.id= :id";
+    $sql="select * from words where id= :id";
+    
     $stmt=$dbh->prepare($sql);
 
     $stmt->bindParam(":id", $id, PDO::PARAM_INT);
@@ -19,10 +21,13 @@
     }
     //var_dump($result);
 
-    $id=$result["id"];
+    // $id=$result["id"];
     $word=$result["word"];
     $meaning=$result["meaning"];
-    $category=$result["category"];
+    $categoryId=$result["categoryId"];
+
+    
+    
 
 ?>
 
@@ -32,7 +37,7 @@
 
     // document.querySelector('form').action="../include/dataUpdate.php"
     
-    document.querySelector('option[value="<?php echo $category ?>"]').selected=true
+    document.querySelector('option[value="<?php echo $categoryId ?>"]').selected=true
     
     document.querySelector('input[name="word"]').value="<?php echo $word;?>"
     console.log(document.querySelector('textarea').textContent)

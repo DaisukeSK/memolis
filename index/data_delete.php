@@ -47,12 +47,17 @@ try{
 
         $sql="delete from words where id in ".$ids;
         $dbh->query($sql);
+
+        
         
 
 
     
         // $stmt->bindParam(":id", $ids, PDO::PARAM_STR);
         // $stmt->execute();
+
+        categoryCheck($dbh, $_SESSION['userId']);
+
 
     
 

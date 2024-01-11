@@ -3,9 +3,13 @@ session_start();
 require_once "../require/login_status_check.php";
 require_once "../require/function.php";
 
-$dataCount=count($_SESSION["data"]);
+// $dataCount=count($_SESSION["data"]);
 
-if($dataCount<4){
+// echo $_SESSION["dataCount"]."<br/>";
+// echo $dataCount."<br/>";
+// exit;
+
+if($_SESSION["dataCount"]<4){
     echo '
     <script>
         alert("At least 4 pairs of data are required for practice mode.")
@@ -13,95 +17,124 @@ if($dataCount<4){
     </script>
     ';
     exit;
-}else{
-    echo '
-    <!DOCTYPE html>
-    <html lang="en">
-    <head>
-        <title>Practice</title>
-        <meta charset="utf-8">
-        <link href="../css/common.css" rel="stylesheet">
-        <link href="../css/practice_pre.css" rel="stylesheet">
-        <link href="../assets/svg/memolis.ico" rel="shortcut icon">
-        <link href="../assets/svg/memolis.ico" rel="icon">
-    </head>
-    <body>
-    ';
+}
 
-    include "../include/header.php";
+echo '
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Practice</title>
+    <meta charset="utf-8">
+    <link href="../css/common.css" rel="stylesheet">
+    <link href="../css/practice_pre.css" rel="stylesheet">
+    <link href="../assets/svg/memolis.ico" rel="shortcut icon">
+    <link href="../assets/svg/memolis.ico" rel="icon">
+</head>
+<body>
+';
 
-    $form=<<<EDO
-    <div class="container">
-        <form action="practice.php" method="post">
-            <h2>Let&apos;s Practice!!!</h2>
-            <div class="practiceConfig">
-                <section class="categorySection">
-                    <label class="title">Select Categories</label>
-                        <input type="checkbox" value="all" checked/>Select all<br/>
-    EDO;
+include "../include/header.php";
+
+$form=<<<EDO
+<div class="container">
+    <form action="practice.php" method="post">
+        <h2>Let&apos;s Practice!!!</h2>
+        <div class="practiceConfig">
+            <section class="categorySection">
+                <label class="title">Select Categories</label>
+                    <input type="checkbox" value="all" checked/>Select all<br/>
+EDO;
+
+echo $form;
+
+
+
+try{
+
+    $dbh=db_open();
+    $sql='select * from categories where userId=:userId';
+    $stmt=$dbh->prepare($sql);
+    $stmt->bindParam(':userId', $_SESSION["userId"], PDO::PARAM_INT);
+    $stmt->execute();
+
     
-    echo $form;
 
-    foreach($_SESSION["dataCategory"] as $value){
-        $count=0;
-        foreach($_SESSION["data"] as $value2){
-            if($value2[2]==$value){
-                $count++;
-            }
-        }
+    while($row=$stmt->fetch()):
+
+        $sql2='select * from words where userId=:userId and categoryId=:categoryId';
+        $stmt2=$dbh->prepare($sql2);
+        $stmt2->bindParam(':userId', $_SESSION['userId'], PDO::PARAM_INT);
+        $stmt2->bindParam(':categoryId', $row["id"], PDO::PARAM_INT);
+        $stmt2->execute();
+
+        $rowCount=$stmt2->rowCount();
+
         echo '
         <div class="divCategory">
-            <input class="num'.$count.'" type="checkbox" name="categories[]" value="'.$value.'" checked/><label>'.$value.' ('.$count.')</label>
+            <input class="num'.$rowCount.'" type="checkbox" name="categories[]" value="'.$row["id"].'" checked/><label>'.$row["category"].' ('.$row["id"].",".$rowCount.')</label>
         </div>
         ';
-    }
-    ?>
 
+
+    endwhile;
+
+
+    
+
+}catch(PDOException $e){
+    echo "Error: ".str2html($e->getMessage())."<br>";
+    exit;
+}
+
+
+
+?>
+
+</section>
+
+<div class="sectionFlex">
+
+    <section class="modeSection">
+        <label class="title">Select Mode</label>
+        <div class="divRadio">
+            <div class="flex">
+                <input type="radio" name="mode" value="1" checked/>&nbsp;
+                <label>Term&nbsp;</label>
+                <img src="../assets/svg/arrow.svg">
+                <label>&nbsp;Definition</label>
+            </div>
+            <div class="flex">
+                <input type="radio" name="mode" value="2"/>&nbsp;
+                <label>Definition&nbsp;</label>
+                <img src="../assets/svg/arrow.svg">
+                <label>&nbsp;Term</label>
+            </div>
+        </div>
     </section>
 
-    <div class="sectionFlex">
-
-        <section class="modeSection">
-            <label class="title">Select Mode</label>
-            <div class="divRadio">
-                <div class="flex">
-                    <input type="radio" name="mode" value="1" checked/>&nbsp;
-                    <label>Term&nbsp;</label>
-                    <img src="../assets/svg/arrow.svg">
-                    <label>&nbsp;Definition</label>
-                </div>
-                <div class="flex">
-                    <input type="radio" name="mode" value="2"/>&nbsp;
-                    <label>Definition&nbsp;</label>
-                    <img src="../assets/svg/arrow.svg">
-                    <label>&nbsp;Term</label>
-                </div>
-            </div>
-        </section>
-
-        <section class="qNumber">
-            <div class="qNumAlert" style="color:red; display:none">At least 4 data is required.</div>
-            <label class="title">
-                <span>Number of questions</span>
-                <span class="maxNum">&#91;1-<?php echo $dataCount;?>&#93;</span>
-            </label>
-            <div class="qNumberFlex">
-                <?php echo '<input name="num" type="range" min="1" max="'.$dataCount.'" value="'.$dataCount.'"/>'?>
-                <div class="showTotal"><?php echo $dataCount;?></div>
-            </div>
-        </section>
-        </div><!-- sectionFlex -->
-    </div><!-- practiceConfig -->
+    <section class="qNumber">
+        <div class="qNumAlert" style="color:red; display:none">At least 4 data is required.</div>
+        <label class="title">
+            <span>Number of questions</span>
+            <span class="maxNum">&#91;1-<?php echo $_SESSION["dataCount"];?>&#93;</span>
+        </label>
+        <div class="qNumberFlex">
+            <?php echo '<input name="num" type="range" min="1" max="'.$_SESSION["dataCount"].'" value="'.$_SESSION["dataCount"].'"/>'?>
+            <div class="showTotal"><?php echo $_SESSION["dataCount"];?></div>
+        </div>
+    </section>
+    </div><!-- sectionFlex -->
+</div><!-- practiceConfig -->
 
 <?php
 
-    }
-    echo '
-        <input type="submit" value="start"/>
-        </form>
+echo '
+    <input type="submit" value="start"/>
+    </form>
     </div><!-- container -->
-    ';
-    include "../include/footer.php";
+';
+include "../include/footer.php";
+
 ?>
 
 </body>
@@ -109,7 +142,7 @@ if($dataCount<4){
 <script src="../index/init.js"></script>
 <script type="text/javascript">
 
-    const totalNum=<?php echo $dataCount;?>;
+    const totalNum=<?php echo $_SESSION["dataCount"];?>;
     const allCategories=document.querySelector('input[value="all"][type="checkbox"]')
     const categories=document.querySelectorAll('input[name="categories[]"]')
     const divShowTotal=document.querySelector('div.showTotal')
