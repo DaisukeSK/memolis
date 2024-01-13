@@ -2,124 +2,75 @@
 
 $width:120px;
 $marginRight: 5px;
-
 $anchorBg:rgb(80, 80, 255);
+
 body {
     padding-bottom: 70px;
 }
 
 ul.dataList {
     list-style: none;
-    // width: fit-content;
-    // min-width: 800px;
-    // max-width: 90%;
     margin: 30px auto 0;
     padding: 0;
-
     width: 60%;
 
-
     li {
-        //min-width: 300px;
         display: flex;
         justify-content: space-between;
         margin: 4px 0;
         padding: 4px;
-        /* position: relative; */
-        // justify-content: space-between;
         .liRight {
             display: flex;
-            /* position: absolute;
-            top: 50%;
-            transform: translateY(-50%);
-            right: 0; */
-            
-            // min-width: 70px;
             padding: 3px;
-            //margin-right: 3px;
-            //margin-left: auto;
-        
             text-align: center;
             .liCategory, .liTime {
                 width: $width;
-                // display: block;
             }
             .liCategory {
-                
                 margin-right: $marginRight;
-                
             }
-    
-            
         }
-        
-         
-        
     }
 
-    
     .topLi {
-        //background: none;
         margin: 0;
         padding: 0;
-        //border: none;
-        //width: 100%;
-        //display: flex;
-        //justify-content: space-between;
         align-items: center;
         .search {
-            // margin: 0;
-            // padding: 0;
-            // border: none;
             display: flex;
             align-items: center;
             img {
                 width: 20px;
             }
-                input[type="text"]{
-                    margin-left: 5px;
-                    // background-color: aqua;
-                    
-                }
+            input[type="text"]{
+                margin-left: 5px;
             }
-            .add:hover {
-                //background-color: $anchorBg;
-                a {
-                    color: blue;
-                }
-                path {
-                    fill: blue;
-                }
+        }
+        .add:hover {
+            a {
+                color: blue;
             }
-        // .search:hover {
-        //     background-color: transparent;
-        // }
-        
-        
+            path {
+                fill: blue;
+            }
+        }
     }
 
-
     ////////////////// Caption //////////////////
-    //$liCaptionBG:rgb(109, 109, 109);
     $liCaptionBG:linear-gradient(rgb(126, 126, 126),rgb(56, 56, 56));
     .liCaption {
-        //justify-content: space-between;
         background:$liCaptionBG;
         position: relative;
-        //border: none;
-
         select {
             background-color: rgb(148, 148, 148);
             width: $width;
             color: white;
-            //border-bottom: 1px solid white;
             option {
                 background-color: rgb(56, 56, 56);
             }
         }
         select[name='category'] {
             margin-right: $marginRight;
-            
         }
         select[name='alphabetically'] {
             width: 200px;
@@ -134,10 +85,8 @@ ul.dataList {
             align-items: center;
             width: fit-content;
             height: 23px;
-            //background-color: rgba(168, 29, 29, 0.5);
 
             input[type="submit"] {
-                // padding: 2px;
                 width: 25px;
                 height: 100%;
                 background: url("../assets/svg/delete2.svg");
@@ -148,73 +97,34 @@ ul.dataList {
                 background-color: rgba(255, 255, 255, 0.8);
                 border-radius: 3px;
                 border: none;
-                
-                // img {
-                //     position: absolute;
-                //     top: 0;
-                //     left: 0;
-                //     height: 100%;
-                //     z-index: -1;
-                // }
 
             }
             .divSubmitRight {
                 margin-left: 10px;
-                //background-color: rgba(8, 141, 15, 0.5);
                 display: none;
                 color: rgb(231, 231, 231);
             }
-
         }
 
-        
         .liLeft {
-            //margin: 0 auto;
             display: flex;
             align-items: center;
             justify-content: center;
             padding: 0;
             margin: 0;
-            //border: none;
-            
         }
         .liRight {
             margin: 0;
-            .liCategory {
-                
-                
-            }
-        
         }
     }
-    ////////////////// Caption //////////////////
-
-
-
-
+    
     ////////////////// dataLi //////////////////
     
     .dataLi {
         background: $containerBg;
-        
-        //background: rgb(241, 239, 255);
-        // border: none;
-
-        
         .liCategory, .liTime {
-            
-            // background: rgba(116, 116, 255, 0.5);
-            //border-radius: 5px;
             background: rgb(212, 227, 255);
-            //border: 1px solid white;
             box-sizing: border-box;
-        }
-        .liTerm, .wordTemp {
-            
-            // background: rgb(117, 117, 255);
-            
-            
-            
         }
         mark {
             background-color: rgb(255, 145, 0);
@@ -228,23 +138,17 @@ ul.dataList {
                 display: flex;
                 align-items: center;
                 
-    
                 .editDeleteAnchor {//a
                     position: relative;
-    
                     margin-left: 10px;
-                    
-                    // overflow: visible;
                     .editDelete {
                         display:none;
-                        
                         position: absolute;
                         left: 0;
                         top: -50px;
                         path {
                             fill:grey;
                         }
-                        
                     }
                 }
 
@@ -254,29 +158,22 @@ ul.dataList {
                     }
                 }
 
-                
-                /* position: absolute; */
-                .liTerm, .wordTemp {
-
+                .liTerm, .termTemp {
                     border-radius: 5px;
                     background: linear-gradient(30deg,rgb(42, 189, 176),rgb(109, 109, 247)) ;
                     color: rgb(255, 255, 255);
-                
                     padding: 5px;
                     width: fit-content;
                     font-size: 1.2em;
                 }
             }
-            .liDefinition, .meaningTemp {
-                
-               //margin-right: 30px;
+            .liDefinition, .definitionTemp {
                overflow-wrap: anywhere;
                margin-right: 10px;
             }
         
         }
         .liRight {
-            
             margin-left: auto;
             min-width: 245px;
             
@@ -284,21 +181,14 @@ ul.dataList {
                 display: flex;
                 flex-direction: column;
                 justify-content: center;
-                
             }
     
             .liCategory {
                 display: flex;
                 justify-content: center;
-                // flex-wrap: wrap;
                 align-items: center;
-                
-                
             }
-    
         }
-
-        
     }
     .noHit {
         display: none;
@@ -310,7 +200,5 @@ ul.dataList {
         display: flex;
         justify-content: center;
         align-items: center;
-        
     }
-
 }

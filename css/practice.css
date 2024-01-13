@@ -12,7 +12,6 @@ body {
 
 .quizContainer {
   position: relative;
-  /*background-color: red;*/
   margin: 50px auto 0;
 }
 .quizContainer .bar {
@@ -46,7 +45,6 @@ body {
   left: 0;
   width: 100%;
   background-color: rgba(220, 20, 60, 0.671);
-  /*background-color: rgba(255, 255, 255, 0.8);*/
 }
 .quizContainer #next div {
   position: absolute;
@@ -72,8 +70,6 @@ body {
   position: relative;
   left: 50%;
   transform: translateX(-50%);
-  /* top:50px;
-  left:50px; */
   min-width: 600px;
   height: -moz-fit-content;
   height: fit-content;
@@ -136,8 +132,6 @@ body {
   position: relative;
   left: 50%;
   transform: translateX(-50%);
-  /* top:50px;
-  left:50px; */
   min-width: 600px;
   height: -moz-fit-content;
   height: fit-content;
@@ -155,7 +149,6 @@ body {
   width: 100%;
   height: 100%;
   z-index: 1;
-  /*background-color: rgba(255, 255, 255, 0.8);*/
 }
 .quizContainer .quiz_area .move2next div {
   position: absolute;
@@ -200,56 +193,7 @@ body {
   z-index: 0;
   width: 15px;
   margin-right: 10px;
-  /* position: absolute;
-  left: 50%;
-  transform: translateX(-50%); */
-  /*background-color: brown;*/
 }
 .quizContainer .quiz_area .options .option .optionFlex span {
   margin-right: 25px;
-}
-
-.link {
-  width: 310px; /*shouldbe the same as container's width*/
-  text-align: right;
-  margin: 0 auto;
-}
-
-/*
-#answer{
-    background-color: rgb(0, 102, 255);
-}*/
-/*
-.correct_or_wrong{
-    width: 200px;
-    height: 50px;
-    font-size: 35px;
-    margin:0 auto;
-    margin-top:60px;
-    text-align: center;
-}
-
-.next{
-    width: 200px;
-    height: 30px;
-    font-size: 20px;
-    text-decoration: underline;
-    margin:0 auto;
-    text-align: center;
-}*/
-/* #echo0 {
-    z-index: 10;
-}
-#echo1 {
-    z-index: 9;
-}
-#echo2 {
-    z-index: 8;
-}
-#echo3 {
-    z-index: 7;
-}
-
-#echo4 {
-    z-index: 6;
-} *//*# sourceMappingURL=practice.css.map */
+}/*# sourceMappingURL=practice.css.map */

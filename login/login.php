@@ -26,7 +26,7 @@
             <h2>Sign In</h2>
             <div class="container">
                 <label>User name</label>
-                <input type="text" name="username" placeholder=" Enter your username." required>
+                <input type="text" name="userName" placeholder=" Enter your user name." required>
                 <label>Password</label>
                 <input type="password" name="password" placeholder=" Enter your password." required>
                 <input type="submit" value="Sign In">
@@ -43,7 +43,7 @@
             </div>
             <div class="container">
                 <label>User name</label>
-                <input type="text" name="username" placeholder=" Enter your username." required>
+                <input type="text" name="userName" placeholder=" Enter your user name." required>
                 <label>Password</label>
                 <input type="password" name="password1" placeholder=" Enter your password." required>
                 <label>Password (Confirm)</label>
@@ -56,8 +56,9 @@
 
     <p class="newAccountP">Don't have an account yet? <span class="createNewAccount">Sign Up.</span></p>
 
+    <script src='../public/jquery-3.7.1.min.js'></script>
+    <script src='https://code.jquery.com/jquery-3.7.1.min.js'></script>
     <script src="./switchForm.js"></script>
-    <script src="../index/init.js"></script>
 
     <?php include "../include/footer.php"; ?>
 

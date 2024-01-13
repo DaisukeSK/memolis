@@ -1,29 +1,36 @@
-const radiosForCategory=document.querySelectorAll('input[type="radio"][name="select_add"]');
+const select=$('input[type="radio"][value="select"]')
+const add=$('input[type="radio"][value="add"]')
 
-
-const selectCategoryDisable=(target,a)=>{
-    target.parentNode.style.outline= a? "none":"2px solid lightblue";
-    target.parentNode.querySelector("select").disabled= a? true:false;
-    target.nextElementSibling.style.color= a? "grey":"black";
-}
-const newCategoryDisable=(target,a)=>{
-    target.parentNode.style.outline= a? "none":"2px solid lightblue";
-    target.parentNode.querySelector('input[type="text"]').disabled= a? true:false;
-    target.parentNode.querySelector('input[type="text"]').value=""
-    target.parentNode.querySelector('input[type="text"]').placeholder= a? "":" Type a new category."
-    target.nextElementSibling.style.color= a? "grey":"black";
+const selectDisable=(target,a)=>{
+    target.parent().css('outline', a? 'none':'2px solid lightblue')
+    target.siblings('select').attr('disabled',a)
+    target.next().css('color',a? 'grey':'black')
 }
 
-
-
-radiosForCategory[0].oninput=(e)=>{
-    selectCategoryDisable(e.target,false)
-    newCategoryDisable(radiosForCategory[1],true)
-}
-radiosForCategory[1].oninput=(e)=>{
-    selectCategoryDisable(radiosForCategory[0],true)
-    newCategoryDisable(e.target,false)
+const addDisable=(target,a)=>{
+    target.parent().css('outline', a? 'none':'2px solid lightblue')
+    target.siblings('label').css('color',a? 'grey':'black')
+    target.siblings('input').attr('disabled',a)
+    target.siblings('input').attr('placeholder',a? '':' Type a new category.')
+    target.siblings('input').val('')
 }
 
+select.on('input',()=>{
+    selectDisable(select,false)
+    addDisable(add,true)
+})
 
-newCategoryDisable(radiosForCategory[1],true)
+add.on('input',()=>{
+    selectDisable(select,true)
+    addDisable(add,false)
+})
+
+if(!$('select[name="category"]').children().length){
+    select.css('pointerEvents','none')
+    add.attr('checked',true)
+    selectDisable(select,true)
+    addDisable(add,false)
+}else{
+    selectDisable(select,false)
+    addDisable(add,true)
+}

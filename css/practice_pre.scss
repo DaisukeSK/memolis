@@ -1,44 +1,21 @@
 @charset "UTF-8";
-//@import "../css/variables.scss";
 
 .container {
     text-align: center;
     width: fit-content;
-    /* padding: 15px; */
-    //border: 1px solid grey;
-    /* border-radius: 5px;
-    box-shadow: 3px 3px 6px grey; */
-    //background-color: rgb(220, 240, 255);
-    /*background-color: red;*/
-    //margin: 0 auto;
-    // padding: 15px;
-
-
 
     .practiceConfig {
         width: 80%;
         margin: 0 auto;
     }
     
-    //margin: 30px auto 0;
-
-
-
     form {
-
-        
-        
         .title {
-            // text-decoration: underline;
-            //margin-top: 15px;
-            // color: white;
-
             white-space: nowrap;
             position: absolute;
             top: -25px;
             left: 50%;
             transform: translateX(-50%);
-            // background: linear-gradient(45deg, rgba(0, 0, 255, 0.5), rgba(0, 0, 128, 0.5));
             border-radius: 5px;
             width: fit-content;
             padding: 3px 15px;
@@ -46,17 +23,12 @@
             margin: 0 auto;
         }
         .modeSection, .categorySection, .qNumber {
-
             position: relative;
             border-radius: 7px;
             background-color: rgb(202, 219, 252);
-           
-            // background: linear-gradient(45deg, rgba(69, 60, 197, 0.5),rgba(11, 193, 206, 0.5))
-            
         }
 
         .categorySection {
-            // width: fit-content;
             max-width: 650px;
             padding: 10px;
             margin: 40px auto;
@@ -64,25 +36,19 @@
                 display: inline-block;
                 border: 1px rgb(227, 234, 255) solid;
                 border: 1px rgba(133, 133, 133, 0.8) solid;
-                // background-color: rgb(150, 185, 255);
                 padding: 3px;
                 margin: 2px;
             }
         }
         
-        // .divRadio {
-        //     margin-bottom: 15px;
-        // }
         .sectionFlex {
             display: flex;
             justify-content: space-between;
             margin: 50px auto 20px;
             .modeSection, .qNumber {
-
                 margin: 0;
                 padding: 10px;
                 width: 350px;
-                
             }
             .qNumber{
                 display: flex;
@@ -95,8 +61,8 @@
                     margin: 0 auto;
                 }
             }
-            .modeSection {
 
+            .modeSection {
                 .divRadio {
                     .flex {
                         display: flex;
@@ -106,7 +72,6 @@
                         }
                     }
                 }
-                
             }
         }
 
@@ -115,7 +80,6 @@
             width: fit-content;
             margin: 0 auto;
         }
-
     }
 }
 

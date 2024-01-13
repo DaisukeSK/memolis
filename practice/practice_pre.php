@@ -3,12 +3,6 @@ session_start();
 require_once "../require/login_status_check.php";
 require_once "../require/function.php";
 
-// $dataCount=count($_SESSION["data"]);
-
-// echo $_SESSION["dataCount"]."<br/>";
-// echo $dataCount."<br/>";
-// exit;
-
 if($_SESSION["dataCount"]<4){
     echo '
     <script>
@@ -20,17 +14,17 @@ if($_SESSION["dataCount"]<4){
 }
 
 echo '
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <title>Practice</title>
-    <meta charset="utf-8">
-    <link href="../css/common.css" rel="stylesheet">
-    <link href="../css/practice_pre.css" rel="stylesheet">
-    <link href="../assets/svg/memolis.ico" rel="shortcut icon">
-    <link href="../assets/svg/memolis.ico" rel="icon">
-</head>
-<body>
+    <!DOCTYPE html>
+    <html lang="en">
+    <head>
+        <title>Practice</title>
+        <meta charset="utf-8">
+        <link href="../css/common.css" rel="stylesheet">
+        <link href="../css/practice_pre.css" rel="stylesheet">
+        <link href="../assets/svg/memolis.ico" rel="shortcut icon">
+        <link href="../assets/svg/memolis.ico" rel="icon">
+    </head>
+    <body>
 ';
 
 include "../include/header.php";
@@ -47,17 +41,12 @@ EDO;
 
 echo $form;
 
-
-
 try{
-
     $dbh=db_open();
     $sql='select * from categories where userId=:userId';
     $stmt=$dbh->prepare($sql);
     $stmt->bindParam(':userId', $_SESSION["userId"], PDO::PARAM_INT);
     $stmt->execute();
-
-    
 
     while($row=$stmt->fetch()):
 
@@ -71,23 +60,15 @@ try{
 
         echo '
         <div class="divCategory">
-            <input class="num'.$rowCount.'" type="checkbox" name="categories[]" value="'.$row["id"].'" checked/><label>'.$row["category"].' ('.$row["id"].",".$rowCount.')</label>
+            <input class="num'.$rowCount.'" type="checkbox" name="categories[]" value="'.$row["id"].'" checked/><label>'.$row["category"].' ('.$rowCount.')</label>
         </div>
         ';
-
-
     endwhile;
-
-
-    
 
 }catch(PDOException $e){
     echo "Error: ".str2html($e->getMessage())."<br>";
     exit;
 }
-
-
-
 ?>
 
 </section>
@@ -113,7 +94,7 @@ try{
     </section>
 
     <section class="qNumber">
-        <div class="qNumAlert" style="color:red; display:none">At least 4 data is required.</div>
+        <div class="alert" style="color:red; display:none">At least 4 data is required.</div>
         <label class="title">
             <span>Number of questions</span>
             <span class="maxNum">&#91;1-<?php echo $_SESSION["dataCount"];?>&#93;</span>
@@ -127,88 +108,91 @@ try{
 </div><!-- practiceConfig -->
 
 <?php
-
 echo '
     <input type="submit" value="start"/>
     </form>
     </div><!-- container -->
 ';
 include "../include/footer.php";
-
 ?>
 
 </body>
 
-<script src="../index/init.js"></script>
+<script src='../public/jquery-3.7.1.min.js'></script>
+<script src='https://code.jquery.com/jquery-3.7.1.min.js'></script>
 <script type="text/javascript">
 
-    const totalNum=<?php echo $_SESSION["dataCount"];?>;
-    const allCategories=document.querySelector('input[value="all"][type="checkbox"]')
-    const categories=document.querySelectorAll('input[name="categories[]"]')
-    const divShowTotal=document.querySelector('div.showTotal')
-    const inputShowTotal=document.querySelector('input[name="num"][type="range"]')
-    const maxNum=document.querySelector('span.maxNum')
-    const qNumAlert=document.querySelector('.qNumAlert')
-    const submitButton=document.querySelector('input[type="submit"]')
+    const totalNum =  <?php echo $_SESSION["dataCount"];?>;
+    const allCategories = $('input[value="all"][type="checkbox"]')
+    const categories = $('input[name="categories[]"]')
+    const totalInput = $('input[name="num"][type="range"]')
+    const totalDiv = $('div.showTotal')
+    const maxNum = $('span.maxNum')
+    const alert = $('.alert')
+    const submitBtn = $('input[type="submit"]')
 
-    categories.forEach(val=>{
-        val.onchange=(e)=>{
-            !e.target.checked && (allCategories.checked=false)
+    categories.each(function(){
+
+        $(this).on('change',()=>{
+
+            !$(this).is(':checked') && (allCategories.prop('checked',false))
             let total=0;
-            categories.forEach(val=>{
-                if(val.checked){
-                    console.log(+val.classList[0].split("num")[1])
-                    total+=+val.classList[0].split("num")[1]
-                }
+
+            categories.each(function(){
+                $(this).is(':checked') && (total+=+$(this).attr('class').split("num")[1])
             })
-            divShowTotal.textContent=total;
-            maxNum.textContent=total==0?'[0]':total==1?'[1]':'[1-'+total+']';
-            inputShowTotal.max=total
-            inputShowTotal.value=total;
+
+            totalDiv.text(total);
+            maxNum.text(total==0?'[0]':total==1?'[1]':'[1-'+total+']');
+            totalInput.attr('max',total)
+            totalInput.val(total)
 
             if(total<4){
-                qNumAlert.style.display="block"
-                inputShowTotal.disabled=true
-                submitButton.disabled=true
+                alert.css('display','block')
+                totalInput.attr('disabled',true)
+                submitBtn.attr('disabled',true)
             }else{
-                inputShowTotal.disabled=false
-                submitButton.disabled=false
-                qNumAlert.style.display="none"
+                totalInput.attr('disabled',false)
+                submitBtn.attr('disabled',false)
+                alert.css('display','none')
             }
+        })
+    })
+
+    allCategories.on('input',()=>{
+
+        if(allCategories.is(':checked')){
+            totalInput.attr('disabled',false)
+            submitBtn.attr('disabled',false)
+            totalDiv.text(totalNum);
+            maxNum.text('[1-'+totalNum+']');
+            totalInput.attr('max',totalNum)
+            totalInput.val(totalNum)
+            alert.css('display','none')
+
+            categories.each(function(){
+                $(this).prop('checked',true)
+            })
+
+        }else{
+            totalDiv.text(0);
+            maxNum.text('[0]');
+            alert.css('display','block')
+            totalInput.attr('disabled',true)
+            submitBtn.attr('disabled',true)
+
+            categories.each(function(){
+                $(this).prop('checked',false)
+            })
         }
     })
 
-    allCategories.onchange=(e)=>{
-        if(e.target.checked){
-            inputShowTotal.disabled=false
-            submitButton.disabled=false
-            divShowTotal.textContent=totalNum;
-            maxNum.textContent='[1-'+totalNum+']';
-            inputShowTotal.max=totalNum
-            inputShowTotal.value=totalNum;
-            qNumAlert.style.display="none"
+    totalInput.on('input',()=>{
+        totalDiv.text(totalInput.val());
+    })
 
-            categories.forEach(val=>{
-                val.checked=true;
-            })
-        }else{
-            divShowTotal.textContent=0;
-            maxNum.textContent='[0]';
-            qNumAlert.style.display="block"
-            inputShowTotal.disabled=true
-            submitButton.disabled=true
-
-            categories.forEach(val=>{
-                val.checked=false;
-            })
-        }
-    }
-
-    inputShowTotal.onchange=(e)=>{
-        divShowTotal.textContent=e.target.value;
-    }
-    inputShowTotal.oninput=(e)=>{
-        divShowTotal.textContent=e.target.value;
-    }
+    totalInput.on('change',()=>{
+        totalDiv.text(totalInput.val());
+    })
 
 </script>

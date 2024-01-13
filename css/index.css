@@ -13,14 +13,9 @@ ul.dataList li {
   justify-content: space-between;
   margin: 4px 0;
   padding: 4px;
-  /* position: relative; */
 }
 ul.dataList li .liRight {
   display: flex;
-  /* position: absolute;
-  top: 50%;
-  transform: translateY(-50%);
-  right: 0; */
   padding: 3px;
   text-align: center;
 }
@@ -126,7 +121,6 @@ ul.dataList .dataLi .liLeft {
 ul.dataList .dataLi .liLeft .liLeftTop {
   display: flex;
   align-items: center;
-  /* position: absolute; */
 }
 ul.dataList .dataLi .liLeft .liLeftTop .editDeleteAnchor {
   position: relative;
@@ -144,7 +138,7 @@ ul.dataList .dataLi .liLeft .liLeftTop .editDeleteAnchor .editDelete path {
 ul.dataList .dataLi .liLeft .liLeftTop a:hover svg {
   fill: blue;
 }
-ul.dataList .dataLi .liLeft .liLeftTop .liTerm, ul.dataList .dataLi .liLeft .liLeftTop .wordTemp {
+ul.dataList .dataLi .liLeft .liLeftTop .liTerm, ul.dataList .dataLi .liLeft .liLeftTop .termTemp {
   border-radius: 5px;
   background: linear-gradient(30deg, rgb(42, 189, 176), rgb(109, 109, 247));
   color: rgb(255, 255, 255);
@@ -153,7 +147,7 @@ ul.dataList .dataLi .liLeft .liLeftTop .liTerm, ul.dataList .dataLi .liLeft .liL
   width: fit-content;
   font-size: 1.2em;
 }
-ul.dataList .dataLi .liLeft .liDefinition, ul.dataList .dataLi .liLeft .meaningTemp {
+ul.dataList .dataLi .liLeft .liDefinition, ul.dataList .dataLi .liLeft .definitionTemp {
   overflow-wrap: anywhere;
   margin-right: 10px;
 }

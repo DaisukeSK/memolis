@@ -11,12 +11,10 @@
     <meta charset="utf-8">
     <link href="../css/common.css" rel="stylesheet">
     <link href="../css/index.css" rel="stylesheet">
-    <script src="../index/init.js"></script>
 </head>
 
 <body>
     <?php include "../include/header.php"; ?>
-    <!-- <h2></h2> -->
 
     <div
         style="
@@ -29,8 +27,11 @@
     </div>
 
     <!---------------- Form ---------------->
-    <form action="data_delete.php" method="get" onsubmit='return confirm("Are you sure that you want to delete data?")'><!-- This form is for multiple data deletion -->
-        
+    <form
+        action="data_delete.php"
+        method="get"
+        onsubmit='return confirm("Are you sure that you want to delete data?")'
+    ><!-- This form is for multiple data deletion -->
     
         <ul class="dataList">
             
@@ -44,53 +45,35 @@
                     <a href='../include/input.php'>Add Data</a>
                 </div>
             </li>
-        
-        
 
             <?php
                 try{
                     $dbh=db_open();
 
-                    $sql='select word, meaning, category, date, time, words.id from words inner join categories on words.categoryId=categories.id where words.userId=:userId order by second DESC';
-
+                    $sql='select term, definition, category, date, words.id from words inner join categories on words.categoryId=categories.id where words.userId=:userId order by date DESC';
                     $stmt=$dbh->prepare($sql);
                     $stmt->bindParam(':userId', $_SESSION["userId"], PDO::PARAM_INT);
                     $stmt->execute();
 
                     $_SESSION["dataCount"]=$stmt->rowCount();
-
-                    // $i=0;
-
-                    // $_SESSION["data"]=[];
                     $_SESSION["categories"]=[];
+
                     while($row=$stmt->fetch()):
 
-                        
-                        
-                        // exit;
-                        
-                        // $_SESSION["data"][$i]=[str2html($row["word"]),str2html($row["meaning"]),str2html($row["category"])];
-
+                        $dateStr=explode('/',$row['date']);
                         if(!in_array(str2html($row["category"]),$_SESSION["categories"])){
-
                             array_push($_SESSION["categories"],str2html($row["category"]));
                         }
-                    // $i++;
             ?>
-
-
-
 
             <li class="dataLi">
                 <div class="hiddenId" id="<?php echo $row["id"];?>"></div><!-- Necessary?? -->
                 <input type="checkbox" name="id[]" value="<?php echo (int) $row["id"];?>"/>
 
                 <div class="liLeft">
-                    
                     <div class="liLeftTop">
-
                         <div class="liTerm">
-                            <b><?php echo $row["word"];?></b>
+                            <b><?php echo $row["term"];?></b>
                         </div>
 
                         <a class="editDeleteAnchor" href="../edit/edit.php?id=<?php echo (int) $row["id"];?>">
@@ -108,33 +91,48 @@
                                 <text x="12" y="20" fill="white">Delete</text>
                             </svg>
                         </a>
+
                     </div><!-- liLeftTop -->
 
-                    <div class="liDefinition"><?php echo $row["meaning"];?></div>
+                    <div class="liDefinition"><?php echo $row["definition"];?></div>
                 </div><!-- liLeft -->
 
                 <div class="liRight">
                     <div class="liCategory"><?php echo $row["category"];?></div>
-
                     <div class="liTime">
-                        <div class="date"><?php echo $row["date"];?></div>
-                        <div class="time"><?php echo $row["time"];?></div>
+
+                        <div class="date">
+                            <?php echo $dateStr[0].'/'.$dateStr[1].'/'.$dateStr[2];?>
+                        </div>
+
+                        <div class="time">
+                            <?php
+                                switch(true){
+                                    case $dateStr[3]==0:
+                                        echo '12:'.$dateStr[4].' am';
+                                        break;
+                                    case $dateStr[3]<12:
+                                        echo $dateStr[3].':'.$dateStr[4].' am';
+                                        break;
+                                    case $dateStr[3]==12:
+                                        echo '12:'.$dateStr[4].' pm';
+                                        break;
+                                    default:
+                                        $t=$dateStr[3]-12;
+                                        echo $t.':'.$dateStr[4].' pm';
+                                }
+                            ?>
+                        </div>
                     </div>
                 </div>
-
             </li>
             <?php endwhile; ?>
 
-
-
             <li class="liCaption">
-
                 <input type="checkbox" name="delete" value="all"/>
 
                 <div class="divSubmit">
-                    <!-- <div class="divSubmitLeft"> -->
-                        <input type="submit" name="multipleDeletion" value=""/>
-                    <!-- </div> -->
+                    <input type="submit" name="multipleDeletion" value=""/>
                     <div class="divSubmitRight">Delete selected data</div>
                 </div>
 
@@ -147,40 +145,27 @@
                 </div>
 
                 <div class="liRight">
-                    <!-- <div class="liCategory"> -->
-                        <select name="category">
-                            <option value="Category">Category</option>
+                    <select name="category">
+                        <option value="Category">Category</option>
 
-                            <?php
-                                foreach($_SESSION["categories"] as $value){
-                            ?>
+                        <?php foreach($_SESSION["categories"] as $value){ ?>
                             <option value="<?php echo $value;?>"><?php echo $value;?></option>
+                        <?php };?>
                             
-                            
-                            <?php };?>
-                                
-                        </select>
+                    </select>
 
-                    <!-- </div> -->
-                    <!-- <div> -->
-                        <select name="lastUpdated">
-                            <option value="default">Last updated</option>
-                            <option value="new">Sort New</option>
-                            <option value="old">Sort Old</option>
-                    
-                        </select>
-                    <!-- </div> -->
+                    <select name="lastUpdated">
+                        <option value="default">Last updated</option>
+                        <option value="new">Sort New</option>
+                        <option value="old">Sort Old</option>
+                    </select>
                 </div>
             </li>
-
-
 
             <li class="noHit">No result found...</li>
 
         </ul>
     </form>
-
-
 
     <?php
         }catch(PDOException $e){
@@ -190,9 +175,6 @@
     ?>
 
     <script src="./index.js"></script>
-
-    
-
     <?php include "../include/footer.php"; ?>
 </body>
 </html>

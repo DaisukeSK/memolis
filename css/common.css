@@ -49,7 +49,6 @@ select {
 a {
   text-decoration: none;
   color: black;
-  /*background-color: aqua;*/
 }
 
 header {
@@ -168,11 +167,8 @@ header .hedearRight .help:hover {
 .container {
   padding: 15px;
   border: 1px solid rgb(118, 147, 241);
-  /* border-radius: 5px;
-  box-shadow: 3px 3px 6px grey; */
   background-color: rgb(220, 240, 255);
   background-color: rgba(255, 255, 255, 0.9);
-  /*background-color: red;*/
   margin: 30px auto 0;
   box-sizing: border-box;
 }

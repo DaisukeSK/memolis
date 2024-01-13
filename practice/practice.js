@@ -23,8 +23,6 @@ $("#echo0").removeClass("hidden");
 let current=0;
 let correct=0;
 
-
-
 $(".quiz_area .option").on("click", function(){
 
     let match=false;
@@ -48,8 +46,6 @@ $(".quiz_area .option").on("click", function(){
     });
 });
 
-
-
 $(".move2next").on("click", function(){
     current+=1;
 
@@ -60,8 +56,6 @@ $(".move2next").on("click", function(){
 
     current==length && showResult();
 });
-
-
 
 function showResult(){
 
@@ -83,7 +77,7 @@ function showResult(){
 
         let inserted1 = mode==1?
             `<div class="resultDiv">${match}&nbsp;<u>${i+1}. What does <b>${qArray[i]}</b> mean?</u></div>`:
-            `<div class="resultDiv">${match}&nbsp;<u>${i+1}. Which word means <b>${qArray[i]}</b>?</u></div>`;
+            `<div class="resultDiv">${match}&nbsp;<u>${i+1}. Which term means <b>${qArray[i]}</b>?</u></div>`;
 
         let inserted=`
             <div class="resultGrid" style="background-color:${bgColor}; border:${bdColor}">

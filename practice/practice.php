@@ -16,17 +16,14 @@ foreach($categories as $key=>$value){
     $str.=",".$value;
 }
 
-// echo "str".$str."<br/><br/>";
-
-
 try{
     $dbh=db_open();
     $sql='select * from words where userId="'.$_SESSION["userId"].'" and categoryId in ('.$str.')';
     $statement=$dbh->query($sql);
     $count=$statement->rowCount();
 
-    while($word=$statement->fetch()):
-        array_push($quizData, $word);
+    while($term=$statement->fetch()):
+        array_push($quizData, $term);
     endwhile;
 
 }catch(PDOException $e){
@@ -34,30 +31,24 @@ try{
     exit;
 }
 
-// foreach($quizData as $value){
-//     echo $value["word"].", ".$value["meaning"]."<br/>";
-// }
-
-// exit;
-
 shuffle($quizData);
 
 for($i=0; $i<$count; $i++){
     if($mode==1){
-    $words[$i]=str2html($quizData[$i]["word"]);
-    $meanings0[$i]=str2html($quizData[$i]["meaning"]);
-    $meanings1[$i][0]=str2html($quizData[$i]["meaning"]);
+    $words[$i]=str2html($quizData[$i]["term"]);
+    $meanings0[$i]=str2html($quizData[$i]["definition"]);
+    $meanings1[$i][0]=str2html($quizData[$i]["definition"]);
     }else{
-    $words[$i]=str2html($quizData[$i]["meaning"]);
-    $meanings0[$i]=str2html($quizData[$i]["word"]);
-    $meanings1[$i][0]=str2html($quizData[$i]["word"]);
+    $words[$i]=str2html($quizData[$i]["definition"]);
+    $meanings0[$i]=str2html($quizData[$i]["term"]);
+    $meanings1[$i][0]=str2html($quizData[$i]["term"]);
     }
     $rand=array_rand($quizData,4);
     for($j=0; $j<=3; $j++){
         if($mode==1){
-        $meanings1[$i][$j+1]=str2html($quizData[$rand[$j]]["meaning"]);
+        $meanings1[$i][$j+1]=str2html($quizData[$rand[$j]]["definition"]);
         }else{
-        $meanings1[$i][$j+1]=str2html($quizData[$rand[$j]]["word"]);
+        $meanings1[$i][$j+1]=str2html($quizData[$rand[$j]]["term"]);
         }
     }
     for($k=1; $k<=3; $k++){
@@ -70,7 +61,6 @@ for($i=0; $i<$count; $i++){
     array_splice($meanings1[$i], 4, 1);
     shuffle($meanings1[$i]);
 }
-
 ?>
 
 <!doctype html>
@@ -80,7 +70,6 @@ for($i=0; $i<$count; $i++){
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <title>Practice</title>
-    
     <link href="../css/common.css" rel="stylesheet">
     <link href="../css/practice.css" rel="stylesheet">
     <link href="../assets/svg/memolis.ico" rel="shortcut icon">
@@ -98,7 +87,6 @@ for($i=0; $i<$count; $i++){
         <div class="bar">
             <div class="pageNum"></div>
         </div>
-
 <?php
 
 for($i=0; $i<=$qNum-1; $i+=1){
@@ -117,7 +105,6 @@ for($i=0; $i<=$qNum-1; $i+=1){
         <p>Which term means <b>'.str2html($words[$i]).'</b>?</p>
     ';
     }
-
     echo '<div class="options">';
 
     for($j=0; $j<=3; $j+=1){
@@ -145,7 +132,9 @@ for($i=0; $i<=$qNum-1; $i+=1){
 }
 ?>
 </div>
-<script src="../index/init.js"></script>
+
+<script src='../public/jquery-3.7.1.min.js'></script>
+<script src='https://code.jquery.com/jquery-3.7.1.min.js'></script>
 <script>
     
     let mode=<?php echo $mode;?>;
@@ -162,7 +151,7 @@ for($i=0; $i<=$qNum-1; $i+=1){
     <?php } ?>
 
 </script>
-<script src="../public/jquery-3.7.1.min.js"></script>
+
 <script src="practice.js"></script>
 <?php include "../include/footer.php"; ?>
 </body>
