@@ -16,15 +16,17 @@
 <body>
     <?php include "../include/header.php"; ?>
 
-    <div
+    <!-- <div
         style="
         position:absolute;
         top:70px;
         left:0;
         "
     >
-        <?php echo "ID:".$_SESSION["userId"]; ?>
-    </div>
+        <?php
+        // echo "ID:".$_SESSION["userId"];
+        ?>
+    </div> -->
 
     <!---------------- Form ---------------->
     <form

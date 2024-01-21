@@ -17,6 +17,8 @@ body {
   font-family: "Cambria";
   font-family: "Lucida Bright";
   font-family: "Helvetica";
+  font-family: "Helvetica";
+  font-family: Helvetica, "Times New Roman", Times, Arial, serif;
 }
 
 input[type=submit] {
