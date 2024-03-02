@@ -3,7 +3,7 @@
       "api/**/*.php": { "runtime": "vercel-php@0.6.0" }
     },
     "routes": [
-      { "src": "../require/function.php", "dest": "/api/require/function.php" },
+      { "src": "/function", "dest": "/api/require/function.php" },
       { "src": "/test", "dest": "/api/folder/test.php" },
       { "src": "/test2", "dest": "/api/folder/test2.php" },
 
