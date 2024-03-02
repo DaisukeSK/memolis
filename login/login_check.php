@@ -8,6 +8,7 @@ $_SESSION["token"]=bin2hex(random_bytes(20));//used where??
 
 try{
     $dbh=db_open();
+    
     $sql="select * from users where userName=:userName";
     $stmt=$dbh->prepare($sql);
     $stmt->bindParam(":userName", $_SESSION["userName"], pdo::PARAM_STR);
