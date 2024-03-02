@@ -6,8 +6,8 @@
       { "src": "/test", "dest": "/api/folder/test.php" },
       { "src": "/test2", "dest": "/api/folder/test2.php" },
 
-      { "src": "../css/login.css", "dest": "/api/css/login.css" },
-      { "src": "../css/common.css", "dest": "/api/css/common.css" },
+      { "src": "/login.css", "dest": "/api/css/login.css" },
+      { "src": "/common.css", "dest": "/api/css/common.css" },
       { "src": "/(.*)", "dest": "/api/login/login.php" }
   ]
   }
