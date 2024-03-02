@@ -8,6 +8,9 @@
 
       { "src": "/loginCss", "dest": "/api/css/login.css" },
       { "src": "/commonCss", "dest": "/api/css/common.css" },
+
+      { "src": "/login_check", "dest": "/api/login/login_check.php" },
+
       { "src": "/(.*)", "dest": "/api/login/login.php" }
   ]
   }

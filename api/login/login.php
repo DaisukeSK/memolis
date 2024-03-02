@@ -22,7 +22,7 @@
 
     <div class="formFlex">
 
-        <form class="form_1" action="login_check.php" method="post">
+        <form class="form_1" action="login_check" method="post">
             <h2>Sign In</h2>
             <div class="container">
                 <label>User name</label>
