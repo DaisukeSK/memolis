@@ -60,7 +60,7 @@
     <script src='https://code.jquery.com/jquery-3.7.1.min.js'></script>
     <script src="./switchForm.js"></script>
 
-    <?php include "/footer"; ?>
+    <?php include "/footer.php"; ?>
 
 </body>
 </html>
