@@ -1,0 +1,177 @@
+body {
+  padding-bottom: 70px;
+}
+
+ul.dataList {
+  list-style: none;
+  margin: 30px auto 0;
+  padding: 0;
+  width: 60%;
+}
+ul.dataList li {
+  display: flex;
+  justify-content: space-between;
+  margin: 4px 0;
+  padding: 4px;
+}
+ul.dataList li .liRight {
+  display: flex;
+  padding: 3px;
+  text-align: center;
+}
+ul.dataList li .liRight .liCategory, ul.dataList li .liRight .liTime {
+  width: 120px;
+}
+ul.dataList li .liRight .liCategory {
+  margin-right: 5px;
+}
+ul.dataList .topLi {
+  margin: 0;
+  padding: 0;
+  align-items: center;
+}
+ul.dataList .topLi .search {
+  display: flex;
+  align-items: center;
+}
+ul.dataList .topLi .search img {
+  width: 20px;
+}
+ul.dataList .topLi .search input[type=text] {
+  margin-left: 5px;
+}
+ul.dataList .topLi .add:hover a {
+  color: blue;
+}
+ul.dataList .topLi .add:hover path {
+  fill: blue;
+}
+ul.dataList .liCaption {
+  background: linear-gradient(rgb(126, 126, 126), rgb(56, 56, 56));
+  position: relative;
+}
+ul.dataList .liCaption select {
+  background-color: rgb(148, 148, 148);
+  width: 120px;
+  color: white;
+}
+ul.dataList .liCaption select option {
+  background-color: rgb(56, 56, 56);
+}
+ul.dataList .liCaption select[name=category] {
+  margin-right: 5px;
+}
+ul.dataList .liCaption select[name=alphabetically] {
+  width: 200px;
+}
+ul.dataList .liCaption .divSubmit {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  left: 30px;
+  display: none;
+  align-items: center;
+  width: -moz-fit-content;
+  width: fit-content;
+  height: 23px;
+}
+ul.dataList .liCaption .divSubmit input[type=submit] {
+  width: 25px;
+  height: 100%;
+  background: url("../assets/svg/delete2.svg");
+  background-size: 70%;
+  background-repeat: no-repeat;
+  background-position-x: center;
+  background-position-y: center;
+  background-color: rgba(255, 255, 255, 0.8);
+  border-radius: 3px;
+  border: none;
+}
+ul.dataList .liCaption .divSubmit .divSubmitRight {
+  margin-left: 10px;
+  display: none;
+  color: rgb(231, 231, 231);
+}
+ul.dataList .liCaption .liLeft {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0;
+  margin: 0;
+}
+ul.dataList .liCaption .liRight {
+  margin: 0;
+}
+ul.dataList .dataLi {
+  background: rgba(255, 255, 255, 0.9);
+}
+ul.dataList .dataLi .liCategory, ul.dataList .dataLi .liTime {
+  background: rgb(212, 227, 255);
+  box-sizing: border-box;
+}
+ul.dataList .dataLi mark {
+  background-color: rgb(255, 145, 0);
+  color: rgb(255, 255, 255);
+}
+ul.dataList .dataLi .liLeft {
+  padding-left: 5px;
+  margin-left: 5px;
+  border-left: 1px dotted black;
+}
+ul.dataList .dataLi .liLeft .liLeftTop {
+  display: flex;
+  align-items: center;
+}
+ul.dataList .dataLi .liLeft .liLeftTop .editDeleteAnchor {
+  position: relative;
+  margin-left: 10px;
+}
+ul.dataList .dataLi .liLeft .liLeftTop .editDeleteAnchor .editDelete {
+  display: none;
+  position: absolute;
+  left: 0;
+  top: -50px;
+}
+ul.dataList .dataLi .liLeft .liLeftTop .editDeleteAnchor .editDelete path {
+  fill: grey;
+}
+ul.dataList .dataLi .liLeft .liLeftTop a:hover svg {
+  fill: blue;
+}
+ul.dataList .dataLi .liLeft .liLeftTop .liTerm, ul.dataList .dataLi .liLeft .liLeftTop .termTemp {
+  border-radius: 5px;
+  background: linear-gradient(30deg, rgb(42, 189, 176), rgb(109, 109, 247));
+  color: rgb(255, 255, 255);
+  padding: 5px;
+  width: -moz-fit-content;
+  width: fit-content;
+  font-size: 1.2em;
+}
+ul.dataList .dataLi .liLeft .liDefinition, ul.dataList .dataLi .liLeft .definitionTemp {
+  overflow-wrap: anywhere;
+  margin-right: 10px;
+}
+ul.dataList .dataLi .liRight {
+  margin-left: auto;
+  min-width: 245px;
+}
+ul.dataList .dataLi .liRight .liTime {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+ul.dataList .dataLi .liRight .liCategory {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+ul.dataList .noHit {
+  display: none;
+  text-align: center;
+}
+ul.dataList .noData {
+  height: 100px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}/*# sourceMappingURL=index.css.map */

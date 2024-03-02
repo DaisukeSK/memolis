@@ -1,0 +1,30 @@
+.container {
+  width: 40%;
+}
+.container form input, .container form label {
+  display: block;
+}
+.container form textarea, .container form input[type=text] {
+  width: 100%;
+  box-sizing: border-box;
+}
+.container form label, .container form .inputFlex, .container form input[type=submit] {
+  margin-top: 20px;
+}
+.container form .inputFlex {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.container form .inputFlex .flexChild {
+  width: 42%;
+  min-width: 170px;
+  padding: 5px;
+  border-radius: 5px;
+}
+.container form .inputFlex .flexChild select {
+  width: 100%;
+}
+.container form .inputFlex .flexChild input[type=radio], .container form .inputFlex .flexChild label {
+  display: inline;
+}/*# sourceMappingURL=input.css.map */

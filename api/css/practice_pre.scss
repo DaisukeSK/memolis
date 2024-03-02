@@ -1,0 +1,88 @@
+@charset "UTF-8";
+
+.container {
+    text-align: center;
+    width: fit-content;
+
+    .practiceConfig {
+        width: 80%;
+        margin: 0 auto;
+    }
+    
+    form {
+        .title {
+            white-space: nowrap;
+            position: absolute;
+            top: -25px;
+            left: 50%;
+            transform: translateX(-50%);
+            border-radius: 5px;
+            width: fit-content;
+            padding: 3px 15px;
+            display: block;
+            margin: 0 auto;
+        }
+        .modeSection, .categorySection, .qNumber {
+            position: relative;
+            border-radius: 7px;
+            background-color: rgb(202, 219, 252);
+        }
+
+        .categorySection {
+            max-width: 650px;
+            padding: 10px;
+            margin: 40px auto;
+            .divCategory {
+                display: inline-block;
+                border: 1px rgb(227, 234, 255) solid;
+                border: 1px rgba(133, 133, 133, 0.8) solid;
+                padding: 3px;
+                margin: 2px;
+            }
+        }
+        
+        .sectionFlex {
+            display: flex;
+            justify-content: space-between;
+            margin: 50px auto 20px;
+            .modeSection, .qNumber {
+                margin: 0;
+                padding: 10px;
+                width: 350px;
+            }
+            .qNumber{
+                display: flex;
+                flex-direction: column;
+                justify-content: center;
+                margin-left: 20px;
+                .qNumberFlex {
+                    display: flex;
+                    width: fit-content;
+                    margin: 0 auto;
+                }
+            }
+
+            .modeSection {
+                .divRadio {
+                    .flex {
+                        display: flex;
+                        justify-content: center;
+                        img {
+                            width: 20px;
+                        }
+                    }
+                }
+            }
+        }
+
+        input[type="submit"] {
+            display: block;
+            width: fit-content;
+            margin: 0 auto;
+        }
+    }
+}
+
+h2 {
+    margin-bottom: 0;
+}
