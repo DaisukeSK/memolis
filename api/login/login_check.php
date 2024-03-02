@@ -1,6 +1,33 @@
 <?php
 session_start();
-require_once "../require/function.php";
+// require_once "../require/function.php";
+
+function db_open(){
+    // $host='localhost';
+    // $dbname='sample_db';
+    // $user="root";
+    // $password="";
+    // $opt=[
+    //     PDO::ATTR_ERRMODE=>PDO::ERRMODE_EXCEPTION,
+    //     PDO::ATTR_EMULATE_PREPARES=>false,
+    //     PDO::MYSQL_ATTR_MULTI_STATEMENTS=>false,
+    // ];
+    // $dbh=new PDO("mysql:host=".$host.";dbname=".$dbname."", $user,$password,$opt);
+    // return $dbh;
+
+
+    $host='sql3.freesqldatabase.com';
+    $dbname='sql3673292';
+    $user="sql3673292";
+    $password="6IXqJTVStm";
+    $opt=[
+        PDO::ATTR_ERRMODE=>PDO::ERRMODE_EXCEPTION,
+        PDO::ATTR_EMULATE_PREPARES=>false,
+        PDO::MYSQL_ATTR_MULTI_STATEMENTS=>false,
+    ];
+    $dbh=new PDO("mysql:host=".$host.";dbname=".$dbname."", $user,$password,$opt);
+    return $dbh;
+}
 
 $_SESSION["userName"]=str2html($_POST["userName"]);
 $_SESSION["password"]=str2html($_POST["password"]);
