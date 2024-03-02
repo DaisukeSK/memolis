@@ -11,8 +11,8 @@
 <html lang="en">
 <head>
     <meta charset="utf-8">
-    <link href="/commonCss" rel="stylesheet">
-    <link href="/loginCss" rel="stylesheet">
+    <link href="../css/common.css" rel="stylesheet">
+    <link href="../css/login.css" rel="stylesheet">
     <link href="../assets/svg/memolis.ico" rel="shortcut icon">
     <link href="../assets/svg/memolis.ico" rel="icon">
 </head>
