@@ -10,7 +10,7 @@
       { "src": "/commonCss", "dest": "/api/css/common.css" },
 
       { "src": "/login_check", "dest": "/api/login/login_check.php" },
-      { "src": "/function", "dest": "/api/require/function.php" },
+      { "src": "../require/function.php", "dest": "/api/require/function.php" },
 
       { "src": "/(.*)", "dest": "/api/login/login.php" }
   ]
