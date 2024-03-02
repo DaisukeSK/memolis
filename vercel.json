@@ -3,6 +3,7 @@
       "api/**/*.php": { "runtime": "vercel-php@0.6.0" }
     },
     "routes": [
+      { "src": "/require/function.php", "dest": "/api/require/function.php" },
       { "src": "/test", "dest": "/api/folder/test.php" },
       { "src": "/test2", "dest": "/api/folder/test2.php" },
 
@@ -10,7 +11,6 @@
       { "src": "/commonCss", "dest": "/api/css/common.css" },
 
       { "src": "/login_check", "dest": "/api/login/login_check.php" },
-      { "src": "../require/function\\.php\\", "dest": "/api/require/function.php" },
 
       { "src": "/(.*)", "dest": "/api/login/login.php" }
   ]

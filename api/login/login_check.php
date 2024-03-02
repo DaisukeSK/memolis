@@ -1,6 +1,6 @@
 <?php
 session_start();
-require_once "../require/function.php";
+require_once "/require/function.php";
 
 $_SESSION["userName"]=str2html($_POST["userName"]);
 $_SESSION["password"]=str2html($_POST["password"]);
