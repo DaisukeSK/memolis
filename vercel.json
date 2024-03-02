@@ -4,11 +4,12 @@
     },
     "routes": [
       
-      { "src": "/css/login.css", "dest": "/css/login.css" },
-      { "src": "/css/common.css", "dest": "/css/common.css" },
       
       { "src": "/login_check", "dest": "/api/login/login_check.php" },
       { "src": "/function", "dest": "/api/require/function.php" },
+      
+      { "src": "/css/login.css", "dest": "/css/login.css" },
+      { "src": "/css/common.css", "dest": "/css/common.css" },
 
       { "src": "/(.*)", "dest": "/api/login/login.php" }
   ]
