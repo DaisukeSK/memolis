@@ -5,7 +5,7 @@
     "routes": [
       
       
-      { "src": "/footer", "dest": "/api/include/footer.php" },
+      { "src": "/footer.php", "dest": "/api/login/footer.php" },
       { "src": "/login_check", "dest": "/api/login/login_check.php" },
       { "src": "/function", "dest": "/api/require/function.php" },
 
