@@ -80,13 +80,15 @@
     anchors.each(function(){
         if(location.href.includes($(this).attr('href').split('../')[1])){
             $(this).css('pointerEvents','none')
-            $(this).css('background','linear-gradient(transparent, #FF008A)')
+            // $(this).css('background','linear-gradient(transparent, #FF008A)')
+            $(this).css('background','#ffffff55')
         }
     })
 
     if(location.href.includes('practice')){
         p.css('pointerEvents','none')
-        p.css('background','linear-gradient(transparent, #FF008A)')
+        // p.css('background','linear-gradient(transparent, #FF008A)')
+        p.css('background','#ffffff55')
     }
 
     $('.help svg').on('click', ()=>{

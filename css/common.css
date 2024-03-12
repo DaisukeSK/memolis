@@ -95,7 +95,8 @@ header .hedearRight a {
   display: flex;
   align-items: center;
   color: white;
-  padding: 2px 5px;
+  padding: 5px 10px 2px;
+  border-radius: 7px 7px 0 0;
 }
 header .hedearRight a svg {
   margin-right: 5px;
@@ -171,7 +172,6 @@ header .hedearRight .help:hover {
   border: 1px solid rgb(118, 147, 241);
   background-color: rgb(220, 240, 255);
   background-color: rgba(255, 255, 255, 0.9);
-  margin: 30px auto 0;
   box-sizing: border-box;
 }
 

@@ -1,12 +1,16 @@
 $transition:all .5s ease-in-out;
 body{
     overflow: hidden;
-    padding: 0;
-    padding-top: 10px;
+    // padding: 0;
+    // padding-top: 10px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    // align-items: center;
 }
 
 img.logo {
-    margin: 5px auto 10px;
+    margin: -20px auto 10px;
     display: block;
     width: 400px;
 }
@@ -22,7 +26,7 @@ img.logo {
         .container {
             width: 400px;// If changed width, also change animation props and js code at the bottom of login.php
             padding: 15px 80px;
-            margin: 0;
+            // margin: 0;
             
             label, input {
                 display: block;

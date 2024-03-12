@@ -1,7 +1,9 @@
 .container {
   text-align: center;
-  width: -moz-fit-content;
-  width: fit-content;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
 }
 .container .practiceConfig {
   width: 80%;

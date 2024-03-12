@@ -1,11 +1,12 @@
 body {
   overflow: hidden;
-  padding: 0;
-  padding-top: 10px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
 }
 
 img.logo {
-  margin: 5px auto 10px;
+  margin: -20px auto 10px;
   display: block;
   width: 400px;
 }
@@ -21,7 +22,6 @@ img.logo {
 .formFlex form .container {
   width: 400px;
   padding: 15px 80px;
-  margin: 0;
 }
 .formFlex form .container label, .formFlex form .container input {
   display: block;
