@@ -9,7 +9,7 @@
       
       
       { "src": "/(.*)", "dest": "/api/login/login.php" },
-      { "src": "/css/common.css", "dest": "/css/common.css" },
+      { "src": "../../css/common.css", "dest": "../../css/common.css" },
       { "src": "../../css/login.css", "dest": "../../css/login.css" }
 
   ]
