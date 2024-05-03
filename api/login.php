@@ -19,7 +19,7 @@
 
 <body>
     <div class="testDiv">ahaha</div>
-    <img class="logo" src="../assets/svg/memolis4.svg"/>
+    <!-- <img class="logo" src="../assets/svg/memolis4.svg"/>
 
     <div class="formFlex">
 
@@ -59,7 +59,7 @@
 
     <script src='../public/jquery-3.7.1.min.js'></script>
     <script src='https://code.jquery.com/jquery-3.7.1.min.js'></script>
-    <script src="./switchForm.js"></script>
+    <script src="./switchForm.js"></script> -->
 
     <?php include "/footer"; ?>
 
