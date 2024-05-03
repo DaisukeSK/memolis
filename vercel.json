@@ -1,16 +1,11 @@
 {
-    "functions": {
-      "api/**/*.php": { "runtime": "vercel-php@0.6.0" }
-    },
-    "routes": [
-      
-      
-      
-      
-      
-      
-      { "src": "/css/login.css", "dest": "/css/login.css" },
-
-      { "src": "/(.*)", "dest": "/api/login.php" }
-  ]
-  }
+  "functions": {
+    "api/**/*.php": { "runtime": "vercel-php@0.6.0" }
+  },
+  "routes": [
+    { "src": "/test", "dest": "/api/folder/test.php" },
+    { "src": "/test2", "dest": "/api/folder/test2.php" },
+    { "src": "/css/index.css", "dest": "/css/index.css" },
+    { "src": "/(.*)", "dest": "/api/index.php" }
+]
+}
