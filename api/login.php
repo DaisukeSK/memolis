@@ -11,14 +11,15 @@
 <html lang="en">
 <head>
     <meta charset="utf-8">
-    <link href="../css/common.css" rel="stylesheet">
-    <link href="../css/login.css" rel="stylesheet">
+    <link href="/css/common.css" rel="stylesheet">
+    <link href="/css/login.css" rel="stylesheet">
     <link href="../assets/svg/memolis.ico" rel="shortcut icon">
     <link href="../assets/svg/memolis.ico" rel="icon">
 </head>
 
 <body>
-    <img class="logo" src="../assets/svg/memolis4.svg"/>
+    <div class="testDiv">ahaha</div>
+    <!-- <img class="logo" src="../assets/svg/memolis4.svg"/>
 
     <div class="formFlex">
 
@@ -58,7 +59,7 @@
 
     <script src='../public/jquery-3.7.1.min.js'></script>
     <script src='https://code.jquery.com/jquery-3.7.1.min.js'></script>
-    <script src="./switchForm.js"></script>
+    <script src="./switchForm.js"></script> -->
 
     <?php include "/footer"; ?>
 
