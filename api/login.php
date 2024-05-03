@@ -1,20 +1,13 @@
-<?php
-    session_start();
-    if(isset($_SESSION["loggedIn"]) && $_SESSION["loggedIn"]==true){
-        //Need both conditions avobe, it shows error in login page otherwise.
-        header("location:../index/index.php");
-        exit;
-    }
-?>
+
 
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="utf-8">
-    <link href="/css/common.css" rel="stylesheet">
+    <!-- <link href="/css/common.css" rel="stylesheet"> -->
     <link href="/css/login.css" rel="stylesheet">
-    <link href="../assets/svg/memolis.ico" rel="shortcut icon">
-    <link href="../assets/svg/memolis.ico" rel="icon">
+    <!-- <link href="../assets/svg/memolis.ico" rel="shortcut icon">
+    <link href="../assets/svg/memolis.ico" rel="icon"> -->
 </head>
 
 <body>
@@ -61,14 +54,6 @@
     <script src='https://code.jquery.com/jquery-3.7.1.min.js'></script>
     <script src="./switchForm.js"></script> -->
 
-    <?php include "/footer"; ?>
 
 </body>
 </html>
-
-<?php
-    if(isset($_SESSION["failed"]) && $_SESSION["failed"]==true){
-        echo '<script src="new_account_failed.js"></script>';
-        $_SESSION["failed"]=false;
-    }
-?>
