@@ -138,7 +138,8 @@ header {
 
     .window {
         position: sticky;
-        top: 80px;
+        top: 50%;
+        transform: translateY(-50%);
         margin: 0 auto;
         padding: 10px 50px 20px;
         width: 65%;
