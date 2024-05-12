@@ -137,10 +137,11 @@ header {
     z-index: 2;
 
     .window {
-        position: sticky;
+        position: fixed;
         top: 50%;
-        transform: translateY(-50%);
-        margin: 0 auto;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        // margin: 0 auto;
         padding: 10px 50px 20px;
         width: 65%;
         background-color: rgba(140, 172, 235, 0.7);
