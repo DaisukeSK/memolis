@@ -4,7 +4,6 @@ require_once "../require/function.php";
 
 $_SESSION["userName"]=str2html($_POST["userName"]);
 $_SESSION["password"]=str2html($_POST["password"]);
-$_SESSION["token"]=bin2hex(random_bytes(20));//used where??
 
 try{
     $dbh=db_open();
@@ -25,13 +24,12 @@ try{
         ';
         exit;
     }
-
-    $_SESSION["userId"]=$result["id"];
-
-    $aa=password_verify($_SESSION["password"], $result["password"]);
-    if($aa){
+    
+    if(password_verify($_SESSION["password"], $result["password"])){
         session_regenerate_id(true);
         $_SESSION["loggedIn"]=true;
+        $_SESSION["userId"]=$result["id"];
+        $_SESSION["token"]=bin2hex(random_bytes(20));
         header("location:../index/index.php");
     }else{
         echo '

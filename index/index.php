@@ -30,6 +30,9 @@
         ?>
     </div> -->
 
+    <!-- <div>token:<?php //echo $_SESSION['token'] ?></div>
+    <div>token_signUp:<?php //echo $_SESSION['token_signUp'] ?></div> -->
+
     <!---------------- Form ---------------->
     <form
         action="data_delete.php"

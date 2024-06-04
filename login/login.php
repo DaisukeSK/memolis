@@ -5,6 +5,7 @@
         header("location:../index/index.php");
         exit;
     }
+    $_SESSION["token_signUp"]=bin2hex(random_bytes(20));
 ?>
 
 <!DOCTYPE html>
@@ -19,6 +20,8 @@
 
 <body>
     <img class="logo" src="../assets/svg/memolis4.svg"/>
+
+    <!-- <div><?php //echo $_SESSION["token_signUp"]?></div> -->
 
     <div class="formFlex">
 
@@ -43,6 +46,7 @@
             </div>
             <div class="container">
                 <label>User name</label>
+                <input type='hidden' value=<?php echo $_SESSION["token_signUp"];?> name='token_signUp'>
                 <input type="text" name="userName" placeholder=" Enter your user name." required>
                 <label>Password</label>
                 <input type="password" name="password1" placeholder=" Enter your password." required>
