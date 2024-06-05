@@ -6,7 +6,6 @@ $token_signUp=$_POST["token_signUp"];
 $userName=str2entity($_POST["userName"]);
 $password1=str2entity($_POST["password1"]);
 $password2=str2entity($_POST["password2"]);
-$password=password_hash($password1, PASSWORD_DEFAULT);
 
 $date=getTime();
 
@@ -27,6 +26,8 @@ $password1==$userName && signUpFailed('Use different user name and password.');
 $token_signUp!==$_SESSION['token_signUp'] && signUpFailed('Invalid access.');
 
 if($token_signUp===$_SESSION['token_signUp']){
+    
+    $password=password_hash(salt($password1), PASSWORD_DEFAULT);
 
     try{
         $dbh=db_open();

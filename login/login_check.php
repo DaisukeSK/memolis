@@ -3,7 +3,7 @@ session_start();
 require_once "../require/function.php";
 
 $_SESSION["userName"]=str2entity($_POST["userName"]);
-$_SESSION["password"]=str2entity($_POST["password"]);
+$password=str2entity($_POST["password"]);
 
 try{
     $dbh=db_open();
@@ -25,7 +25,7 @@ try{
         exit;
     }
     
-    if(password_verify($_SESSION["password"], $result["password"])){
+    if(password_verify(salt($password), $result["password"])){
         session_regenerate_id(true);
         $_SESSION["loggedIn"]=true;
         $_SESSION["userId"]=$result["id"];

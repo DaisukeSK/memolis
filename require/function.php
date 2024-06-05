@@ -6,6 +6,10 @@ function str2entity(string $str):string{
     return htmlspecialchars($str,ENT_QUOTES,"utf-8");
 }
 
+function salt(string $str):string{
+    return $str[strlen($str)-2].$str.$str[2];
+}
+
 function db_open(){
 
     $host=DBdata()[0];
