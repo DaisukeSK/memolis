@@ -2,8 +2,8 @@
 session_start();
 require_once "../require/function.php";
 
-$_SESSION["userName"]=str2html($_POST["userName"]);
-$_SESSION["password"]=str2html($_POST["password"]);
+$_SESSION["userName"]=str2entity($_POST["userName"]);
+$_SESSION["password"]=str2entity($_POST["password"]);
 
 try{
     $dbh=db_open();
@@ -41,6 +41,6 @@ try{
     }
 
 }catch(PDOException $e){
-    echo "ERROR : ".str2html($e->getMessage());
+    echo "ERROR : ".$e->getMessage();
     exit;
 }

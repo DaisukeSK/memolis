@@ -27,7 +27,7 @@ try{
     endwhile;
 
 }catch(PDOException $e){
-    echo "Error: ".str2html($e->getMessage())."<br>";
+    echo "Error: ".$e->getMessage()."<br>";
     exit;
 }
 
@@ -35,20 +35,20 @@ shuffle($quizData);
 
 for($i=0; $i<$count; $i++){
     if($mode==1){
-    $words[$i]=str2html($quizData[$i]["term"]);
-    $meanings0[$i]=str2html($quizData[$i]["definition"]);
-    $meanings1[$i][0]=str2html($quizData[$i]["definition"]);
+    $words[$i]=$quizData[$i]["term"];
+    $meanings0[$i]=$quizData[$i]["definition"];
+    $meanings1[$i][0]=$quizData[$i]["definition"];
     }else{
-    $words[$i]=str2html($quizData[$i]["definition"]);
-    $meanings0[$i]=str2html($quizData[$i]["term"]);
-    $meanings1[$i][0]=str2html($quizData[$i]["term"]);
+    $words[$i]=$quizData[$i]["definition"];
+    $meanings0[$i]=$quizData[$i]["term"];
+    $meanings1[$i][0]=$quizData[$i]["term"];
     }
     $rand=array_rand($quizData,4);
     for($j=0; $j<=3; $j++){
         if($mode==1){
-        $meanings1[$i][$j+1]=str2html($quizData[$rand[$j]]["definition"]);
+        $meanings1[$i][$j+1]=$quizData[$rand[$j]]["definition"];
         }else{
-        $meanings1[$i][$j+1]=str2html($quizData[$rand[$j]]["term"]);
+        $meanings1[$i][$j+1]=$quizData[$rand[$j]]["term"];
         }
     }
     for($k=1; $k<=3; $k++){
@@ -98,11 +98,11 @@ for($i=0; $i<=$qNum-1; $i+=1){
     ';
     if($mode==1){
     echo '
-        <p>What does <b>'.str2html($words[$i]).'</b> mean?</p>
+        <p>What does <b>'.$words[$i].'</b> mean?</p>
     ';
     }else{
     echo '
-        <p>Which term means <b>'.str2html($words[$i]).'</b>?</p>
+        <p>Which term means <b>'.$words[$i].'</b>?</p>
     ';
     }
     echo '<div class="options">';
@@ -113,7 +113,7 @@ for($i=0; $i<=$qNum-1; $i+=1){
                 <div class="answer option">
                     <div class="optionFlex">
                         <img class="check invisible" src="../assets/svg/check.svg"/>
-                        <span>'.str2html($meanings1[$i][$j]).'</span>
+                        <span>'.$meanings1[$i][$j].'</span>
                     </div>
                 </div>
             ';
@@ -122,7 +122,7 @@ for($i=0; $i<=$qNum-1; $i+=1){
                 <div class="option">
                     <div class="optionFlex">
                         <img class="cross invisible" src="../assets/svg/x.svg"/>
-                        <span>'.str2html($meanings1[$i][$j]).'</span>
+                        <span>'.$meanings1[$i][$j].'</span>
                     </div>
                 </div>
             ';

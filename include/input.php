@@ -56,7 +56,7 @@
                                 endwhile;
 
                             }catch(PDOException $e){
-                                echo "Error: ".str2html($e->getMessage())."<br>";
+                                echo "Error: ".$e->getMessage()."<br>";
                                 exit;
                             }
                         ?>

@@ -2,7 +2,7 @@
 
 include_once "../ignore.php";
 
-function str2html(string $str):string{
+function str2entity(string $str):string{
     return htmlspecialchars($str,ENT_QUOTES,"utf-8");
 }
 

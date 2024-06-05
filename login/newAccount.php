@@ -3,9 +3,9 @@ session_start();
 require_once "../require/function.php";
 
 $token_signUp=$_POST["token_signUp"];
-$userName=str2html($_POST["userName"]);
-$password1=str2html($_POST["password1"]);
-$password2=str2html($_POST["password2"]);
+$userName=str2entity($_POST["userName"]);
+$password1=str2entity($_POST["password1"]);
+$password2=str2entity($_POST["password2"]);
 $password=password_hash($password1, PASSWORD_DEFAULT);
 
 $date=getTime();
@@ -85,7 +85,7 @@ if($token_signUp===$_SESSION['token_signUp']){
         ';
     
     }catch(PDOException $e){
-        echo "Error: ".str2html($e->getMessage())."<br>";
+        echo "Error: ".$e->getMessage()."<br>";
         exit;
     }
 }

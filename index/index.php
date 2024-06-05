@@ -59,8 +59,8 @@
                     while($row=$stmt->fetch()):
 
                         $dateStr=explode('/',$row['date']);
-                        if(!in_array(str2html($row["category"]),$_SESSION["categories"])){
-                            array_push($_SESSION["categories"],str2html($row["category"]));
+                        if(!in_array($row["category"],$_SESSION["categories"])){
+                            array_push($_SESSION["categories"],$row["category"]);
                         }
             ?>
 
@@ -171,7 +171,7 @@
 
     <?php
         }catch(PDOException $e){
-            echo "Error: ".str2html($e->getMessage())."<br>";
+            echo "Error: ".$e->getMessage()."<br>";
             exit;
         }
     ?>

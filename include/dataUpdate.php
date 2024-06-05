@@ -13,11 +13,11 @@ if($_POST['token']!==$_SESSION['token']){
         $id=$_POST["id"];
     };
 
-    $term=str2html($_POST["term"]);
-    $definition=str2html($_POST["definition"]);
+    $term=str2entity($_POST["term"]);
+    $definition=str2entity($_POST["definition"]);
     
     if(isset($_POST["newCategory"]) && $_POST["select_add"]=="add"){
-        $newCategory=str2html($_POST["newCategory"]);
+        $newCategory=str2entity($_POST["newCategory"]);
     
         if($newCategory=="Category"){
             echo '<script>alert("You cannot use that category name.")</script>';
@@ -41,7 +41,7 @@ if($_POST['token']!==$_SESSION['token']){
             }
         }
     }else if(isset($_POST["category"]) && isset($_POST["newCategory"])==false){
-        $category=str2html($_POST["category"]);
+        $category=$_POST["category"];
     }
     
     
@@ -132,7 +132,7 @@ if($_POST['token']!==$_SESSION['token']){
         echo '<script>location.href="../index/index.php"</script>';
         
     }catch(PDOException $e){
-        echo "Error: ".str2html($e->getMessage())."<br>";
+        echo "Error: ".$e->getMessage()."<br>";
         exit;
     }
 }
