@@ -18,20 +18,9 @@
 <body>
     <?php include "../include/header.php"; ?>
 
-    <!-- <div
-        style="
-        position:absolute;
-        top:70px;
-        left:0;
-        "
-    >
-        <?php
-        // echo "ID:".$_SESSION["userId"];
-        ?>
-    </div> -->
-
-    <!-- <div>token:<?php //echo $_SESSION['token'] ?></div>
-    <div>token_signUp:<?php //echo $_SESSION['token_signUp'] ?></div> -->
+    <!-- <div>ID: <?php //echo $_SESSION["userId"]; ?></div>
+    <div>token: <?php //echo $_SESSION['token']; ?></div>
+    <div>token_signUp: <?php //echo $_SESSION['token_signUp']; ?></div> -->
 
     <!---------------- Form ---------------->
     <form
@@ -39,6 +28,8 @@
         method="get"
         onsubmit='return confirm("Are you sure that you want to delete data?")'
     ><!-- This form is for multiple data deletion -->
+
+        <input type='hidden' name='token' value='<?php echo (string) $_SESSION['token']; ?>'>
     
         <ul class="dataList">
             
@@ -91,7 +82,11 @@
                             </svg>
                         </a>
 
-                        <a class="editDeleteAnchor" href="data_delete.php?id=<?php echo (int) $row["id"];?>" onclick='return confirm("Are you sure that you want to delete data?")'>
+                        <a
+                            class="editDeleteAnchor"
+                            href="data_delete.php?id=<?php echo (int) $row["id"];?>&token=<?php echo (string) $_SESSION['token'];?>"
+                            onclick='return confirm("Are you sure that you want to delete data?")'
+                        >
                             <?php include "../assets/svgConversion/delete2.html"; ?>
                             <svg class="editDelete" height="40" width="70">
                                 <path d="M0 3 L 3 0 L67 0 L 70 3 L70 27 L67 30 L20 30 L10 40 L10 30 L3 30 L0 27 Z"></path>

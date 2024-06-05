@@ -63,7 +63,7 @@
             <?php include "../assets/svgConversion/logout.html";?>
             Log Out
         </a>
-        <a href='../index/account_delete.php' onclick='return confirm("Are you sure that you want to delete account?")'>
+        <a href='../index/account_delete.php?token=<?php echo $_SESSION['token']; ?>' onclick='return confirm("Are you sure that you want to delete account?")'>
             <?php include "../assets/svgConversion/delete3.html";?>
             Delete account
         </a>

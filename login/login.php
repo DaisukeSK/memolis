@@ -46,7 +46,7 @@
             </div>
             <div class="container">
                 <label>User name</label>
-                <input type='hidden' value=<?php echo $_SESSION["token_signUp"];?> name='token_signUp'>
+                <input type='hidden' value='<?php echo $_SESSION["token_signUp"];?>' name='token_signUp'>
                 <input type="text" name="userName" placeholder=" Enter your user name." required>
                 <label>Password</label>
                 <input type="password" name="password1" placeholder=" Enter your password." required>

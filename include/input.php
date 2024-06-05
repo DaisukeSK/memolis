@@ -23,6 +23,7 @@
         <form method="post" action="../include/dataUpdate.php">
 
             <input type="hidden" name="id"/>
+            <input type='hidden' name='token' value='<?php echo $_SESSION['token']; ?>'/>
 
             <label><b>Term</b></label>
             <input type="text" name="term" placeholder=" Type a term." required/>
