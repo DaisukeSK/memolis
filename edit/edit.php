@@ -13,9 +13,9 @@
 
     $result=$stmt->fetch(PDO::FETCH_ASSOC);
 
-    $term=$result["term"];
-    $definition=$result["definition"];
-    $categoryId=$result["categoryId"];
+    $term=htmlspecialchars_decode($result['term'],ENT_QUOTES);
+    $definition=htmlspecialchars_decode($result['definition'],ENT_QUOTES);
+    $categoryId=$result['categoryId'];
 ?>
 
 <script src='../public/jquery-3.7.1.min.js'></script>
