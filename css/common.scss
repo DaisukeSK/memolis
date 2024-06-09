@@ -184,7 +184,7 @@ header {
 
 .container {
     padding: 15px;
-    border: $containerBorder;
+    outline: $containerBorder;
     background-color: rgb(220, 240, 255);
     background-color: $containerBg;
     // margin: 30px auto 0;

@@ -1,91 +1,75 @@
 body {
   overflow: hidden;
+  padding: 0;
+  margin: 0;
   display: flex;
   flex-direction: column;
   justify-content: center;
 }
 
-.testDiv {
-  color: red;
-  background-color: aqua;
-}
-
 img.logo {
-  margin: -20px auto 10px;
-  display: block;
-  width: 400px;
+  margin: 0 auto;
+  width: 30%;
 }
 
-.formFlex {
+section {
+  position: relative;
+  height: 300px;
+}
+section .form1, section .form2 {
+  width: 300px;
+  height: 100%;
+  position: absolute;
+  top: 0;
+  transform: translateX(-50%);
+  left: 50%;
+}
+section .form1 form, section .form2 form {
   display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+section .form1 form input, section .form2 form input {
+  margin: 10px 0;
+}
+section .form1 form input[type=submit], section .form2 form input[type=submit] {
   width: -moz-fit-content;
   width: fit-content;
-  position: relative;
-  left: 50%;
-  transform: translateX(-200px);
-}
-.formFlex form .container {
-  width: 400px;
-  padding: 15px 80px;
-}
-.formFlex form .container label, .formFlex form .container input {
-  display: block;
-  margin: 0;
-  padding: 0;
-  width: 100%;
-}
-.formFlex form .container label {
-  margin-top: 20px;
-}
-.formFlex form .container input[type=submit] {
-  margin: 30px auto 0;
-  width: 100px;
+  margin: 10px auto;
   background: linear-gradient(45deg, rgb(43, 174, 255), lightblue);
   border: none;
   color: white;
   font-size: 1em;
-  padding: 10px;
+  padding: 10px 20px;
   border-radius: 17px;
 }
-.formFlex form .container input[type=submit]:hover {
+section .form1 form input[type=submit]:hover, section .form2 form input[type=submit]:hover {
   background: linear-gradient(45deg, rgb(10, 128, 202), rgb(101, 195, 226));
 }
-.formFlex .form_1 h2 {
-  margin-bottom: 5px;
+section .form1 h2 {
   text-align: center;
 }
-.formFlex .form_2 {
+section .form2 {
+  pointer-events: none;
   opacity: 0;
-  margin-left: 30px;
 }
-.formFlex .form_2 .flex {
+section .form2 .flex {
   display: flex;
-  align-items: center;
   justify-content: center;
-  margin-bottom: 5px;
+  align-items: center;
 }
-.formFlex .form_2 .flex svg {
+section .form2 .flex svg {
   margin-right: 20px;
   fill: rgb(85, 85, 85);
   transition: all 0.5s ease-in-out;
 }
-.formFlex .form_2 .flex svg:hover {
+section .form2 .flex svg:hover {
   fill: rgb(206, 117, 0);
-}
-.formFlex .form_2 .flex h2 {
-  margin: 0;
-}
-
-.form_1, .form_2, .formFlex, .newAccountP {
-  animation-duration: 0.7s;
-  animation-timing-function: ease-in-out;
-  animation-fill-mode: both;
 }
 
 .newAccountP {
-  position: relative;
   text-align: center;
-  margin-top: -10px;
+  margin: -20px 0 50px;
   z-index: 1;
 }
 .newAccountP span {
@@ -98,35 +82,11 @@ img.logo {
   background-color: rgb(255, 255, 255);
 }
 
-@keyframes shift {
-  from {
-    transform: translateX(-200px);
+@media only screen and (max-width: 700px) {
+  img.logo {
+    width: 80%;
   }
-  to {
-    transform: translateX(-630px);
-  }
-}
-@keyframes shiftBack {
-  from {
-    transform: translateX(-630px);
-  }
-  to {
-    transform: translateX(-200px);
-  }
-}
-@keyframes toVisible {
-  from {
-    opacity: 0;
-  }
-  to {
-    opacity: 1;
-  }
-}
-@keyframes toHidden {
-  from {
-    opacity: 1;
-  }
-  to {
-    opacity: 0;
+  section .form1, section .form2 {
+    width: 70%;
   }
 }/*# sourceMappingURL=login.css.map */

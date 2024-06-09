@@ -1,79 +1,75 @@
 $transition:all .5s ease-in-out;
+
 body{
     overflow: hidden;
-    // padding: 0;
-    // padding-top: 10px;
+    padding: 0;
+    margin: 0;
     display: flex;
     flex-direction: column;
     justify-content: center;
-    // align-items: center;
-}
-
-.testDiv {
-    color: red;
-    background-color: aqua;
 }
 
 img.logo {
-    margin: -20px auto 10px;
-    display: block;
-    width: 400px;
+    margin: 0 auto;
+    width: 30%;
 }
 
-.formFlex {
-    display: flex;
-    width: fit-content;
+section {
+    
     position: relative;
-    left: 50%;
-    transform: translateX(-200px);
+    height: 300px;
 
-    form {
-        .container {
-            width: 400px;// If changed width, also change animation props and js code at the bottom of login.php
-            padding: 15px 80px;
-            // margin: 0;
-            
-            label, input {
-                display: block;
-                margin: 0;
-                padding: 0;
-                width: 100%;
+    .form1, .form2 {
+
+        width: 300px;
+        height: 100%;
+        position: absolute;
+        top: 0;
+        transform: translateX(-50%);
+        left: 50%;
+
+        form {
+
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+
+            input {
+                margin: 10px 0;
             }
-            label {
-                margin-top: 20px;
-            }
-            input[type="submit"] {
-                margin: 30px auto 0;
-                width: 100px;
+
+            input[type='submit'] {
+                width: fit-content;
+                margin: 10px auto;
                 background: linear-gradient(45deg, rgb(43, 174, 255), lightblue);
                 border: none;
                 color: white;
                 font-size: 1em;
-                padding: 10px;
+                padding: 10px 20px;
                 border-radius: 17px;
                 &:hover {
                     background: linear-gradient(45deg, rgb(10, 128, 202), rgb(101, 195, 226));
-
                 }
             }
         }
     }
 
-    .form_1 {
+    .form1 {
+
         h2 {
-            margin-bottom: 5px;
             text-align: center;
         }
     }
 
-    .form_2 {
+    .form2 {
+
+        pointer-events: none;
         opacity: 0;
-        margin-left: 30px;
+
         .flex {
             display: flex;
-            align-items: center;
             justify-content: center;
-            margin-bottom: 5px;
+            align-items: center;
             svg {
                 margin-right: 20px;
                 fill:rgb(85, 85, 85);
@@ -82,67 +78,39 @@ img.logo {
                     fill:rgb(206, 117, 0);
                 }
             }
-            h2 {
-                margin: 0;
-            }
         }
     }
 }
 
-.form_1, .form_2, .formFlex, .newAccountP {
-    animation-duration: .7s;
-    animation-timing-function: ease-in-out;
-    animation-fill-mode: both;
-}
-
 .newAccountP {
-    position: relative;
+
     text-align: center;
-    margin-top: -10px;
+    margin: -20px 0 50px;
     z-index: 1;
+
     span {
         text-decoration: underline;
         padding: 2px 5px;
         color: navy;
         transition: $transition;
-    }
-    span:hover{
-        background-color: rgb(255, 255, 255);
-    }
+            &:hover{
+                background-color: rgb(255, 255, 255);
+            }
+        }
 }
 
-@keyframes shift {
-    from{
-        transform: translateX(-200px);
-    }
-    to{
-        transform: translateX(-630px);
-    }
-}
+@media only screen and (max-width:700px) {
 
-@keyframes shiftBack {
-    from{
-        transform: translateX(-630px);
+    img.logo {
+        width: 80%;
     }
-    to{
-        transform: translateX(-200px);
-    }
-}
 
-@keyframes toVisible {
-    from{
-        opacity: 0;
-    }
-    to{
-        opacity: 1;
-    }
-}
+    section {
 
-@keyframes toHidden {
-    from{
-        opacity: 1;
-    }
-    to{
-        opacity: 0;
+        .form1, .form2 {
+
+            width: 70%;
+
+        }
     }
 }

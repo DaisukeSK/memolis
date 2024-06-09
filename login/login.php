@@ -23,7 +23,7 @@
 
     <!-- <div><?php //echo $_SESSION["token_signUp"]?></div> -->
 
-    <div class="formFlex">
+    <!-- <div class="formFlex">
 
         <form class="form_1" action="login_check.php" method="post">
             <h2>Sign In</h2>
@@ -56,7 +56,46 @@
             </div>
         </form>
 
-    </div>
+    </div> -->
+
+    <section>
+
+        <div class='form1'>
+            <h2>Sign In</h2>
+            <form class="container" action="login_check.php" method="post">
+                <!-- <div class="container">
+                    </div> -->
+                <!-- <label>User name</label> -->
+                <input type="text" name="userName" placeholder=" User name" required>
+                <!-- <label>Password</label> -->
+                <input type="password" name="password" placeholder=" Password" required>
+                <input type="submit" value="Sign In">
+            </form>
+        </div>
+
+        <div class='form2'>
+            <div class="flex">
+                <svg width="30" height="24">
+                    <path d="m0 12 l12 -12 l3 3 l-9 9 l9 9 l-3 3 l-12 -12Z"/>
+                    <path d="m13 12 l12 -12 l3 3 l-9 9 l9 9 l-3 3 l-12 -12Z"/>
+                </svg>
+                <h2>Sign Up</h2>
+            </div>
+            <form class="container" action="newAccount.php" method="post">
+                <!-- <div class="container">
+                    </div> -->
+                <!-- <label>User name</label> -->
+                <input type='hidden' value='<?php echo $_SESSION["token_signUp"];?>' name='token_signUp'>
+                <input type="text" name="userName" placeholder=" User name" required>
+                <!-- <label>Password</label> -->
+                <input type="password" name="password1" placeholder=" Password" required>
+                <!-- <label>Password (Confirm)</label> -->
+                <input type="password" name="password2" placeholder=" Password (Confirm)" required>
+                <input type="submit" value="Sign Up">
+            </form>
+        </div>
+
+    </section>
 
     <p class="newAccountP">Don't have an account yet? <span class="createNewAccount">Sign Up.</span></p>
 
