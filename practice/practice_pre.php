@@ -19,10 +19,11 @@ echo '
     <head>
         <title>Practice</title>
         <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
         <link href="../css/common.css" rel="stylesheet">
         <link href="../css/practice_pre.css" rel="stylesheet">
-        <link href="../assets/svg/memolis.ico" rel="shortcut icon">
-        <link href="../assets/svg/memolis.ico" rel="icon">
+        <link href="../assets/images/memolis.ico" rel="shortcut icon">
+        <link href="../assets/images/memolis.ico" rel="icon">
     </head>
     <body>
 ';
@@ -30,13 +31,18 @@ echo '
 include "../include/header.php";
 
 $form=<<<EDO
-<div class="container">
-    <form action="practice.php" method="post">
+
+    <form class="container" action="practice.php" method="post">
         <h2>Let&apos;s Practice!!!</h2>
-        <div class="practiceConfig">
-            <section class="categorySection">
-                <label class="title">Select Categories</label>
-                    <input type="checkbox" value="all" checked/>Select all<br/>
+        
+            <section class="category">
+                <h3>Select Categories</h3>
+                <p class="alert" style="color:red; display:none">At least 4 data is required.</p>
+
+                <div class="directDiv">
+                    <input type="checkbox" value="all" checked/>
+                    <label>Select all</label>
+                    <br/>
 EDO;
 
 echo $form;
@@ -59,7 +65,7 @@ try{
         $rowCount=$stmt2->rowCount();
 
         echo '
-        <div class="divCategory">
+        <div class="categoryDiv">
             <input class="num'.$rowCount.'" type="checkbox" name="categories[]" value="'.$row["id"].'" checked/><label>'.$row["category"].' ('.$rowCount.')</label>
         </div>
         ';
@@ -71,47 +77,48 @@ try{
 }
 ?>
 
+</div>
+
 </section>
 
 <div class="sectionFlex">
 
-    <section class="modeSection">
-        <label class="title">Select Mode</label>
-        <div class="divRadio">
+    <section class="mode">
+        <h3>Select Mode</h3>
+        <div class="directDiv">
             <div class="flex">
                 <input type="radio" name="mode" value="1" checked/>&nbsp;
                 <label>Term&nbsp;</label>
-                <img src="../assets/svg/arrow.svg">
+                <img src="../assets/images/arrow.svg">
                 <label>&nbsp;Definition</label>
             </div>
             <div class="flex">
                 <input type="radio" name="mode" value="2"/>&nbsp;
                 <label>Definition&nbsp;</label>
-                <img src="../assets/svg/arrow.svg">
+                <img src="../assets/images/arrow.svg">
                 <label>&nbsp;Term</label>
             </div>
         </div>
     </section>
 
     <section class="qNumber">
-        <div class="alert" style="color:red; display:none">At least 4 data is required.</div>
-        <label class="title">
+        
+        <h3>
             <span>Number of questions</span>
             <span class="maxNum">&#91;1-<?php echo $_SESSION["dataCount"];?>&#93;</span>
-        </label>
-        <div class="qNumberFlex">
+        </h3>
+        <div class="directDiv">
             <?php echo '<input name="num" type="range" min="1" max="'.$_SESSION["dataCount"].'" value="'.$_SESSION["dataCount"].'"/>'?>
             <div class="showTotal"><?php echo $_SESSION["dataCount"];?></div>
         </div>
     </section>
-    </div><!-- sectionFlex -->
-</div><!-- practiceConfig -->
+    </div>
 
 <?php
 echo '
     <input type="submit" value="start"/>
     </form>
-    </div><!-- container -->
+    <!-- </div>container -->
 ';
 include "../include/footer.php";
 ?>
@@ -130,6 +137,8 @@ include "../include/footer.php";
     const maxNum = $('span.maxNum')
     const alert = $('.alert')
     const submitBtn = $('input[type="submit"]')
+
+    $('.qNumber .directDiv').css('height', $('.mode .directDiv').css('height'))
 
     categories.each(function(){
 

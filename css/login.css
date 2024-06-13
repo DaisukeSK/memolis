@@ -1,7 +1,5 @@
 body {
   overflow: hidden;
-  padding: 0;
-  margin: 0;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -9,16 +7,17 @@ body {
 
 img.logo {
   margin: 0 auto;
-  width: 30%;
+  width: 80%;
+  max-width: 400px;
 }
 
 section {
+  overflow-x: hidden;
   position: relative;
-  height: 300px;
 }
 section .form1, section .form2 {
-  width: 300px;
-  height: 100%;
+  width: 70%;
+  max-width: 300px;
   position: absolute;
   top: 0;
   transform: translateX(-50%);
@@ -29,22 +28,8 @@ section .form1 form, section .form2 form {
   flex-direction: column;
   justify-content: center;
 }
-section .form1 form input, section .form2 form input {
+section .form1 form input:not(input[type=submit]), section .form2 form input:not(input[type=submit]) {
   margin: 10px 0;
-}
-section .form1 form input[type=submit], section .form2 form input[type=submit] {
-  width: -moz-fit-content;
-  width: fit-content;
-  margin: 10px auto;
-  background: linear-gradient(45deg, rgb(43, 174, 255), lightblue);
-  border: none;
-  color: white;
-  font-size: 1em;
-  padding: 10px 20px;
-  border-radius: 17px;
-}
-section .form1 form input[type=submit]:hover, section .form2 form input[type=submit]:hover {
-  background: linear-gradient(45deg, rgb(10, 128, 202), rgb(101, 195, 226));
 }
 section .form1 h2 {
   text-align: center;
@@ -80,13 +65,4 @@ section .form2 .flex svg:hover {
 }
 .newAccountP span:hover {
   background-color: rgb(255, 255, 255);
-}
-
-@media only screen and (max-width: 700px) {
-  img.logo {
-    width: 80%;
-  }
-  section .form1, section .form2 {
-    width: 70%;
-  }
 }/*# sourceMappingURL=login.css.map */

@@ -1,80 +1,78 @@
-.container {
+form {
   text-align: center;
+  width: 80%;
+  max-width: 550px;
   position: absolute;
-  top: 50%;
+  top: 52%;
   left: 50%;
   transform: translate(-50%, -50%);
 }
-.container .practiceConfig {
-  width: 80%;
-  margin: 0 auto;
-}
-.container form .title {
+form h3 {
   white-space: nowrap;
-  position: absolute;
-  top: -25px;
-  left: 50%;
-  transform: translateX(-50%);
+  margin: 30px 0 0;
+  padding: 0;
+  font-weight: 100;
+  font-size: 1rem;
+}
+form section > div.directDiv {
+  background-color: rgb(201, 212, 241);
   border-radius: 5px;
-  width: -moz-fit-content;
-  width: fit-content;
-  padding: 3px 15px;
-  display: block;
-  margin: 0 auto;
+  padding: 10px 0;
 }
-.container form .modeSection, .container form .categorySection, .container form .qNumber {
-  position: relative;
-  border-radius: 7px;
-  background-color: rgb(202, 219, 252);
+form .category .alert {
+  margin: 0;
 }
-.container form .categorySection {
-  max-width: 650px;
-  padding: 10px;
-  margin: 40px auto;
-}
-.container form .categorySection .divCategory {
+form .category .directDiv .categoryDiv {
   display: inline-block;
-  border: 1px rgb(227, 234, 255) solid;
-  border: 1px rgba(133, 133, 133, 0.8) solid;
-  padding: 3px;
-  margin: 2px;
+  margin: 7px;
 }
-.container form .sectionFlex {
+form .sectionFlex {
   display: flex;
   justify-content: space-between;
-  margin: 50px auto 20px;
 }
-.container form .sectionFlex .modeSection, .container form .sectionFlex .qNumber {
-  margin: 0;
-  padding: 10px;
-  width: 350px;
+form .sectionFlex .mode, form .sectionFlex .qNumber {
+  width: 50%;
 }
-.container form .sectionFlex .qNumber {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  margin-left: 20px;
-}
-.container form .sectionFlex .qNumber .qNumberFlex {
-  display: flex;
-  width: -moz-fit-content;
-  width: fit-content;
-  margin: 0 auto;
-}
-.container form .sectionFlex .modeSection .divRadio .flex {
+form .sectionFlex .mode .directDiv .flex {
   display: flex;
   justify-content: center;
 }
-.container form .sectionFlex .modeSection .divRadio .flex img {
+form .sectionFlex .mode .directDiv .flex input {
+  margin: 0 10px 0 0;
+}
+form .sectionFlex .mode .directDiv .flex img {
   width: 20px;
 }
-.container form input[type=submit] {
-  display: block;
-  width: -moz-fit-content;
-  width: fit-content;
-  margin: 0 auto;
+form .sectionFlex .mode .directDiv .flex:first-child {
+  margin-bottom: 5px;
+}
+form .sectionFlex .qNumber {
+  margin-left: 20px;
+}
+form .sectionFlex .qNumber .directDiv {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+form input[type=submit] {
+  margin-top: 30px;
 }
 
-h2 {
-  margin-bottom: 0;
+@media only screen and (max-width: 600px) {
+  form {
+    position: relative;
+    top: 0;
+    left: 0;
+    transform: none;
+    margin: 50px auto;
+  }
+  form .sectionFlex {
+    display: block;
+  }
+  form .sectionFlex .mode, form .sectionFlex .qNumber {
+    width: 100%;
+  }
+  form .sectionFlex .qNumber {
+    margin-left: 0px;
+  }
 }/*# sourceMappingURL=practice_pre.css.map */

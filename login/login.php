@@ -12,62 +12,22 @@
 <html lang="en">
 <head>
     <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <link href="../css/common.css" rel="stylesheet">
     <link href="../css/login.css" rel="stylesheet">
-    <link href="../assets/svg/memolis.ico" rel="shortcut icon">
-    <link href="../assets/svg/memolis.ico" rel="icon">
+    <link href="../assets/images/memolis.ico" rel="shortcut icon">
+    <link href="../assets/images/memolis.ico" rel="icon">
 </head>
 
 <body>
-    <img class="logo" src="../assets/svg/memolis4.svg"/>
-
-    <!-- <div><?php //echo $_SESSION["token_signUp"]?></div> -->
-
-    <!-- <div class="formFlex">
-
-        <form class="form_1" action="login_check.php" method="post">
-            <h2>Sign In</h2>
-            <div class="container">
-                <label>User name</label>
-                <input type="text" name="userName" placeholder=" Enter your user name." required>
-                <label>Password</label>
-                <input type="password" name="password" placeholder=" Enter your password." required>
-                <input type="submit" value="Sign In">
-            </div>
-        </form>
-
-        <form class="form_2" action="newAccount.php" method="post">
-            <div class="flex">
-                <svg width="30" height="24">
-                    <path d="m0 12 l12 -12 l3 3 l-9 9 l9 9 l-3 3 l-12 -12Z"/>
-                    <path d="m13 12 l12 -12 l3 3 l-9 9 l9 9 l-3 3 l-12 -12Z"/>
-                </svg>
-                <h2>Sign Up</h2>
-            </div>
-            <div class="container">
-                <label>User name</label>
-                <input type='hidden' value='<?php echo $_SESSION["token_signUp"];?>' name='token_signUp'>
-                <input type="text" name="userName" placeholder=" Enter your user name." required>
-                <label>Password</label>
-                <input type="password" name="password1" placeholder=" Enter your password." required>
-                <label>Password (Confirm)</label>
-                <input type="password" name="password2" placeholder=" Enter your password." required>
-                <input type="submit" value="Sign Up">
-            </div>
-        </form>
-
-    </div> -->
+    <img class="logo" src="../assets/images/memolis4.svg"/>
 
     <section>
 
         <div class='form1'>
             <h2>Sign In</h2>
             <form class="container" action="login_check.php" method="post">
-                <!-- <div class="container">
-                    </div> -->
-                <!-- <label>User name</label> -->
                 <input type="text" name="userName" placeholder=" User name" required>
-                <!-- <label>Password</label> -->
                 <input type="password" name="password" placeholder=" Password" required>
                 <input type="submit" value="Sign In">
             </form>
@@ -82,14 +42,9 @@
                 <h2>Sign Up</h2>
             </div>
             <form class="container" action="newAccount.php" method="post">
-                <!-- <div class="container">
-                    </div> -->
-                <!-- <label>User name</label> -->
                 <input type='hidden' value='<?php echo $_SESSION["token_signUp"];?>' name='token_signUp'>
                 <input type="text" name="userName" placeholder=" User name" required>
-                <!-- <label>Password</label> -->
                 <input type="password" name="password1" placeholder=" Password" required>
-                <!-- <label>Password (Confirm)</label> -->
                 <input type="password" name="password2" placeholder=" Password (Confirm)" required>
                 <input type="submit" value="Sign Up">
             </form>

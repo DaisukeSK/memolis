@@ -9,18 +9,15 @@
 
 <head>
     <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <link href="../css/common.css" rel="stylesheet">
     <link href="../css/index.css" rel="stylesheet">
-    <link href="../assets/svg/memolis.ico" rel="shortcut icon">
-    <link href="../assets/svg/memolis.ico" rel="icon">
+    <link href="../assets/images/memolis.ico" rel="shortcut icon">
+    <link href="../assets/images/memolis.ico" rel="icon">
 </head>
 
 <body>
     <?php include "../include/header.php"; ?>
-
-    <!-- <div>ID: <?php //echo $_SESSION["userId"]; ?></div>
-    <div>token: <?php //echo $_SESSION['token']; ?></div>
-    <div>token_signUp: <?php //echo $_SESSION['token_signUp']; ?></div> -->
 
     <!---------------- Form ---------------->
     <form
@@ -35,11 +32,11 @@
             
             <li class="topLi">
                 <div class="search">
-                    <img src="../assets/svg/search.svg"/>
+                    <img src="../assets/images/search.svg"/>
                     <input class="searchInput" type="text" placeholder="Enter Keyword."/>
                 </div>
                 <div class="add">
-                    <?php include "../assets/svgConversion/add2.html" ?>
+                    <?php include "../assets/svg/add.html" ?>
                     <a href='../include/input.php'>Add Data</a>
                 </div>
             </li>
@@ -75,7 +72,7 @@
                         </div>
 
                         <a class="editDeleteAnchor" href="../edit/edit.php?id=<?php echo (int) $row["id"];?>">
-                            <?php include "../assets/svgConversion/pen.html"; ?>
+                            <?php include "../assets/svg/pen.html"; ?>
                             <svg class="editDelete" height="40" width="70">
                                 <path d="M0 3 L 3 0 L67 0 L 70 3 L70 27 L67 30 L20 30 L10 40 L10 30 L3 30 L0 27 Z"></path>
                                 <text x="20" y="20" fill="white">Edit</text>
@@ -87,7 +84,7 @@
                             href="data_delete.php?id=<?php echo (int) $row["id"];?>&token=<?php echo (string) $_SESSION['token'];?>"
                             onclick='return confirm("Are you sure that you want to delete data?")'
                         >
-                            <?php include "../assets/svgConversion/delete2.html"; ?>
+                            <?php include "../assets/svg/delete.html"; ?>
                             <svg class="editDelete" height="40" width="70">
                                 <path d="M0 3 L 3 0 L67 0 L 70 3 L70 27 L67 30 L20 30 L10 40 L10 30 L3 30 L0 27 Z"></path>
                                 <text x="12" y="20" fill="white">Delete</text>

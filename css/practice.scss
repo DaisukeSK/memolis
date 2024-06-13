@@ -1,23 +1,12 @@
 @charset "UTF-8";
 @import "../css/variables.scss";
 
-.hidden{
-    display: none; 
-}
 .invisible {
     visibility: hidden;
 }
 
-body {
-    margin: 0;
-}
-
 @mixin area {
-    position: relative;
-    left: 50%;
-    transform: translateX(-50%);
-    min-width: 600px;
-    height:fit-content;
+    display: none;
     background-color: #f2f9ff;
     text-align: center;
     padding: 15px 15px 25px;
@@ -28,72 +17,61 @@ body {
 
 .quizContainer {
     position: relative;
-    margin: 50px auto 0;
+    margin: 50px auto;
+    width: 90%;
+    max-width: 700px;
+    box-sizing: border-box;
+
     .bar {
         position: relative;
         width: 0;
         height: 5px;
         background-color: rgb(38, 0, 255);
         transition: width cubic-bezier(0,1,.5,1) .5s;
+
         .pageNum {
             position:absolute;
             right:0;
             bottom:3px;
         }
     }
-    .start {
-        position: absolute;
-        z-index: 222;
-        top: 50%;
-        left: 50%;
-        transform: translate(-50%, -50%);
-        width: fit-content;
-        padding: 10px;
-        border: 1px solid grey;
-        border-radius: 10px;
-    }
-    #next{
-        z-index: 2;
-        position: absolute;
-        top:0;
-        left:0;
-        width: 100%;
-        background-color: rgba(220, 20, 60, 0.671);
-        div {
-            position: absolute;
-            bottom:0;
-            right:15px;
-            animation-name:blinking;
-            animation-duration: 1.2s;
-            animation-timing-function: linear;
-            animation-iteration-count:infinite;
-        }
-
-        @keyframes blinking{
-            0% {opacity:1;}
-            50% {opacity:0;}
-            100% {opacity:1;}
-        }
-    }
 
     .result {
         @include area;
-        padding: 15px 50px 0;
-        padding-bottom: 0;
+        position: relative;
+
+        a {
+            position: absolute;
+            top: -25px;
+            right: 10px;
+            padding: 2px 10px;
+            border-radius: 3px;
+            transition: all .3s ease-in-out;
+            text-decoration: underline;
+            &:hover {
+                color: #ffffff;
+                background-color: rgb(0, 0, 168);
+            }
+        }
         .score {
             padding: 5px 10px;
             background-color: #b9d3ec;
             width: fit-content;
             margin: 0 auto;
             border-radius: 3px;
-            .score1, .score2{
-                animation-name: showup1;
-                animation-duration: 1.5s;
-            }
-            .score2{
-                
-                animation-delay: .5s;
-                animation-fill-mode: both;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+
+            span {
+                .score1, .score2{
+                    animation-name: showup1;
+                    animation-duration: 1.5s;
+                }
+                .score2{
+                    animation-delay: .5s;
+                    animation-fill-mode: both;
+                }
             }
             @keyframes showup1{
                 from{
@@ -104,24 +82,32 @@ body {
                 }
             }
         }
-        .resultGrid {
-            display: grid;
-            grid-template-columns:  160px auto;
-            grid-template-rows:  repeat(3, auto);
-            gap: 10px 0;
-            text-align: start;
-            align-items: center;
+        .resultDiv {
             margin: 30px 0;
             background-color: #cee1f3;
             border-radius: 5px;
             padding: 5px 15px;
-            .resultDiv {
-                grid-column-start: 1;
-                grid-column-end: 3;
+
+            .question {
                 display: flex;
                 align-items: center;
+                flex-wrap: wrap;
                 img {
                     width: 15px;
+                    margin: 10px;
+                }
+            }
+            .answer {
+                text-align: start;
+                display: flex;
+                flex-wrap: wrap;
+                margin-top: 10px;
+                span:first-child {
+
+                    text-decoration: underline;
+                    white-space: nowrap;
+                    display: inline-block;
+                    width: 120px;
                     margin-right: 10px;
                 }
             }
@@ -129,8 +115,15 @@ body {
     }
 
     .quiz_area {
-        @include area;
 
+        @include area;
+        width: 100%;
+        
+        @keyframes blinking{
+            0% {opacity:1;}
+            50% {opacity:0;}
+            100% {opacity:1;}
+        }
         .move2next {
             position: absolute;
             top: 0;
@@ -138,44 +131,38 @@ body {
             width: 100%;
             height: 100%;
             z-index: 1;
-            div {
-                position: absolute;
-                bottom:5px;
-                right:15px;
-                animation-name:blinking;
-                animation-duration: 1.2s;
-                animation-timing-function: linear;
-                animation-iteration-count:infinite;
-            }
-            @keyframes blinking{
-                0% {opacity:1;}
-                50% {opacity:0;}
-                100% {opacity:1;}
-            }
+            padding: 10px;
+            box-sizing: border-box;
+            display: none;
+            justify-content: end;
+            align-items: end;
+            animation-name:blinking;
+            animation-duration: 1.2s;
+            animation-timing-function: linear;
+            animation-iteration-count:infinite;
         }
 
         .options {
             width: fit-content;
             margin: 0 auto;
+
             .option {
-                padding: 15px;
+                padding: 15px 0;
                 margin: 15px auto;
                 border: 1px #a5c9ec solid;
                 border-radius: 5px;
                 background: #dae8f7;
-                .optionFlex {
-                    display: flex;
-                    align-items: center;
-                    width: fit-content;
-                    margin: 0 auto;
-                    .cross, .check {
-                        z-index: 0;
-                        width: 15px;
-                        margin-right: 10px;
-                    }
-                    span {
-                        margin-right: 25px;
-                    }
+                display: flex;
+                align-items: center;
+                justify-content: center;
+
+                .cross, .check {
+                    z-index: 0;
+                    width: 15px;
+                    margin: 0 10px;
+                }
+                span {
+                    margin-right: 35px;
                 }
             }
         }

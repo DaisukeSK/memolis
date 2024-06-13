@@ -83,7 +83,7 @@ ul.dataList .liCaption .divSubmit {
 ul.dataList .liCaption .divSubmit input[type=submit] {
   width: 25px;
   height: 100%;
-  background: url("../assets/svg/delete2.svg");
+  background: url("../assets/images/delete2.svg");
   background-size: 70%;
   background-repeat: no-repeat;
   background-position-x: center;

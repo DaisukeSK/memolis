@@ -57,7 +57,7 @@ for($i=0; $i<$count; $i++){
             $meanings1[$i][$k]=$meanings1[$i][4];
             $meanings1[$i][4]=$temp;
         }
-    }/**/
+    }
     array_splice($meanings1[$i], 4, 1);
     shuffle($meanings1[$i]);
 }
@@ -68,32 +68,34 @@ for($i=0; $i<$count; $i++){
 
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <title>Practice</title>
     <link href="../css/common.css" rel="stylesheet">
     <link href="../css/practice.css" rel="stylesheet">
-    <link href="../assets/svg/memolis.ico" rel="shortcut icon">
-    <link href="../assets/svg/memolis.ico" rel="icon">
+    <link href="../assets/images/memolis.ico" rel="shortcut icon">
+    <link href="../assets/images/memolis.ico" rel="icon">
 </head>
 
 <body>
 
-<?php include "../include/header.php"; ?>
+    <?php include "../include/header.php"; ?>
 
     <div class="quizContainer">
 
-        <section class="result hidden"></section>
+        <section class="result">
+            <a href='./practice_pre.php'>Try again?</a>
+        </section>
 
         <div class="bar">
             <div class="pageNum"></div>
         </div>
-<?php
+    <?php
 
 for($i=0; $i<=$qNum-1; $i+=1){
     echo '
-        <section class="hidden quiz_area" id="echo'.$i.'">
-            <div class="hidden move2next">
-                <div>Click to continue...</div>
+        <section class="quiz_area" id="echo'.$i.'">
+            <div class="move2next">
+            Click to continue...
             </div>
     ';
     if($mode==1){
@@ -111,19 +113,18 @@ for($i=0; $i<=$qNum-1; $i+=1){
         if($meanings0[$i]==$meanings1[$i][$j]){
             echo '
                 <div class="answer option">
+                    <img class="check invisible" src="../assets/images/check.svg"/>
+                    <span>'.$meanings1[$i][$j].'</span>
                     <div class="optionFlex">
-                        <img class="check invisible" src="../assets/svg/check.svg"/>
-                        <span>'.$meanings1[$i][$j].'</span>
                     </div>
                 </div>
             ';
         }else{
             echo '
                 <div class="option">
-                    <div class="optionFlex">
-                        <img class="cross invisible" src="../assets/svg/x.svg"/>
-                        <span>'.$meanings1[$i][$j].'</span>
-                    </div>
+                    <img class="cross invisible" src="../assets/images/x.svg"/>
+                    <span>'.$meanings1[$i][$j].'</span>
+                    
                 </div>
             ';
         }

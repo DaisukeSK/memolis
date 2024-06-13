@@ -1,34 +1,45 @@
-.container {
-  width: 40%;
+form {
+  width: 80%;
+  min-width: 200px;
+  max-width: 500px;
   position: absolute;
-  top: 50%;
+  top: 52%;
   left: 50%;
   transform: translate(-50%, -50%);
 }
-.container form input, .container form label {
+form input, form label {
   display: block;
 }
-.container form textarea, .container form input[type=text] {
+form textarea, form input[type=text] {
   width: 100%;
   box-sizing: border-box;
 }
-.container form label, .container form .inputFlex, .container form input[type=submit] {
+form label, form .inputFlex, form input[type=submit] {
   margin-top: 20px;
 }
-.container form .inputFlex {
+form .inputFlex {
   display: flex;
   justify-content: space-between;
   align-items: center;
 }
-.container form .inputFlex .flexChild {
+form .inputFlex .flexChild {
   width: 42%;
   min-width: 170px;
   padding: 5px;
   border-radius: 5px;
 }
-.container form .inputFlex .flexChild select {
+form .inputFlex .flexChild select, form .inputFlex .flexChild input[type=text] {
   width: 100%;
 }
-.container form .inputFlex .flexChild input[type=radio], .container form .inputFlex .flexChild label {
+form .inputFlex .flexChild input[type=radio], form .inputFlex .flexChild label {
   display: inline;
+}
+
+@media only screen and (max-width: 1125px) {
+  form .inputFlex {
+    flex-direction: column;
+  }
+  form .inputFlex div:nth-child(2) {
+    opacity: 0;
+  }
 }/*# sourceMappingURL=input.css.map */
