@@ -19,7 +19,6 @@
 <body>
     <?php include "../include/header.php"; ?>
 
-    <!---------------- Form ---------------->
     <form
         action="data_delete.php"
         method="get"
@@ -28,17 +27,23 @@
 
         <input type='hidden' name='token' value='<?php echo (string) $_SESSION['token']; ?>'>
     
-        <ul class="dataList">
+        <ul>
+
+            <!-- ////////////////////// topLi ////////////////////// -->
             
             <li class="topLi">
                 <div class="search">
                     <img src="../assets/images/search.svg"/>
-                    <input class="searchInput" type="text" placeholder="Enter Keyword."/>
+                    <input type="text" placeholder="Enter Keyword."/>
                 </div>
                 <div class="add">
                     <?php include "../assets/svg/add.html" ?>
                     <a href='../include/input.php'>Add Data</a>
                 </div>
+            </li>
+
+            <li class='deleteLi'>
+                <input class='multipleDeletion' type="submit" value="Delete selected data"/>
             </li>
 
             <?php
@@ -61,106 +66,130 @@
                         }
             ?>
 
+            <!-- ////////////////////// dataLi ////////////////////// -->
+
             <li class="dataLi">
-                <div class="hiddenId" id="<?php echo $row["id"];?>"></div><!-- Necessary?? -->
-                <input type="checkbox" name="id[]" value="<?php echo (int) $row["id"];?>"/>
 
-                <div class="liLeft">
-                    <div class="liLeftTop">
-                        <div class="liTerm">
-                            <b><?php echo $row["term"];?></b>
-                        </div>
+                <div class="laptop">
 
-                        <a class="editDeleteAnchor" href="../edit/edit.php?id=<?php echo (int) $row["id"];?>">
-                            <?php include "../assets/svg/pen.html"; ?>
-                            <svg class="editDelete" height="40" width="70">
-                                <path d="M0 3 L 3 0 L67 0 L 70 3 L70 27 L67 30 L20 30 L10 40 L10 30 L3 30 L0 27 Z"></path>
-                                <text x="20" y="20" fill="white">Edit</text>
-                            </svg>
-                        </a>
+                    <div class="hiddenId" id="<?php echo $row["id"];?>"></div><!-- Necessary?? -->
+                    <input type="checkbox" name="id[]" value="<?php echo (int) $row["id"];?>"/>
+    
+                    <div class="liLeft">
+                        <div class="liLeftTop">
+                            <div class="liTerm"><b><?php echo $row["term"];?></b></div>
+    
+                            <a class="editDeleteAnchor" href="../edit/edit.php?id=<?php echo (int) $row["id"];?>">
+                                <?php include "../assets/svg/pen.html"; ?>
+                                <svg class="editDelete" height="40" width="70">
+                                    <path d="M0 3 L 3 0 L67 0 L 70 3 L70 27 L67 30 L20 30 L10 40 L10 30 L3 30 L0 27 Z"></path>
+                                    <text x="20" y="20" fill="white">Edit</text>
+                                </svg>
+                            </a>
+    
+                            <a
+                                class="editDeleteAnchor"
+                                href="data_delete.php?id=<?php echo (int) $row["id"];?>&token=<?php echo (string) $_SESSION['token'];?>"
+                                onclick='return confirm("Are you sure that you want to delete data?")'
+                            >
+                                <?php include "../assets/svg/delete.html"; ?>
+                                <svg class="editDelete" height="40" width="70">
+                                    <path d="M0 3 L 3 0 L67 0 L 70 3 L70 27 L67 30 L20 30 L10 40 L10 30 L3 30 L0 27 Z"></path>
+                                    <text x="12" y="20" fill="white">Delete</text>
+                                </svg>
+                            </a>
+    
+                        </div><!-- liLeftTop -->
+    
+                        <div class="liDefinition"><?php echo $row["definition"];?></div>
 
-                        <a
-                            class="editDeleteAnchor"
-                            href="data_delete.php?id=<?php echo (int) $row["id"];?>&token=<?php echo (string) $_SESSION['token'];?>"
-                            onclick='return confirm("Are you sure that you want to delete data?")'
-                        >
-                            <?php include "../assets/svg/delete.html"; ?>
-                            <svg class="editDelete" height="40" width="70">
-                                <path d="M0 3 L 3 0 L67 0 L 70 3 L70 27 L67 30 L20 30 L10 40 L10 30 L3 30 L0 27 Z"></path>
-                                <text x="12" y="20" fill="white">Delete</text>
-                            </svg>
-                        </a>
-
-                    </div><!-- liLeftTop -->
-
-                    <div class="liDefinition"><?php echo $row["definition"];?></div>
-                </div><!-- liLeft -->
-
-                <div class="liRight">
+                    </div><!-- liLeft -->
+    
                     <div class="liCategory"><?php echo $row["category"];?></div>
                     <div class="liTime">
 
-                        <div class="date">
-                            <?php echo $dateStr[0].'/'.$dateStr[1].'/'.$dateStr[2];?>
+                        <?php echo $dateStr[0].'/'.$dateStr[1].'/'.$dateStr[2];?>
+                            <br/>
+                        <?php
+                            switch(true){
+                                case $dateStr[3]==0:
+                                    echo '12:'.$dateStr[4].' am';
+                                    break;
+                                case $dateStr[3]<12:
+                                    echo $dateStr[3].':'.$dateStr[4].' am';
+                                    break;
+                                case $dateStr[3]==12:
+                                    echo '12:'.$dateStr[4].' pm';
+                                    break;
+                                default:
+                                    $t=$dateStr[3]-12;
+                                    echo $t.':'.$dateStr[4].' pm';
+                            }
+                        ?>
+                    </div>
+                </div>
+
+                <div class="mobile">
+
+                    <div class="top">
+                            
+                        <div class="term">
+                            <b><?php echo $row["term"];?></b>
+                        </div>
+                        <div class="category"><?php echo $row["category"];?></div>
+
+                        <div class='anchorFlex'>
+
+                            <a class="editDeleteAnchor" href="../edit/edit.php?id=<?php echo (int) $row["id"];?>">
+                                <?php include "../assets/svg/pen.html"; ?>
+                                
+                            </a>
+    
+                            <a
+                                class="editDeleteAnchor"
+                                href="data_delete.php?id=<?php echo (int) $row["id"];?>&token=<?php echo (string) $_SESSION['token'];?>"
+                                onclick='return confirm("Are you sure that you want to delete data?")'
+                            >
+                                <?php include "../assets/svg/delete.html"; ?>
+                                
+                            </a>
                         </div>
 
-                        <div class="time">
-                            <?php
-                                switch(true){
-                                    case $dateStr[3]==0:
-                                        echo '12:'.$dateStr[4].' am';
-                                        break;
-                                    case $dateStr[3]<12:
-                                        echo $dateStr[3].':'.$dateStr[4].' am';
-                                        break;
-                                    case $dateStr[3]==12:
-                                        echo '12:'.$dateStr[4].' pm';
-                                        break;
-                                    default:
-                                        $t=$dateStr[3]-12;
-                                        echo $t.':'.$dateStr[4].' pm';
-                                }
-                            ?>
-                        </div>
                     </div>
+                    <div class="bottom"><?php echo $row["definition"];?></div>
+
                 </div>
             </li>
             <?php endwhile; ?>
 
-            <li class="liCaption">
+            <!-- ////////////////////// Caption ////////////////////// -->
+
+            <li class="captionLi">
                 <input type="checkbox" name="delete" value="all"/>
 
-                <div class="divSubmit">
-                    <input type="submit" name="multipleDeletion" value=""/>
-                    <div class="divSubmitRight">Delete selected data</div>
-                </div>
+                <select name="alphabetically">
+                    <option value="default">Term / Definition</option>
+                    <option value="a-z">Sort A-Z</option>
+                    <option value="z-a">Sort Z-A</option>
+                </select>
 
-                <div class="liLeft">
-                    <select name="alphabetically">
-                        <option value="default">Term / Definition</option>
-                        <option value="a-z">Sort A-Z</option>
-                        <option value="z-a">Sort Z-A</option>
-                    </select>
-                </div>
+                <select name="category">
+                    <option value="Category">Category</option>
 
-                <div class="liRight">
-                    <select name="category">
-                        <option value="Category">Category</option>
+                    <?php foreach($_SESSION["categories"] as $value){ ?>
+                        <option value="<?php echo $value;?>"><?php echo $value;?></option>
+                    <?php };?>
+                        
+                </select>
 
-                        <?php foreach($_SESSION["categories"] as $value){ ?>
-                            <option value="<?php echo $value;?>"><?php echo $value;?></option>
-                        <?php };?>
-                            
-                    </select>
-
-                    <select name="lastUpdated">
-                        <option value="default">Last updated</option>
-                        <option value="new">Sort New</option>
-                        <option value="old">Sort Old</option>
-                    </select>
-                </div>
+                <select name="lastUpdated">
+                    <option value="default">Last updated</option>
+                    <option value="new">Sort New</option>
+                    <option value="old">Sort Old</option>
+                </select>
             </li>
 
+            <li class="dataLi noData">No data</li>
             <li class="noHit">No result found...</li>
 
         </ul>

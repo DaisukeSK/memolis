@@ -8,33 +8,18 @@ body {
     padding-bottom: 70px;
 }
 
-.testDiv {
-    color: red;
-    background-color: aqua;
-}
-
-ul.dataList {
+ul {
     list-style: none;
     margin: 30px auto 0;
     padding: 0;
-    width: 60%;
+    width: 80%;
+    max-width: 800px;
 
     li {
         display: flex;
         justify-content: space-between;
         margin: 4px 0;
         padding: 4px;
-        .liRight {
-            display: flex;
-            padding: 3px;
-            text-align: center;
-            .liCategory, .liTime {
-                width: $width;
-            }
-            .liCategory {
-                margin-right: $marginRight;
-            }
-        }
     }
 
     .topLi {
@@ -44,11 +29,14 @@ ul.dataList {
         .search {
             display: flex;
             align-items: center;
+            width: 60%;
+            max-width: 200px;
             img {
                 width: 20px;
             }
             input[type="text"]{
                 margin-left: 5px;
+                width: 100%;
             }
         }
         .add:hover {
@@ -62,14 +50,14 @@ ul.dataList {
     }
 
     ////////////////// Caption //////////////////
-    $liCaptionBG:linear-gradient(rgb(126, 126, 126),rgb(56, 56, 56));
-    .liCaption {
-        background:$liCaptionBG;
+    .captionLi {
+        background: linear-gradient(rgb(126, 126, 126),rgb(56, 56, 56));
         position: relative;
         select {
             background-color: rgb(148, 148, 148);
             width: $width;
             color: white;
+            margin: 3px;
             option {
                 background-color: rgb(56, 56, 56);
             }
@@ -79,47 +67,30 @@ ul.dataList {
         }
         select[name='alphabetically'] {
             width: 200px;
+            margin: 3px auto;
         }
-        
-        .divSubmit {
-            position: absolute;
-            top: 50%;
-            transform: translateY(-50%);
-            left: 30px;
-            display: none;
-            align-items: center;
-            width: fit-content;
-            height: 23px;
 
-            input[type="submit"] {
-                width: 25px;
-                height: 100%;
-                background: url("../assets/images/delete2.svg");
-                background-size: 70%;
-                background-repeat: no-repeat;
-                background-position-x: center;
-                background-position-y: center;
-                background-color: rgba(255, 255, 255, 0.8);
-                border-radius: 3px;
-                border: none;
+    }
 
+    .deleteLi {
+        position: sticky;
+        top: 53px;
+        display: none;
+        background: linear-gradient(rgb(160, 160, 160), rgb(141, 141, 141));
+        z-index: 2;
+
+        input {
+            font-size: 1rem;
+            border: none;
+            background: url('../assets/images/delete2.svg');
+            background-repeat: no-repeat;
+            background-size: contain;
+            margin-left: 10px;
+            padding-left: 30px;
+            cursor: pointer;
+            &:hover {
+                text-decoration: underline;
             }
-            .divSubmitRight {
-                margin-left: 10px;
-                display: none;
-                color: rgb(231, 231, 231);
-            }
-        }
-
-        .liLeft {
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            padding: 0;
-            margin: 0;
-        }
-        .liRight {
-            margin: 0;
         }
     }
     
@@ -127,71 +98,113 @@ ul.dataList {
     
     .dataLi {
         background: $containerBg;
-        .liCategory, .liTime {
-            background: rgb(212, 227, 255);
-            box-sizing: border-box;
+
+        .laptop {
+            width: 100%;
+            display: flex;
+            justify-content: space-between;
+            
+            mark {
+                background-color: rgb(255, 145, 0);
+                color: rgb(255, 255, 255);
+            }
+            .liLeft {
+                width: 100%;
+                padding-left: 5px;
+                margin-left: 5px;
+                border-left: 1px dotted black;
+                box-sizing: border-box;
+                .liLeftTop {
+                    display: flex;
+                    align-items: center;
+                    
+                    .editDeleteAnchor {//a
+                        position: relative;
+                        margin-left: 10px;
+                        .editDelete {
+                            display:none;
+                            position: absolute;
+                            left: 0;
+                            top: -50px;
+                            path {
+                                fill:grey;
+                            }
+                        }
+                    }
+    
+                    a:hover {
+                        svg {
+                            fill: blue;
+                        }
+                    }
+    
+                    .liTerm, .termTemp {
+                        border-radius: 5px;
+                        background: linear-gradient(30deg,rgb(42, 189, 176),rgb(109, 109, 247)) ;
+                        color: rgb(255, 255, 255);
+                        padding: 5px;
+                        width: fit-content;
+                        font-size: 1.2em;
+                    }
+                }
+                .liDefinition, .definitionTemp {
+                    overflow-wrap: anywhere;
+                    margin-right: 10px;
+                }
+                
+            }
+
+            .liCategory, .liTime {
+                min-width: $width;
+                background: rgb(212, 227, 255);
+                margin: 3px;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                text-align: center;
+            }
+
+            .liCategory {
+                margin: 3px $marginRight 3px auto;
+            }
+
         }
-        mark {
-            background-color: rgb(255, 145, 0);
-            color: rgb(255, 255, 255);
-        }
-        .liLeft {
-            padding-left: 5px;
-            margin-left: 5px;
-            border-left: 1px dotted black;
-            .liLeftTop {
+        .mobile {
+            display: none;
+            width: 100%;
+            
+            .top {
                 display: flex;
                 align-items: center;
-                
-                .editDeleteAnchor {//a
-                    position: relative;
-                    margin-left: 10px;
-                    .editDelete {
-                        display:none;
-                        position: absolute;
-                        left: 0;
-                        top: -50px;
-                        path {
-                            fill:grey;
+                flex-wrap: wrap;
+                margin: 5px 0;
+                .term {
+                    font-size: 1.2rem;
+                    padding: 5px 7px;
+                    background-color: rgb(31, 76, 201);
+                    color: #ffffff;
+                    margin-right: 10px;
+                }
+                .category {
+                    padding: 2px 5px;
+                    background-color: rgb(145, 171, 255);
+                    color: #ffffff;
+                    margin: 5px 0;
+
+                }
+                .anchorFlex {
+
+                    margin: 5px 0 5px auto;
+                    display: flex;
+
+                    a {
+                        margin: 0 5px;
+                        svg {
+
+                            display: block;
                         }
                     }
                 }
-
-                a:hover {
-                    svg {
-                        fill: blue;
-                    }
-                }
-
-                .liTerm, .termTemp {
-                    border-radius: 5px;
-                    background: linear-gradient(30deg,rgb(42, 189, 176),rgb(109, 109, 247)) ;
-                    color: rgb(255, 255, 255);
-                    padding: 5px;
-                    width: fit-content;
-                    font-size: 1.2em;
-                }
-            }
-            .liDefinition, .definitionTemp {
-               overflow-wrap: anywhere;
-               margin-right: 10px;
-            }
-        
-        }
-        .liRight {
-            margin-left: auto;
-            min-width: 245px;
-            
-            .liTime {
-                display: flex;
-                flex-direction: column;
-                justify-content: center;
-            }
-    
-            .liCategory {
-                display: flex;
-                justify-content: center;
-                align-items: center;
             }
         }
     }
@@ -202,8 +215,76 @@ ul.dataList {
 
     .noData {
         height: 100px;
-        display: flex;
-        justify-content: center;
-        align-items: center;
+        padding-top: 40px;
+        box-sizing: border-box;
+        text-align: center;
+    }
+}
+
+@media only screen and (max-width:600px) {
+    ul {
+        
+        width: 95%;
+        li {
+            padding: 4px 7px;
+            
+        }
+    
+        .topLi {
+            .search {
+                img {
+                   
+                }
+                input[type="text"]{
+                }
+            }
+            .add:hover {
+                a {
+                }
+                path {
+                }
+            }
+        }
+    
+        ////////////////// Caption //////////////////
+        .captionLi {
+            justify-content: space-evenly;
+            input[type='checkbox'] {
+                display: none;
+            }
+            select {
+                option {
+                }
+            }
+            select[name='category'] {
+                width: 45%;
+            }
+            select[name='alphabetically'] {
+                width: 45%;
+                font-size: 0.8rem;
+                margin: 3px;
+            }
+            select[name='lastUpdated'] {
+                display: none;
+            }
+    
+        }
+        
+        ////////////////// dataLi //////////////////
+        
+        .dataLi {
+    
+            .laptop {
+                display: none;
+            }
+            .mobile {
+                display: block;
+            }
+        }
+        .noHit {
+        }
+    
+        .noData {
+        }
     }
 }

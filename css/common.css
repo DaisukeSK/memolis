@@ -21,16 +21,7 @@ body {
   font-family: Helvetica, Arial, "Times New Roman", Times, serif;
 }
 
-input[type=submit] {
-  background-color: white;
-  padding: 3px 7px;
-  border: 1px solid rgb(99, 99, 99);
-  font-size: 0.9em;
-  border-radius: 7px;
-  margin: 0 auto;
-}
-
-input[type=submit] {
+input[type=submit]:not(.multipleDeletion) {
   width: -moz-fit-content;
   width: fit-content;
   margin: 10px auto;
@@ -41,7 +32,7 @@ input[type=submit] {
   padding: 10px 20px;
   border-radius: 17px;
 }
-input[type=submit]:hover {
+input[type=submit]:not(.multipleDeletion):hover {
   background: linear-gradient(45deg, rgb(10, 128, 202), rgb(101, 195, 226));
 }
 

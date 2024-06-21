@@ -1,9 +1,9 @@
-const ul = document.querySelector('.dataList');
-const liCaption=document.querySelector(".liCaption")
-const noHit=document.querySelector(".noHit")
-document.querySelector(".topLi").insertAdjacentElement("afterend",liCaption)
+const ul = document.querySelector('ul');
+const captionLi = document.querySelector(".captionLi")
+const noHit = document.querySelector(".noHit")
+const searchInput = document.querySelector('.search input')
 
-const searchInput=document.querySelector('input.searchInput')
+document.querySelector(".topLi").insertAdjacentElement("afterend",captionLi)
 
 ////////////////////// Category //////////////////////
 const category = document.querySelector('select[name="category"]');
@@ -111,42 +111,34 @@ lastUpdated.onchange=(e)=>{
 ////////////////////// checkbox //////////////////////
 const checkbox=document.querySelectorAll('input[name="id[]"]')
 const checkboxAll=document.querySelector('input[name="delete"]')
-const deleteSubmit=document.querySelector('.divSubmit')
-const deleteText=document.querySelector('.divSubmitRight')
+const deleteLi=document.querySelector('.deleteLi')
 
 checkboxAll.onchange=(e)=>{
     if(e.target.checked){
-        deleteSubmit.style.display="flex"
+        deleteLi.style.display="block"
         checkbox.forEach(v=>{
             v.parentNode.style.display!=="none" && (v.checked=true)
         })
     }else{
-        deleteSubmit.style.display="none"
+        deleteLi.style.display="none"
         checkbox.forEach(v=>{
             v.checked=false
         })
     }
 }
 
-document.querySelector('input[name="multipleDeletion"]').onmouseover=()=>{
-    deleteText.style.display="block"
-}
-document.querySelector('input[name="multipleDeletion"]').onmouseleave=()=>{
-    deleteText.style.display="none"
-}
-
 checkbox.forEach(val=>{
-    val.onchange=(e)=>{
-        deleteSubmit.style.display="none"
+
+    val.onchange=()=>{
+        deleteLi.style.display="none"
         checkbox.forEach(val2=>{
-            val2.checked ? deleteSubmit.style.display="flex" : checkboxAll.checked=false
+            val2.checked ? deleteLi.style.display="block" : checkboxAll.checked=false
         })
     }
 })
 
 ////////////////////// no data //////////////////////
-ul.children.length==3 &&
-ul.insertAdjacentHTML("beforeend",'<li class="dataLi noData"><div>No data</div></li>')
+document.querySelector('.noData').style.display=ul.children.length==5?'block':'none'
 
 ////////////////////// search //////////////////////
 const lis=document.querySelectorAll(".liTerm, .liDefinition")
@@ -196,13 +188,13 @@ searchInput.oninput=(e)=>{
             elmnt[num].parentNode.insertAdjacentHTML(insert,temp)
         }
         
-        if(!elmnt[0].textContent.includes(e.target.value) && !elmnt[1].textContent.includes(e.target.value)){
+        if(!elmnt[0]?.textContent.includes(e.target.value) && !elmnt[1]?.textContent.includes(e.target.value)){
             val.style.display="none"
         }else{
-            if(elmnt[0].textContent.includes(e.target.value)){
+            if(elmnt[0]?.textContent.includes(e.target.value)){
                 insertTemp(0,"termTemp","afterbegin")
             }
-            if(elmnt[1].textContent.includes(e.target.value)){
+            if(elmnt[1]?.textContent.includes(e.target.value)){
                 insertTemp(1,"definitionTemp","beforeend")
             }
             noHit.style.display="none"
