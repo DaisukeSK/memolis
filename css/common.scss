@@ -24,6 +24,10 @@ body {
     font-family: Helvetica, Arial, 'Times New Roman', Times, serif;
 }
 
+input[type='submit'] {
+    cursor: pointer;
+}
+
 input[type='submit']:not(.multipleDeletion) {
     width: fit-content;
     margin: 10px auto;

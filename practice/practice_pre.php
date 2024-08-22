@@ -34,6 +34,8 @@ $form=<<<EDO
 
     <form class="container" action="practice.php" method="post">
         <h2>Let&apos;s Practice!!!</h2>
+
+            <hr/>
         
             <section class="category">
                 <h3>Select Categories</h3>

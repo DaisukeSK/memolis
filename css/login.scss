@@ -55,6 +55,7 @@ section {
             justify-content: center;
             align-items: center;
             svg {
+                cursor: pointer;
                 margin-right: 20px;
                 fill:rgb(85, 85, 85);
                 transition: $transition;
@@ -73,6 +74,7 @@ section {
     z-index: 1;
 
     span {
+        cursor: pointer;
         text-decoration: underline;
         padding: 2px 5px;
         color: navy;

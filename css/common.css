@@ -21,6 +21,10 @@ body {
   font-family: Helvetica, Arial, "Times New Roman", Times, serif;
 }
 
+input[type=submit] {
+  cursor: pointer;
+}
+
 input[type=submit]:not(.multipleDeletion) {
   width: -moz-fit-content;
   width: fit-content;
