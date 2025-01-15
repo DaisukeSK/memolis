@@ -1,11 +1,10 @@
 # Welcome to memolis!
 
-This is a word-book app made with<br/>
-[`PHP`](https://www.php.net/) + [`JavaScript`](https://developer.mozilla.org/docs/Web/JavaScript).
+This is a word-book app made with [`PHP`](https://www.php.net/) + [`JavaScript`](https://developer.mozilla.org/docs/Web/JavaScript).
 
 ## Run the Project
 
-- In case that you use `XAMPP`.
+- In case that you use [XAMPP](https://www.apachefriends.org/)
 
 Clone this repo in XAMPP's `htdocs` folder in your local machine, start `Apache` server and open\
 [http://localhost/memolis/login/login.php](http://localhost/memolis/login/login.php) in your browser to view it.
